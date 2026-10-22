@@ -1,0 +1,904 @@
+/* ==========================================================================
+   BIG4DIGITAL — SERVICES REDESIGN MASTER STYLESHEET
+   Four Distinct Design Families:
+   1. Digital & Creative (.dc-*)
+   2. Advisory & Finance (.af-*)
+   3. Sustainability & ESG (.esg-*)
+   4. People & Organisation (.po-*)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GLOBAL SERVICE REUSABLE COMPONENTS
+   -------------------------------------------------------------------------- */
+.svc-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.svc-layout-2col {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
+    padding: 60px 0 100px;
+}
+
+.svc-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: sticky;
+    top: 100px;
+}
+
+.svc-sidebar-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.svc-sidebar-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.svc-sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.svc-sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #475569;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.svc-sidebar-nav li a:hover {
+    background: #f8fafc;
+    color: #fc3637;
+    transform: translateX(3px);
+}
+
+.svc-sidebar-nav li.active a {
+    background: #fff0f2;
+    color: #fc3637;
+    font-weight: 600;
+}
+
+.svc-sidebar-nav li a .nav-arrow {
+    font-size: 14px;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+}
+
+.svc-sidebar-nav li a:hover .nav-arrow,
+.svc-sidebar-nav li.active a .nav-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+/* Sidebar Contact Card */
+.svc-contact-card {
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 18px;
+    padding: 30px 24px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.35);
+}
+
+.svc-contact-card h4 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px;
+}
+
+.svc-contact-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0 0 20px;
+}
+
+.svc-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.svc-contact-link:hover {
+    color: #fc3637;
+}
+
+.svc-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px 20px;
+    background: #fc3637;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(252, 54, 55, 0.35);
+}
+
+.svc-contact-btn:hover {
+    background: #e0282c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(252, 54, 55, 0.5);
+}
+
+/* Service Detail Primary Content */
+.svc-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Primary Featured Image Frame */
+.svc-hero-media {
+    width: 100%;
+    height: 480px;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.svc-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.svc-hero-media:hover img {
+    transform: scale(1.03);
+}
+
+/* Overview Section */
+.svc-lead-block {
+    background: #ffffff;
+}
+
+.svc-eyebrow {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+}
+
+.svc-heading-2 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: -0.025em;
+    margin: 0 0 18px;
+    color: #0f172a;
+}
+
+.svc-lead-p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0 0 20px;
+}
+
+/* Interactive Capability & Deliverables Grids */
+.svc-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.svc-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 30px 26px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.28s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.svc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
+}
+
+.svc-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+.svc-card h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #0f172a;
+    line-height: 1.3;
+}
+
+.svc-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Process Timeline Section */
+.svc-process-block {
+    padding: 36px 32px;
+    border-radius: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.svc-process-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+    position: relative;
+}
+
+.svc-step-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.svc-step-card:hover {
+    transform: translateY(-3px);
+}
+
+.svc-step-num {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.svc-step-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px;
+}
+
+.svc-step-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+/* FAQ Accordion */
+.svc-faq-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.svc-faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.svc-faq-item.open {
+    border-color: #cbd5e1;
+}
+
+.svc-faq-btn {
+    width: 100%;
+    padding: 18px 24px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #0f172a;
+    transition: color 0.2s ease;
+}
+
+.svc-faq-btn:hover {
+    color: #fc3637;
+}
+
+.svc-faq-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.svc-faq-item.open .svc-faq-toggle {
+    background: #fc3637;
+    color: #ffffff;
+    transform: rotate(45deg);
+}
+
+.svc-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+    padding: 0 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #475569;
+}
+
+.svc-faq-item.open .svc-faq-content {
+    max-height: 400px;
+    padding: 0 24px 22px;
+}
+
+/* Call to Action Banner */
+.svc-cta-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 20px;
+    padding: 44px 40px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.35);
+}
+
+.svc-cta-text h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px;
+}
+
+.svc-cta-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+.svc-cta-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fc3637;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(252, 54, 55, 0.4);
+    white-space: nowrap;
+}
+
+.svc-cta-action:hover {
+    background: #e0282c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(252, 54, 55, 0.55);
+}
+
+/* ==========================================================================
+   FAMILY 1 — DIGITAL & CREATIVE SPECIFICS (.dc-*)
+   ========================================================================== */
+.dc-eyebrow {
+    background: rgba(99, 102, 241, 0.1);
+    color: #4f46e5;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.dc-card:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 16px 36px -10px rgba(99, 102, 241, 0.15);
+}
+
+.dc-card-icon {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.dc-step-num {
+    color: #4f46e5;
+}
+
+/* Category Overview Specifics */
+.dc-hub-hero {
+    padding: 80px 0 40px;
+    background: #ffffff;
+}
+
+.dc-grid-9 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin: 40px 0 80px;
+}
+
+.dc-service-tile {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.dc-service-tile:hover {
+    transform: translateY(-6px);
+    border-color: #fc3637;
+    box-shadow: 0 16px 40px -10px rgba(252, 54, 55, 0.15);
+}
+
+.dc-tile-media {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: #f1f5f9;
+}
+
+.dc-tile-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dc-service-tile:hover .dc-tile-media img {
+    transform: scale(1.05);
+}
+
+.dc-tile-body {
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dc-tile-body h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #0f172a;
+}
+
+.dc-tile-body p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0 0 18px;
+    flex-grow: 1;
+}
+
+.dc-tile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #fc3637;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+
+.dc-tile-link:hover {
+    gap: 10px;
+}
+
+/* ==========================================================================
+   FAMILY 2 — ADVISORY & FINANCE SPECIFICS (.af-*)
+   ========================================================================== */
+.af-eyebrow {
+    background: rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
+.af-card:hover {
+    border-color: rgba(15, 23, 42, 0.3);
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.12);
+}
+
+.af-card-icon {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.af-step-num {
+    color: #0f172a;
+}
+
+.af-framework-box {
+    background: #fafaf9;
+    border: 1px solid #e7e5e4;
+    border-radius: 18px;
+    padding: 32px 30px;
+    margin: 30px 0;
+}
+
+.af-grid-8 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin: 40px 0 80px;
+}
+
+.af-service-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.af-service-card:hover {
+    transform: translateY(-4px);
+    border-color: #fc3637;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.1);
+}
+
+.af-card-media {
+    height: 100%;
+    min-height: 180px;
+    background: #f1f5f9;
+    overflow: hidden;
+}
+
+.af-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.af-service-card:hover .af-card-media img {
+    transform: scale(1.05);
+}
+
+.af-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.af-card-body h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #0f172a;
+}
+
+.af-card-body p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0 0 16px;
+}
+
+/* ==========================================================================
+   FAMILY 3 — SUSTAINABILITY & ESG SPECIFICS (.esg-*)
+   ========================================================================== */
+.esg-eyebrow {
+    background: rgba(5, 150, 105, 0.08);
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.esg-card:hover {
+    border-color: rgba(5, 150, 105, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(5, 150, 105, 0.12);
+}
+
+.esg-card-icon {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.esg-step-num {
+    color: #059669;
+}
+
+.esg-pillars-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 36px 0;
+}
+
+.esg-pillar-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px 24px;
+    position: relative;
+    border-top: 4px solid #059669;
+}
+
+.esg-pillar-badge {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #059669;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.esg-pillar-card h4 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 10px;
+}
+
+.esg-pillar-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0;
+}
+
+.esg-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin: 40px 0 80px;
+}
+
+/* ==========================================================================
+   FAMILY 4 — PEOPLE & ORGANISATION SPECIFICS (.po-*)
+   ========================================================================== */
+.po-eyebrow {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.po-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.12);
+}
+
+.po-card-icon {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.po-step-num {
+    color: #d97706;
+}
+
+.po-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin: 40px 0 80px;
+}
+
+.po-service-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.po-service-card:hover {
+    transform: translateY(-5px);
+    border-color: #fc3637;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
+}
+
+.po-card-media {
+    height: 220px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.po-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.po-service-card:hover .po-card-media img {
+    transform: scale(1.05);
+}
+
+.po-card-body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.po-card-body h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: #0f172a;
+}
+
+.po-card-body p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0 0 18px;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .svc-layout-2col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .svc-sidebar {
+        position: static;
+        order: 2;
+    }
+
+    .svc-main-content {
+        order: 1;
+    }
+
+    .dc-grid-9, .esg-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .svc-process-timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .svc-layout-2col {
+        padding: 40px 0 70px;
+    }
+
+    .svc-hero-media {
+        height: 280px;
+        border-radius: 16px;
+    }
+
+    .svc-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .svc-process-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .dc-grid-9, .af-grid-8, .esg-grid-5, .po-grid-4, .esg-pillars-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .af-service-card {
+        grid-template-columns: 1fr;
+    }
+
+    .af-card-media {
+        height: 180px;
+    }
+
+    .svc-cta-banner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 32px 24px;
+        text-align: center;
+    }
+
+    .svc-cta-action {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
