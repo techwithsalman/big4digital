@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     /* ==========================================================
@@ -261,109 +261,9 @@
         }
 
         /* ==========================================================
-           8. PART 2: STICKY “OUR COMPREHENSIVE SERVICES” SECTION
+           8. SERVICES SECTION: Natural vertical flow (no pinning/stacking)
         ========================================================== */
-        if (!prefersReducedMotion && hasGSAP && hasScrollTrigger) {
-            const servicesSection = document.querySelector('.services-section');
-            const cards = gsap.utils.toArray('.service-card');
-
-            if (servicesSection && cards.length >= 2) {
-                const mm = gsap.matchMedia();
-
-                // Desktop / Laptop (min-width: 992px): Pinned sequential stacking deck
-                mm.add('(min-width: 992px)', function () {
-                    // Set base card
-                    gsap.set(cards[0], {
-                        position: 'relative',
-                        zIndex: 1,
-                        yPercent: 0,
-                        opacity: 1,
-                        scale: 1,
-                        transformOrigin: '50% top'
-                    });
-
-                    // Set subsequent cards stacked on top, initially translated down
-                    for (let i = 1; i < cards.length; i++) {
-                        gsap.set(cards[i], {
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            zIndex: i + 1,
-                            yPercent: 110,
-                            opacity: 0,
-                            scale: 0.96,
-                            transformOrigin: '50% top'
-                        });
-                    }
-
-                    // Create pinned timeline tied strictly to the 3 card transitions
-                    // (cards.length - 1) ensures no dead white scroll gap after Card 4!
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: servicesSection,
-                            start: 'top top',
-                            end: function () {
-                                return '+=' + ((cards.length - 1) * window.innerHeight * 0.92);
-                            },
-                            pin: true,
-                            pinSpacing: true,
-                            scrub: 1,
-                            anticipatePin: 1
-                        }
-                    });
-
-                    // Sequence through cards 2, 3, 4
-                    for (let i = 1; i < cards.length; i++) {
-                        // Card moves upward and covers previous card
-                        tl.to(cards[i], {
-                            yPercent: 0,
-                            opacity: 1,
-                            scale: 1,
-                            duration: 1,
-                            ease: 'power2.out'
-                        });
-
-                        // Previous card subtly dims and recedes for a stacked 3D deck effect
-                        tl.to(cards[i - 1], {
-                            scale: Math.max(0.88, 0.95 - (i * 0.015)),
-                            opacity: 0.45,
-                            duration: 0.7,
-                            ease: 'power2.out'
-                        }, '<0.2');
-
-                        // Pause on card so user can comfortably appreciate the content
-                        if (i < cards.length - 1) {
-                            tl.to({}, { duration: 0.35 });
-                        }
-                    }
-
-                    return function () {
-                        // Revert all cards when viewport switches below 992px
-                        cards.forEach(function (card) {
-                            gsap.set(card, { clearProps: 'all' });
-                        });
-                    };
-                });
-
-                // Mobile & Tablet (< 992px): Natural flow with smooth sequential reveals
-                mm.add('(max-width: 991px)', function () {
-                    cards.forEach(function (card) {
-                        gsap.from(card, {
-                            scrollTrigger: {
-                                trigger: card,
-                                start: 'top 85%',
-                                toggleActions: 'play none none reverse'
-                            },
-                            y: 40,
-                            opacity: 0,
-                            duration: 0.8,
-                            ease: 'power3.out'
-                        });
-                    });
-                });
-            }
-        }
+        // GSAP pinning and stacking logic completely removed to preserve natural vertical card layout
 
         /* ==========================================================
            9. ENHANCED WEBSITE-WIDE PREMIUM SCROLL ANIMATIONS
@@ -648,15 +548,18 @@
                         stagger: 0.16,
                         ease: 'power3.out'
                     }, '-=0.3')
-                    // Quote marks scale+rotate in
-                    .from('.quote-mark', {
-                        scale: 0.6,
-                        rotation: -15,
-                        opacity: 0,
+                    // Quote marks scale+rotate pop-in entrance
+                    .fromTo('.quote-mark', {
+                        scale: 0.7,
+                        rotation: -12
+                    }, {
+                        scale: 1,
+                        rotation: 0,
                         duration: 0.55,
                         stagger: 0.12,
-                        ease: 'back.out(1.7)'
-                    }, '-=0.75')
+                        ease: 'back.out(1.8)',
+                        clearProps: 'transform'
+                    }, '-=0.55')
                     // Avatar images reveal
                     .from('.testimonial-person img', {
                         scale: 0.8,
@@ -735,115 +638,5 @@
             }
         }
     });
-
-
-
-/* ================================================================
-   FOOTER GSAP ANIMATIONS â€” append to smooth-scroll.js
-================================================================ */
-
-    /* ==========================================================
-       PREMIUM FOOTER ANIMATIONS
-    ========================================================== */
-    (function initFooterAnimations() {
-        const footer = document.querySelector('.pf-footer');
-        if (!footer || typeof gsap === 'undefined') return;
-
-        const reduced = prefersReducedMotion;
-
-        /* ------ floating glass deco elements ------ */
-        if (!reduced) {
-            const decoLeft  = footer.querySelector('.pf-deco--left');
-            const decoRight = footer.querySelector('.pf-deco--right');
-
-            if (decoLeft) {
-                gsap.to(decoLeft, {
-                    y: -28,
-                    rotation: 4,
-                    duration: 7,
-                    ease: 'sine.inOut',
-                    yoyo: true,
-                    repeat: -1
-                });
-            }
-
-            if (decoRight) {
-                gsap.to(decoRight, {
-                    y: 22,
-                    rotation: -5,
-                    duration: 8.5,
-                    ease: 'sine.inOut',
-                    yoyo: true,
-                    repeat: -1,
-                    delay: 1.5
-                });
-            }
-        }
-
-        /* ------ scroll-triggered column reveals ------ */
-        const cols = footer.querySelectorAll('.pf-brand, .pf-col');
-        if (cols.length && typeof ScrollTrigger !== 'undefined') {
-            gsap.fromTo(cols,
-                { opacity: 0, y: 35 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: reduced ? 0 : 0.7,
-                    ease: 'power2.out',
-                    stagger: reduced ? 0 : 0.10,
-                    scrollTrigger: {
-                        trigger: footer,
-                        start: 'top 88%',
-                        once: true
-                    }
-                }
-            );
-        }
-
-        /* ------ contact panel reveal ------ */
-        const panel = footer.querySelector('.pf-contact-panel');
-        if (panel && typeof ScrollTrigger !== 'undefined') {
-            gsap.fromTo(panel,
-                { opacity: 0, y: 25 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: reduced ? 0 : 0.65,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: panel,
-                        start: 'top 92%',
-                        once: true
-                    }
-                }
-            );
-        }
-
-        /* ------ nav link hover lift (js supplement) ------ */
-        /* CSS handles it, no extra JS needed */
-
-        /* ------ newsletter subscribe button feedback ------ */
-        const nlBtn = footer.querySelector('.pf-nl-btn');
-        const nlInput = footer.querySelector('.pf-nl-input');
-
-        if (nlBtn && nlInput) {
-            nlBtn.addEventListener('click', function () {
-                const val = nlInput.value.trim();
-                if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-                    /* gentle shake on invalid */
-                    if (!reduced) {
-                        gsap.fromTo(nlInput,
-                            { x: -6 },
-                            { x: 0, duration: 0.4, ease: 'elastic.out(1,0.3)' }
-                        );
-                    }
-                    nlInput.focus();
-                }
-                /* No fake success â€” form submission requires backend */
-            });
-        }
-
-    })();
-
 
 })();

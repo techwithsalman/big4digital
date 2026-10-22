@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -2327,7 +2327,7 @@ font-family: "Poppins", sans-serif;
     margin-bottom: 0;
 }
 .service-features li::before {
-    content: "✱";
+    content: "\2022";
     position: absolute;
     left: 0;
     top: 0;
@@ -2496,7 +2496,7 @@ font-family: "Poppins", sans-serif;
         margin-bottom: 0 !important;
     }
     .service-features li::before {
-        content: "•";
+    content: "\2022";
         color: #ff3b30;
         font-size: 16px;
         line-height: 1;
@@ -3300,7 +3300,7 @@ font-family: "Poppins", sans-serif;
 ========================================= */
 .testimonial-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     height: 385px;
     padding: 37px 35px 35px;
     border-radius: 18px;
@@ -3347,7 +3347,11 @@ font-family: "Poppins", sans-serif;
 ========================================= */
 .quote-mark {
     position: absolute;
-    top: -73px;
+    top: -52px;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 1;
+    display: block;
     left: 35px;
     color: #ff3438;
     font-family: Arial, sans-serif;
@@ -3685,40 +3689,39 @@ font-family: "Poppins", sans-serif;
     }
 }
 /* =========================================
-   FOOTER
+   FOOTER (RESTORED & PROFESSIONALLY IMPROVED)
 ========================================= */
 .site-footer {
     width: 100%;
     background: #000;
     color: #fff;
-    padding: 115px 20px 45px;
+    padding: 100px 24px 45px;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2;
 }
 .footer-container {
     width: 100%;
-    max-width: 1290px;
+    max-width: 1240px;
     margin: 0 auto;
 }
 /* =========================================
-   TOP
+   TOP AREA: 4-COLUMN DESKTOP
 ========================================= */
 .footer-top {
     display: grid;
-    grid-template-columns:
-        2.1fr
-        1fr
-        1fr
-        0.9fr;
-    gap: 115px;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 65px;
     align-items: start;
-    padding-bottom: 85px;
+    padding-bottom: 70px;
 }
 /* IMAGE */
 .footer-image {
     width: 100%;
     height: 220px;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 .footer-image img {
     display: block;
@@ -3726,15 +3729,16 @@ font-family: "Poppins", sans-serif;
     height: 100%;
     object-fit: cover;
 }
-/* =========================================
-   LINK COLUMNS
-========================================= */
+/* LINK COLUMNS - STANDARDIZED HEADINGS */
 .footer-links-column h4 {
-    margin: 3px 0 37px;
-    color: #777;
+    margin: 0 0 28px;
+    color: #8c8c8c;
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
-    line-height: 1;
+    line-height: 1.2;
     font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 .footer-links-column ul {
     list-style: none;
@@ -3742,7 +3746,7 @@ font-family: "Poppins", sans-serif;
     margin: 0;
 }
 .footer-links-column li {
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 }
 .footer-links-column li:last-child {
     margin-bottom: 0;
@@ -3750,146 +3754,112 @@ font-family: "Poppins", sans-serif;
 .footer-links-column a {
     position: relative;
     display: inline-block;
-    color: #fff;
-    font-size: 18px;
-    line-height: 1.2;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.35;
     font-weight: 400;
     text-decoration: none;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 .footer-links-column a:hover {
     color: #ff3438;
+    transform: translateX(4px);
+}
+.footer-disabled-link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.35;
+    cursor: default;
 }
 /* =========================================
-   MIDDLE
+   MIDDLE CONTACT AREA: BALANCED 2-COLUMN
 ========================================= */
 .footer-middle {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    min-height: 185px;
-    border-top: 1px solid #282828;
-    border-bottom: 1px solid #282828;
-}
-/* =========================================
-   BRAND
-========================================= */
-.footer-brand {
-    display: grid;
-    grid-template-columns: 190px 1fr;
+    grid-template-columns: 1.4fr 1fr;
     align-items: center;
-    padding-right: 55px;
+    min-height: 130px;
+    padding: 35px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding-right: 40px;
 }
 .footer-logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: #fff;
-    font-size: 31px;
     line-height: 1;
-    font-weight: 700;
-    letter-spacing: -1.5px;
     text-decoration: none;
+    flex-shrink: 0;
 }
-/* red logo icon */
-.footer-logo-icon {
-    position: relative;
-    width: 31px;
-    height: 31px;
-    display: inline-block;
-    background: #ff3438;
-    border-radius: 0 50% 50% 0;
-}
-.footer-logo-icon::after {
-    content: "";
-    position: absolute;
-    left: -7px;
-    top: 9px;
-    width: 19px;
-    height: 13px;
-    background: #000;
-    border-radius: 0 20px 20px 0;
+.footer-logo img {
+    width: auto;
+    max-width: 190px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
 }
 .footer-brand p {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.45;
-    font-weight: 500;
+    color: #9ca3af;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 400;
+    max-width: 330px;
 }
-/* =========================================
-   CONTACT
-========================================= */
 .footer-contact {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 120px;
-    border-left: 1px solid #282828;
+    gap: 12px;
+    padding-left: 60px;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 .footer-phone {
     color: #fff;
-    margin-bottom: 20px;
-    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
     line-height: 1;
     font-weight: 600;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     text-decoration: none;
+    transition: color 0.25s ease;
 }
 .footer-email {
-    color: #fff;
+    color: #9ca3af;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     line-height: 1.2;
     font-weight: 500;
     text-decoration: none;
+    transition: color 0.25s ease;
 }
 .footer-phone:hover,
 .footer-email:hover {
     color: #ff3438;
 }
 /* =========================================
-   SOCIAL
-========================================= */
-.footer-social {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 95px;
-}
-.footer-social-title {
-    display: block;
-    margin-bottom: 27px;
-    color: #666;
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 500;
-}
-.footer-social-links {
-    display: flex;
-    gap: 27px;
-}
-.footer-social-links a {
-    color: #fff;
-    font-size: 15px;
-    line-height: 1;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-.footer-social-links a:hover {
-    color: #ff3438;
-}
-/* =========================================
-   BOTTOM
+   BOTTOM AREA
 ========================================= */
 .footer-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 40px;
+    padding-top: 35px;
 }
 .footer-bottom p {
     margin: 0;
     color: #8c8c8c;
-    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
     line-height: 1.4;
 }
 .footer-bottom p strong {
@@ -3899,11 +3869,12 @@ font-family: "Poppins", sans-serif;
 .footer-bottom-links {
     display: flex;
     align-items: center;
-    gap: 27px;
+    gap: 25px;
 }
 .footer-bottom-links a {
     color: #888;
-    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
     line-height: 1;
     text-decoration: none;
     transition: color 0.25s ease;
@@ -3912,124 +3883,85 @@ font-family: "Poppins", sans-serif;
     color: #fff;
 }
 /* =========================================
-   TABLET
+   FOOTER RESPONSIVE
 ========================================= */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
     .site-footer {
-        padding-top: 80px;
+        padding: 80px 24px 40px;
     }
     .footer-top {
-        grid-template-columns: 1.6fr 1fr 1fr 1fr;
-        gap: 45px;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 35px;
+        padding-bottom: 55px;
+    }
+    .footer-middle {
+        grid-template-columns: 1.2fr 1fr;
     }
     .footer-contact {
-        padding-left: 45px;
-    }
-    .footer-social {
-        padding-left: 45px;
+        padding-left: 35px;
     }
     .footer-brand {
-        grid-template-columns: 160px 1fr;
-        padding-right: 35px;
+        gap: 25px;
+        padding-right: 25px;
     }
 }
-/* =========================================
-   TABLET SMALL
-========================================= */
 @media (max-width: 850px) {
     .footer-top {
         grid-template-columns: repeat(3, 1fr);
-        gap: 50px 30px;
+        gap: 40px 25px;
     }
     .footer-image {
         grid-column: 1 / -1;
-        height: 300px;
+        height: 260px;
     }
     .footer-middle {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 28px;
     }
     .footer-brand {
-        grid-column: 1 / -1;
-        min-height: 150px;
-        border-bottom: 1px solid #282828;
+        padding-right: 0;
     }
     .footer-contact {
-        min-height: 150px;
         padding-left: 0;
-        border-left: 0;
-    }
-    .footer-social {
-        min-height: 150px;
-        padding-left: 40px;
-        border-left: 1px solid #282828;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
     }
 }
-/* =========================================
-   MOBILE
-========================================= */
 @media (max-width: 600px) {
     .site-footer {
-        padding:
-            65px 20px
-            35px;
+        padding: 60px 20px 35px;
     }
     .footer-top {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 45px 25px;
-        padding-bottom: 60px;
-    }
-    .footer-image {
-        grid-column: 1 / -1;
-        height: 220px;
-    }
-    .footer-links-column:last-child {
-        grid-column: 1 / -1;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-bottom: 45px;
     }
     .footer-links-column h4 {
-        margin-bottom: 25px;
+        margin-bottom: 18px;
     }
     .footer-links-column a {
         font-size: 16px;
     }
-    /* MIDDLE */
-    .footer-middle {
-        display: block;
-    }
     .footer-brand {
-        display: block;
-        min-height: auto;
-        padding: 45px 0;
-        border-bottom: 1px solid #282828;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
-    .footer-logo {
-        margin-bottom: 30px;
-        font-size: 29px;
+    .footer-logo img {
+        height: 44px;
     }
-    .footer-brand p br {
-        display: none;
+    .footer-phone {
+        font-size: 20px;
     }
-    .footer-contact {
-        min-height: auto;
-        padding: 45px 0;
-        border-bottom: 1px solid #282828;
-    }
-    .footer-social {
-        min-height: auto;
-        padding: 45px 0;
-        border-left: 0;
-    }
-    /* BOTTOM */
     .footer-bottom {
-        display: block;
-        padding-top: 35px;
-    }
-    .footer-bottom-links {
-        margin-top: 25px;
-        flex-wrap: wrap;
-        gap: 15px 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding-top: 25px;
     }
 }
+
 /* =========================================
    ADVISORY & FINANCE NESTED DROPDOWN
 ========================================= */
@@ -4226,7 +4158,7 @@ font-family: "Poppins", sans-serif;
   border-bottom: 1px solid #292929;
 }
 .gs-category a:before {
-  content: "•";
+  content: "â€¢";
   margin-right: 9px;
 }
 .gs-category a.active {
@@ -4319,7 +4251,7 @@ font-family: "Poppins", sans-serif;
   margin: 0 0 15px;
 }
 .gs-bullets li:before {
-  content: "•";
+  content: "â€¢";
   color: #ff332e;
   font-size: 20px;
   vertical-align: -2px;
@@ -4399,7 +4331,7 @@ font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
 .gs-faq details[open] summary:before {
-  content: "−";
+  content: "âˆ’";
 }
 .gs-faq details p {
   padding: 0 0 22px 42px;
@@ -5903,7 +5835,7 @@ font-family: "Poppins", sans-serif;
     }
 }
 
-/* About page overrides only — load AFTER css/style.css */
+/* About page overrides only â€” load AFTER css/style.css */
 .about-hero-sticky {
     position: sticky;
     top: 0;
@@ -6639,7 +6571,7 @@ font-family: "Poppins", sans-serif;
 }
 
 .name:before {
-	content: '✱';
+	content: 'âœ±';
 	color: #ff3545;
 	margin-right: 10px;
 }
@@ -7069,40 +7001,23 @@ html.lenis, html.lenis body {
 .services-cards-stack {
     position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 }
 
 @media (min-width: 992px) {
     .services-section {
-        padding: 50px 20px 60px;
+        padding: 70px 20px 100px;
         box-sizing: border-box;
     }
     .services-header {
-        margin-bottom: 30px;
-    }
-}
-
-@media (min-width: 992px) and (max-height: 850px) {
-    .services-section {
-        padding: 25px 20px 30px;
-    }
-    .services-header {
-        margin-bottom: 20px;
-    }
-    .services-header h2 {
-        font-size: clamp(32px, 3.5vw, 46px);
+        margin-bottom: 50px;
     }
     .service-card {
-        min-height: 440px;
-    }
-    .service-card-image {
-        min-height: 440px;
-    }
-    .service-card-title,
-    .service-card-content {
-        padding: 40px 35px 35px;
+        margin-bottom: 0;
     }
 }
-
 /* Glass decorative objects styling */
 .about-object {
     position: absolute;
@@ -7397,7 +7312,7 @@ html.lenis, html.lenis body {
         min-height: auto !important;
         height: auto !important;
         padding: 30px 26px 32px !important;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
     .testimonial-card .quote-mark {
         position: relative !important;
@@ -7409,6 +7324,9 @@ html.lenis, html.lenis body {
         margin-top: 14px !important;
         margin-bottom: 16px !important;
         display: block !important;
+        opacity: 1 !important;
+        color: #ff3438 !important;
+        z-index: 5 !important;
         transform-origin: left center !important;
     }
     .testimonial-text {
@@ -7432,860 +7350,4 @@ html.lenis, html.lenis body {
     }
 }
 
-
-
-/* =================================================================
-   PREMIUM FOOTER REDESIGN â€” PF (Premium Footer) namespace
-   Target: matches reference image (dark glassmorphism, red accents)
-================================================================= */
-
-/* Reset old footer selectors so they don't conflict */
-.site-footer.pf-footer {
-    all: revert;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse 55% 50% at 0% 60%, rgba(120, 10, 15, 0.38) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 55% at 100% 55%, rgba(90, 8, 60, 0.30) 0%, transparent 70%),
-        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(14, 10, 30, 0.6) 0%, transparent 80%),
-        #0e0e12;
-    color: #fff;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    isolation: isolate;
-    z-index: 2;
-}
-
-/* ---------------------------------------------------------------
-   DECORATIVE GLASS ELEMENTS
---------------------------------------------------------------- */
-.pf-deco {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 220px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.85;
-}
-
-.pf-deco--left {
-    left: -60px;
-    background:
-        radial-gradient(ellipse 80% 40% at 50% 30%, rgba(255, 60, 80, 0.22) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 60% at 40% 60%, rgba(200, 30, 60, 0.14) 0%, transparent 70%);
-    border-right: 1px solid rgba(255, 80, 100, 0.10);
-}
-
-/* Glass ribbon shape using CSS pseudo-elements (left) */
-.pf-deco--left::before {
-    content: '';
-    position: absolute;
-    left: 25px;
-    top: 5%;
-    width: 130px;
-    height: 85%;
-    border-radius: 50% 40% 55% 35% / 60% 45% 50% 40%;
-    background:
-        linear-gradient(135deg,
-            rgba(255, 100, 130, 0.22) 0%,
-            rgba(180, 30, 55, 0.16) 30%,
-            rgba(80, 10, 30, 0.10) 60%,
-            rgba(200, 80, 120, 0.08) 100%);
-    border: 1px solid rgba(255, 100, 130, 0.20);
-    backdrop-filter: blur(2px);
-    box-shadow:
-        inset 8px 12px 40px rgba(255, 150, 170, 0.12),
-        inset -8px -12px 30px rgba(0, 0, 0, 0.5),
-        0 0 60px rgba(200, 30, 55, 0.08);
-    transform: rotate(-8deg);
-}
-
-.pf-deco--left::after {
-    content: '';
-    position: absolute;
-    left: 65px;
-    top: 20%;
-    width: 80px;
-    height: 55%;
-    border-radius: 40% 55% 35% 50% / 50% 40% 55% 40%;
-    background:
-        linear-gradient(160deg,
-            rgba(255, 130, 150, 0.15) 0%,
-            rgba(150, 20, 45, 0.10) 50%,
-            rgba(200, 80, 100, 0.06) 100%);
-    border: 1px solid rgba(255, 120, 140, 0.12);
-    transform: rotate(12deg);
-}
-
-.pf-deco--right {
-    right: -40px;
-}
-
-/* Glass prism shape (right) */
-.pf-deco--right::before {
-    content: '';
-    position: absolute;
-    right: 10px;
-    top: 15%;
-    width: 120px;
-    height: 65%;
-    border-radius: 12px 25px 18px 22px;
-    background:
-        linear-gradient(145deg,
-            rgba(180, 150, 220, 0.20) 0%,
-            rgba(100, 80, 180, 0.12) 30%,
-            rgba(200, 100, 150, 0.15) 60%,
-            rgba(80, 60, 140, 0.08) 100%);
-    border: 1px solid rgba(200, 160, 230, 0.22);
-    backdrop-filter: blur(4px);
-    box-shadow:
-        inset 10px 14px 40px rgba(220, 180, 255, 0.14),
-        inset -10px -14px 35px rgba(0, 0, 0, 0.55),
-        0 0 45px rgba(140, 80, 200, 0.07);
-    transform: rotate(6deg) skewY(-4deg);
-}
-
-.pf-deco--right::after {
-    content: '';
-    position: absolute;
-    right: 55px;
-    top: 30%;
-    width: 70px;
-    height: 40%;
-    border-radius: 8px 18px 12px 16px;
-    background:
-        linear-gradient(120deg,
-            rgba(220, 180, 255, 0.14) 0%,
-            rgba(100, 60, 180, 0.08) 60%,
-            transparent 100%);
-    border: 1px solid rgba(200, 160, 230, 0.12);
-    transform: rotate(-10deg);
-}
-
-/* ---------------------------------------------------------------
-   MAIN CONTAINER
---------------------------------------------------------------- */
-.pf-container {
-    position: relative;
-    z-index: 1;
-    width: min(1300px, calc(100% - 100px));
-    margin: 0 auto;
-    padding: 80px 0 0;
-}
-
-/* ---------------------------------------------------------------
-   TOP GRID â€” 5 columns
---------------------------------------------------------------- */
-.pf-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1.4fr;
-    gap: 50px;
-    align-items: start;
-    padding-bottom: 70px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* ---------------------------------------------------------------
-   COLUMN 1 â€” BRAND
---------------------------------------------------------------- */
-.pf-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    padding-right: 30px;
-}
-
-.pf-logo-link {
-    display: inline-block;
-    line-height: 1;
-}
-
-.pf-logo-img {
-    width: auto;
-    height: 48px;
-    max-width: 200px;
-    object-fit: contain;
-    display: block;
-}
-
-.pf-tagline {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.75;
-    color: #9ca3af;
-    max-width: 310px;
-}
-
-/* Social icons row */
-.pf-socials {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.pf-social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: rgba(255, 255, 255, 0.72);
-    background: rgba(255, 255, 255, 0.04);
-    text-decoration: none;
-    transition:
-        border-color 0.28s ease,
-        color 0.28s ease,
-        background 0.28s ease,
-        transform 0.28s ease,
-        box-shadow 0.28s ease;
-    flex-shrink: 0;
-}
-
-.pf-social-icon svg {
-    width: 16px;
-    height: 16px;
-}
-
-.pf-social-icon:hover {
-    border-color: #fc3637;
-    color: #fc3637;
-    background: rgba(252, 54, 55, 0.10);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(252, 54, 55, 0.20);
-}
-
-/* CTA pill button */
-.pf-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    align-self: flex-start;
-    padding: 14px 26px;
-    border-radius: 50px;
-    background: linear-gradient(90deg, #fc3637 0%, #a01020 100%);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-    box-shadow: 0 6px 30px rgba(252, 54, 55, 0.30);
-}
-
-.pf-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(252, 54, 55, 0.45);
-    background: linear-gradient(90deg, #ff4546 0%, #c01525 100%);
-}
-
-.pf-cta-arrow {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
-
-.pf-cta-btn:hover .pf-cta-arrow {
-    transform: translateX(4px);
-}
-
-/* ---------------------------------------------------------------
-   COLUMNS 2â€“4 â€” NAV COLUMNS
---------------------------------------------------------------- */
-.pf-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.pf-col-heading {
-    margin: 0 0 20px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid #fc3637;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    line-height: 1;
-    display: inline-block;
-}
-
-.pf-col-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-}
-
-.pf-col-link {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    color: #9ca3af;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.3;
-    text-decoration: none;
-    transition: color 0.25s ease, gap 0.25s ease;
-    cursor: pointer;
-}
-
-.pf-col-link:not(.pf-col-link--muted):hover {
-    color: #fff;
-    gap: 10px;
-}
-
-.pf-col-link--muted {
-    opacity: 0.5;
-    cursor: default;
-}
-
-.pf-arrow {
-    color: #fc3637;
-    font-size: 16px;
-    line-height: 1;
-    flex-shrink: 0;
-    font-weight: 700;
-}
-
-/* ---------------------------------------------------------------
-   COLUMN 5 â€” NEWSLETTER
---------------------------------------------------------------- */
-.pf-col--newsletter {
-    gap: 16px;
-}
-
-.pf-newsletter-desc {
-    margin: 0;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #9ca3af;
-}
-
-/* Newsletter input field */
-.pf-newsletter-field {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    height: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    overflow: hidden;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pf-newsletter-field:focus-within {
-    border-color: rgba(252, 54, 55, 0.5);
-    box-shadow: 0 0 0 3px rgba(252, 54, 55, 0.10);
-}
-
-.pf-nl-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    flex-shrink: 0;
-    color: #9ca3af;
-}
-
-.pf-nl-icon svg {
-    width: 16px;
-    height: 16px;
-}
-
-.pf-nl-input {
-    flex: 1;
-    min-width: 0;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    padding: 0 6px;
-}
-
-.pf-nl-input::placeholder {
-    color: rgba(156, 163, 175, 0.8);
-}
-
-.pf-nl-btn {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    margin: 4px;
-    border-radius: 50%;
-    background: #fc3637;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.pf-nl-btn svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.25s ease;
-}
-
-.pf-nl-btn:hover {
-    background: #e02020;
-    transform: scale(1.06);
-    box-shadow: 0 4px 16px rgba(252, 54, 55, 0.40);
-}
-
-.pf-nl-btn:hover svg {
-    transform: translateX(2px);
-}
-
-/* ---------------------------------------------------------------
-   CONTACT PANEL
---------------------------------------------------------------- */
-.pf-contact-panel {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0;
-    margin: 50px 0 0;
-    padding: 28px 40px;
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.pf-contact-group {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex: 1;
-}
-
-.pf-contact-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: rgba(252, 54, 55, 0.12);
-    border: 1px solid rgba(252, 54, 55, 0.22);
-    color: #fc3637;
-    flex-shrink: 0;
-}
-
-.pf-contact-icon svg {
-    width: 22px;
-    height: 22px;
-}
-
-.pf-contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.pf-contact-label {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: #6b7280;
-    text-transform: uppercase;
-}
-
-.pf-contact-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    text-decoration: none;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    transition: color 0.25s ease;
-}
-
-a.pf-contact-value:hover {
-    color: #fc3637;
-}
-
-.pf-contact-sep {
-    width: 1px;
-    height: 56px;
-    background: rgba(255, 255, 255, 0.10);
-    flex-shrink: 0;
-    margin: 0 20px;
-}
-
-/* ---------------------------------------------------------------
-   BOTTOM BAR
---------------------------------------------------------------- */
-.pf-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 24px 0 28px;
-    margin-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.pf-copyright {
-    margin: 0;
-    font-size: 13px;
-    color: #6b7280;
-    line-height: 1;
-}
-
-.pf-copyright strong {
-    color: #9ca3af;
-    font-weight: 600;
-}
-
-.pf-tagline-row {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: #4b5563;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-.pf-sep-pipe {
-    color: #374151;
-}
-
-/* ================================================================
-   RESPONSIVE â€” TABLET (â‰¤ 1100px)
-================================================================ */
-@media (max-width: 1100px) {
-    .pf-container {
-        width: min(1100px, calc(100% - 70px));
-    }
-
-    .pf-top {
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        gap: 35px;
-    }
-
-    .pf-col--newsletter {
-        grid-column: 1 / -1;
-        max-width: 480px;
-    }
-
-    .pf-brand {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 20px;
-        padding-right: 0;
-        padding-bottom: 30px;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .pf-brand > * {
-        min-width: 0;
-    }
-
-    .pf-tagline {
-        max-width: 260px;
-    }
-}
-
-/* ================================================================
-   RESPONSIVE â€” TABLET SMALL (â‰¤ 900px)
-================================================================ */
-@media (max-width: 900px) {
-    .pf-container {
-        width: calc(100% - 50px);
-        padding-top: 65px;
-    }
-
-    .pf-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px 30px;
-        padding-bottom: 50px;
-    }
-
-    .pf-brand {
-        grid-column: 1 / -1;
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .pf-col--newsletter {
-        grid-column: 1 / -1;
-        max-width: 100%;
-    }
-
-    .pf-contact-panel {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 22px 24px;
-        gap: 0;
-    }
-
-    .pf-contact-sep {
-        width: 100%;
-        height: 1px;
-        margin: 16px 0;
-    }
-
-    .pf-contact-group {
-        flex: none;
-    }
-}
-
-/* ================================================================
-   RESPONSIVE â€” MOBILE (â‰¤ 600px)
-================================================================ */
-@media (max-width: 600px) {
-    .pf-container {
-        width: calc(100% - 36px);
-        padding-top: 55px;
-    }
-
-    .pf-deco {
-        width: 110px;
-        opacity: 0.55;
-    }
-
-    .pf-deco--left {
-        left: -35px;
-    }
-
-    .pf-deco--right {
-        right: -25px;
-    }
-
-    .pf-top {
-        grid-template-columns: 1fr;
-        gap: 36px;
-        padding-bottom: 40px;
-    }
-
-    .pf-brand {
-        grid-column: auto;
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .pf-logo-img {
-        height: 40px;
-    }
-
-    .pf-col--newsletter {
-        grid-column: auto;
-    }
-
-    .pf-contact-panel {
-        margin-top: 36px;
-        padding: 20px 18px;
-        border-radius: 12px;
-    }
-
-    .pf-contact-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 10px;
-    }
-
-    .pf-contact-icon svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .pf-contact-label {
-        font-size: 9.5px;
-    }
-
-    .pf-contact-value {
-        font-size: 14px;
-    }
-
-    .pf-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 22px 0 24px;
-    }
-
-    .pf-tagline-row {
-        font-size: 10px;
-        letter-spacing: 0.12em;
-    }
-
-    .pf-newsletter-field {
-        height: 48px;
-    }
-
-    .pf-cta-btn {
-        font-size: 14px;
-        padding: 13px 22px;
-    }
-}
-
-/* ================================================================
-   REDUCED MOTION
-================================================================ */
-@media (prefers-reduced-motion: reduce) {
-    .pf-social-icon,
-    .pf-cta-btn,
-    .pf-nl-btn,
-    .pf-col-link {
-        transition: none;
-    }
-}
-
-
-
-
-/* ================================================================
-   MOBILE REFINEMENTS â€” newsletter & overflow fixes
-================================================================ */
-@media (max-width: 600px) {
-    /* Reduce deco size so they don't cause horizontal overflow */
-    .pf-deco {
-        width: 80px !important;
-        opacity: 0.35 !important;
-    }
-
-    .pf-deco--left {
-        left: -20px !important;
-    }
-
-    .pf-deco--right {
-        right: -15px !important;
-    }
-
-    /* Newsletter text wrap fix */
-    .pf-newsletter-desc {
-        overflow-wrap: break-word;
-        word-break: break-word;
-        max-width: 100%;
-    }
-
-    /* Newsletter field â€” ensure btn always visible */
-    .pf-newsletter-field {
-        display: flex;
-        min-width: 0;
-        width: 100%;
-    }
-
-    .pf-nl-input {
-        min-width: 0;
-        flex: 1;
-    }
-
-    .pf-nl-btn {
-        flex-shrink: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        margin: 6px !important;
-    }
-
-    /* Contact email word-break on narrow screens */
-    .pf-contact-value {
-        word-break: break-all;
-    }
-}
-
-/* ================================================================
-   VERY NARROW (â‰¤ 360px)
-================================================================ */
-@media (max-width: 360px) {
-    .pf-container {
-        width: calc(100% - 26px);
-    }
-
-    .pf-cta-btn {
-        font-size: 13px;
-        padding: 12px 18px;
-    }
-
-    .pf-contact-panel {
-        padding: 16px 14px;
-    }
-
-    .pf-contact-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .pf-contact-value {
-        font-size: 13px;
-    }
-}
-
-
-
-
-/* ================================================================
-   FOOTER Z-INDEX FIX â€” ensure content above deco elements
-   + Newsletter overflow fix for all sizes
-================================================================ */
-
-/* Ensure all content columns sit above decorative elements */
-.pf-top,
-.pf-contact-panel,
-.pf-bottom {
-    position: relative;
-    z-index: 2;
-}
-
-/* Newsletter field never overflows */
-.pf-col--newsletter {
-    min-width: 0;
-}
-
-.pf-newsletter-field {
-    min-width: 0;
-    max-width: 100%;
-}
-
-.pf-nl-input {
-    min-width: 0;
-    width: 0; /* flex will grow it */
-    flex: 1 1 auto;
-}
-
-/* Tablet: newsletter full-width when in own row */
-@media (max-width: 1100px) {
-    .pf-col--newsletter {
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 900px) {
-    .pf-col--newsletter {
-        max-width: 100%;
-    }
-}
 
