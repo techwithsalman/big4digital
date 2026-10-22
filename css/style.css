@@ -1,4 +1,4 @@
-﻿* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7673,68 +7673,151 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================
-   SHARED INNER PAGE STYLES (CATEGORY OVERVIEWS, DETAIL PAGES, BLOG, CLIENTS)
+   STANDARDIZED INNER PAGE HERO BANNER
 ========================================================== */
 .inner-hero-banner {
     position: relative;
-    background: #090909;
-    padding: 160px 24px 70px;
+    background-color: #0b0b0b;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 145px 24px 65px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
+    isolation: isolate;
 }
+
+.inner-hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0.72) 0%, rgba(12, 10, 10, 0.82) 50%, rgba(8, 8, 8, 0.92) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.inner-hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 35%, rgba(252, 54, 55, 0.12) 0%, transparent 68%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 .inner-hero-banner .navbar {
     position: absolute;
+    left: 50%;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    transform: translateX(-50%);
+    z-index: 20;
+    width: calc(100% - 80px);
+    max-width: 1600px;
+    height: 105px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
+
 .inner-hero-container {
-    max-width: 1240px;
+    max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
-}
-.inner-breadcrumb {
+    z-index: 10;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13.5px;
-    color: #8c8c8c;
-    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+    gap: 18px;
+    animation: innerHeroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.inner-breadcrumb a {
-    color: #9ca3af;
-    text-decoration: none;
-    transition: color 0.2s ease;
+
+@keyframes innerHeroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.inner-breadcrumb a:hover {
-    color: #ff3438;
-}
-.inner-breadcrumb span.sep {
-    color: #4b5563;
-}
-.inner-breadcrumb span.current {
-    color: #ff3438;
-    font-weight: 500;
-}
+
 .inner-hero-title {
     font-family: 'Funnel Display', sans-serif;
-    font-size: clamp(34px, 5vw, 60px);
-    line-height: 1.1;
-    font-weight: 600;
+    font-size: clamp(38px, 5.2vw, 72px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.035em;
     color: #ffffff;
-    margin: 0 0 16px;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.65);
 }
+
+.inner-breadcrumb {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 7px 22px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.inner-breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.inner-breadcrumb a:hover {
+    color: #fc3637;
+}
+
+.inner-breadcrumb span.sep {
+    color: #fc3637;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.inner-breadcrumb span.current {
+    color: #ffffff;
+    font-weight: 600;
+}
+
 .inner-hero-tagline {
     font-family: 'Poppins', sans-serif;
-    font-size: clamp(15px, 2vw, 18px);
+    font-size: clamp(15px, 1.4vw, 17px);
     line-height: 1.6;
-    color: #a1a1aa;
+    color: rgba(255, 255, 255, 0.82);
     max-width: 820px;
-    margin: 0;
+    margin: 4px auto 0;
+    text-align: center;
+}
+
+/* Stray burger social safeguard */
+.burger-social {
+    display: none !important;
+}
+.fullscreen-menu.open .burger-social {
+    display: block !important;
 }
 
 /* 2-Column Detail Layout with Sidebar */
