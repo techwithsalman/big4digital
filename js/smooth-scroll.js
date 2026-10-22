@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     'use strict';
 
     /* ==========================================================
@@ -735,4 +735,115 @@
             }
         }
     });
+
+
+
+/* ================================================================
+   FOOTER GSAP ANIMATIONS â€” append to smooth-scroll.js
+================================================================ */
+
+    /* ==========================================================
+       PREMIUM FOOTER ANIMATIONS
+    ========================================================== */
+    (function initFooterAnimations() {
+        const footer = document.querySelector('.pf-footer');
+        if (!footer || typeof gsap === 'undefined') return;
+
+        const reduced = prefersReducedMotion;
+
+        /* ------ floating glass deco elements ------ */
+        if (!reduced) {
+            const decoLeft  = footer.querySelector('.pf-deco--left');
+            const decoRight = footer.querySelector('.pf-deco--right');
+
+            if (decoLeft) {
+                gsap.to(decoLeft, {
+                    y: -28,
+                    rotation: 4,
+                    duration: 7,
+                    ease: 'sine.inOut',
+                    yoyo: true,
+                    repeat: -1
+                });
+            }
+
+            if (decoRight) {
+                gsap.to(decoRight, {
+                    y: 22,
+                    rotation: -5,
+                    duration: 8.5,
+                    ease: 'sine.inOut',
+                    yoyo: true,
+                    repeat: -1,
+                    delay: 1.5
+                });
+            }
+        }
+
+        /* ------ scroll-triggered column reveals ------ */
+        const cols = footer.querySelectorAll('.pf-brand, .pf-col');
+        if (cols.length && typeof ScrollTrigger !== 'undefined') {
+            gsap.fromTo(cols,
+                { opacity: 0, y: 35 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: reduced ? 0 : 0.7,
+                    ease: 'power2.out',
+                    stagger: reduced ? 0 : 0.10,
+                    scrollTrigger: {
+                        trigger: footer,
+                        start: 'top 88%',
+                        once: true
+                    }
+                }
+            );
+        }
+
+        /* ------ contact panel reveal ------ */
+        const panel = footer.querySelector('.pf-contact-panel');
+        if (panel && typeof ScrollTrigger !== 'undefined') {
+            gsap.fromTo(panel,
+                { opacity: 0, y: 25 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: reduced ? 0 : 0.65,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: panel,
+                        start: 'top 92%',
+                        once: true
+                    }
+                }
+            );
+        }
+
+        /* ------ nav link hover lift (js supplement) ------ */
+        /* CSS handles it, no extra JS needed */
+
+        /* ------ newsletter subscribe button feedback ------ */
+        const nlBtn = footer.querySelector('.pf-nl-btn');
+        const nlInput = footer.querySelector('.pf-nl-input');
+
+        if (nlBtn && nlInput) {
+            nlBtn.addEventListener('click', function () {
+                const val = nlInput.value.trim();
+                if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                    /* gentle shake on invalid */
+                    if (!reduced) {
+                        gsap.fromTo(nlInput,
+                            { x: -6 },
+                            { x: 0, duration: 0.4, ease: 'elastic.out(1,0.3)' }
+                        );
+                    }
+                    nlInput.focus();
+                }
+                /* No fake success â€” form submission requires backend */
+            });
+        }
+
+    })();
+
+
 })();
