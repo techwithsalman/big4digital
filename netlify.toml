@@ -1,0 +1,24 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/tax-return-filing"
+  to = "/tax-return-filing.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

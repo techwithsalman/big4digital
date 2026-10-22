@@ -1,0 +1,23 @@
+# Exclude temporary and build artifacts
+*.zip
+*.log
+*.tmp
+
+# Backup folders
+_backup_*/
+Big4digital_backup_*/
+
+# Scratch / temp
+scratch/
+
+# QA result files
+deploy_qa_results.json
+qa_audit_results.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
