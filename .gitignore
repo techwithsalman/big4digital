@@ -21,3 +21,9 @@ Thumbs.db
 # Editor
 .vscode/
 *.swp
+
+# Legacy crawler scraps
+images/*.html
+css/*.html
+script.html
+index-2.html

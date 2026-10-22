@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://big4digital.com/sitemap.xml

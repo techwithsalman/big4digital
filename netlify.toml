@@ -1,10 +1,7 @@
 [build]
   publish = "."
 
-[[redirects]]
-  from = "/contact-us"
-  to = "/contact-us.html"
-  status = 200
+# Extensionless URL rewrites
 
 [[redirects]]
   from = "/about-us"
@@ -12,8 +9,208 @@
   status = 200
 
 [[redirects]]
+  from = "/contact-us"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/our-clients"
+  to = "/our-clients.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/digital-creative"
+  to = "/digital-creative.html"
+  status = 200
+
+[[redirects]]
+  from = "/advisory-finance"
+  to = "/advisory-finance.html"
+  status = 200
+
+[[redirects]]
+  from = "/sustainability-esg"
+  to = "/sustainability-esg.html"
+  status = 200
+
+[[redirects]]
+  from = "/people-organisation"
+  to = "/people-organisation.html"
+  status = 200
+
+[[redirects]]
+  from = "/digital-marketing"
+  to = "/digital-marketing.html"
+  status = 200
+
+[[redirects]]
+  from = "/seo"
+  to = "/seo.html"
+  status = 200
+
+[[redirects]]
+  from = "/social-media-management"
+  to = "/social-media-management.html"
+  status = 200
+
+[[redirects]]
+  from = "/website-development"
+  to = "/website-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/digital-advertising"
+  to = "/digital-advertising.html"
+  status = 200
+
+[[redirects]]
+  from = "/graphic-design"
+  to = "/graphic-design.html"
+  status = 200
+
+[[redirects]]
+  from = "/video-production"
+  to = "/video-production.html"
+  status = 200
+
+[[redirects]]
+  from = "/ugc-content-creation"
+  to = "/ugc-content-creation.html"
+  status = 200
+
+[[redirects]]
+  from = "/pr-management"
+  to = "/pr-management.html"
+  status = 200
+
+[[redirects]]
+  from = "/business-consultancy"
+  to = "/business-consultancy.html"
+  status = 200
+
+[[redirects]]
+  from = "/investment-advisory"
+  to = "/investment-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/valuation-services"
+  to = "/valuation-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/financial-advisory"
+  to = "/financial-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/financial-reporting"
+  to = "/financial-reporting.html"
+  status = 200
+
+[[redirects]]
   from = "/tax-return-filing"
   to = "/tax-return-filing.html"
+  status = 200
+
+[[redirects]]
+  from = "/corporate-legal-filings"
+  to = "/corporate-legal-filings.html"
+  status = 200
+
+[[redirects]]
+  from = "/regulatory-compliance"
+  to = "/regulatory-compliance.html"
+  status = 200
+
+[[redirects]]
+  from = "/sustainability-reporting"
+  to = "/sustainability-reporting.html"
+  status = 200
+
+[[redirects]]
+  from = "/esg-advisory"
+  to = "/esg-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/climate-ghg-advisory"
+  to = "/climate-ghg-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/sustainability-strategy"
+  to = "/sustainability-strategy.html"
+  status = 200
+
+[[redirects]]
+  from = "/capacity-building-training"
+  to = "/capacity-building-training.html"
+  status = 200
+
+[[redirects]]
+  from = "/organisational-development"
+  to = "/organisational-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/hr-advisory"
+  to = "/hr-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/recruitment-services"
+  to = "/recruitment-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/training-capacity-building"
+  to = "/training-capacity-building.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-digital-marketing-strategies"
+  to = "/blog-digital-marketing-strategies.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-seo-best-practices"
+  to = "/blog-seo-best-practices.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-social-media-marketing"
+  to = "/blog-social-media-marketing.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-website-performance"
+  to = "/blog-website-performance.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-understanding-esg-reporting"
+  to = "/blog-understanding-esg-reporting.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-financial-planning-smes"
+  to = "/blog-financial-planning-smes.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-tax-return-filing-pakistan"
+  to = "/blog-tax-return-filing-pakistan.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-hr-strategy-organisational-growth"
+  to = "/blog-hr-strategy-organisational-growth.html"
   status = 200
 
 [[headers]]
