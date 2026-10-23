@@ -201,17 +201,35 @@
             });
         });
 
-        // Submenu hover / click accessibility
+        // Submenu hover / click accessibility & right boundary overflow check
         const submenus = document.querySelectorAll('.dropdown-submenu');
         submenus.forEach(function (sub) {
             const parentLink = sub.querySelector('.submenu-parent');
-            if (!parentLink) return;
+            const subDropdown = sub.querySelector('.submenu-dropdown');
+            if (!parentLink || !subDropdown) return;
+
+            function checkBoundary() {
+                const rect = subDropdown.getBoundingClientRect();
+                const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+                if (rect.right > viewportWidth - 10) {
+                    subDropdown.classList.add('open-left');
+                } else {
+                    subDropdown.classList.remove('open-left');
+                }
+            }
+
+            sub.addEventListener('mouseenter', checkBoundary);
+            parentLink.addEventListener('focus', checkBoundary);
 
             // Touch accessibility: first tap opens submenu if touch device
             parentLink.addEventListener('click', function (e) {
                 if (window.matchMedia('(hover: none)').matches && !sub.classList.contains('open')) {
                     e.preventDefault();
+                    submenus.forEach(function (other) {
+                        if (other !== sub) other.classList.remove('open');
+                    });
                     sub.classList.add('open');
+                    checkBoundary();
                 }
             });
         });

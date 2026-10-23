@@ -361,7 +361,7 @@ font-family: "Poppins", sans-serif;
 }
 
 /* ==========================================================
-   NESTED SUBMENU (ADVISORY & FINANCE -> TAX RETURN FILING)
+   NESTED SERVICES SUBMENUS (ALL 4 CATEGORIES)
 ========================================================== */
 .dropdown-submenu {
     position: relative;
@@ -377,7 +377,9 @@ font-family: "Poppins", sans-serif;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.dropdown-submenu:hover .submenu-arrow {
+.dropdown-submenu:hover .submenu-arrow,
+.dropdown-submenu:focus-within .submenu-arrow,
+.dropdown-submenu.open .submenu-arrow {
     color: #ff343b;
     transform: translateX(3px);
 }
@@ -386,8 +388,10 @@ font-family: "Poppins", sans-serif;
     position: absolute;
     top: -6px;
     left: 100%;
-    width: 250px;
-    padding: 10px 0;
+    min-width: 275px;
+    width: max-content;
+    max-width: 330px;
+    padding: 8px 0;
     background: #101010;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -399,16 +403,36 @@ font-family: "Poppins", sans-serif;
     transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
     z-index: 1001;
     box-sizing: border-box;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-/* Invisible bridge between parent and submenu to eliminate mouse disconnect */
+/* Invisible bridge between parent category and nested submenu to prevent accidental closing */
 .dropdown-submenu > .submenu-dropdown::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -15px;
-    width: 15px;
+    left: -18px;
+    width: 18px;
+}
+
+/* Viewport overflow protection: opens toward left if near right edge */
+.dropdown-submenu > .submenu-dropdown.open-left {
+    left: auto;
+    right: 100%;
+    transform: translateX(-8px);
+}
+.dropdown-submenu:hover > .submenu-dropdown.open-left,
+.dropdown-submenu:focus-within > .submenu-dropdown.open-left,
+.dropdown-submenu.open > .submenu-dropdown.open-left {
+    transform: translateX(0);
+}
+.dropdown-submenu > .submenu-dropdown.open-left::before {
+    left: auto;
+    right: -18px;
 }
 
 .dropdown-submenu:hover > .submenu-dropdown,
@@ -422,9 +446,9 @@ font-family: "Poppins", sans-serif;
 
 .dropdown-submenu > .submenu-dropdown > a {
     display: block;
-    padding: 10px 20px;
+    padding: 9px 20px;
     font-family: "Poppins", sans-serif;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
@@ -436,7 +460,7 @@ font-family: "Poppins", sans-serif;
 .dropdown-submenu > .submenu-dropdown > a:focus,
 .dropdown-submenu > .submenu-dropdown > a.active {
     color: #ff343b;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     padding-left: 24px;
 }
 
