@@ -176,16 +176,14 @@ font-family: "Poppins", sans-serif;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
-    z-index: 20;
+    z-index: 100;
     width: calc(100% - 80px);
     max-width: 1600px;
     height: 105px;
     display: grid;
-    grid-template-columns:
-        1fr
-        auto
-        1fr;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
+    box-sizing: border-box;
 }
 /* ==========================================================
    LOGO
@@ -247,12 +245,17 @@ font-family: "Poppins", sans-serif;
 .desktop-nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 30px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
-.nav-item {
-    position: relative;
+.desktop-nav .nav-item,
+.desktop-nav .nav-link {
+    flex-shrink: 0;
+    white-space: nowrap;
 }
-.nav-link {
+.desktop-nav .nav-link {
     position: relative;
     display: flex;
     align-items: center;
@@ -266,134 +269,177 @@ font-family: "Poppins", sans-serif;
     line-height: 1;
     font-weight: 500;
     cursor: pointer;
+    text-decoration: none;
     transition: color .25s ease;
 }
-.nav-link:hover,
-.nav-link.active {
+.desktop-nav .nav-link:hover,
+.desktop-nav .nav-link.active {
     color: #ff343b;
 }
 .nav-arrow {
     font-size: 11px;
     transition: transform .25s ease;
+    display: inline-block;
 }
+.dropdown:hover .nav-arrow,
 .dropdown.open .nav-arrow {
     transform: rotate(180deg);
 }
+
 /* ==========================================================
-   DESKTOP DROPDOWNS
+   DESKTOP COMPACT BLACK SERVICES DROPDOWN
 ========================================================== */
+.nav-item.dropdown {
+    position: relative;
+}
+
 .dropdown-menu {
     position: absolute;
-    left: -20px;
-    top: calc(100% + 22px);
-    width: 410px;
+    left: 50%;
+    top: calc(100% + 18px);
+    transform: translateX(-50%) translateY(10px);
+    width: 320px;
     padding: 12px 0;
-    background: #111;
-    border:
-        1px
-        solid
-        rgba(255, 255, 255, .08);
-    box-shadow:
-        0
-        18px
-        50px
-        rgba(0, 0, 0, .25);
+    background: #101010;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(12px);
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    z-index: 1000;
+    overflow: visible;
+    box-sizing: border-box;
 }
+
+/* Invisible hover bridge to prevent accidental menu closing between trigger and dropdown */
 .dropdown-menu::before {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    top: -24px;
-    height: 24px;
+    top: -20px;
+    height: 20px;
 }
-.dropdown-menu a {
-    display: block;
-    padding:
-        10px
-        20px;
+
+.dropdown-menu > a,
+.dropdown-submenu > .submenu-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 22px;
     font-family: "Poppins", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    color: rgba(255,255,255,.75);
-    transition:
-        color .2s ease,
-        padding-left .2s ease;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%;
+    transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
 }
-.dropdown-menu a:hover {
-    padding-left: 25px;
+
+.dropdown-menu > a:hover,
+.dropdown-menu > a:focus,
+.dropdown-menu > a.active,
+.dropdown-submenu:hover > .submenu-parent,
+.dropdown-submenu > .submenu-parent:focus,
+.dropdown-submenu > .submenu-parent.active {
     color: #ff343b;
+    background: rgba(255, 255, 255, 0.03);
+    padding-left: 26px;
 }
+
+/* Open states for desktop dropdown */
 .nav-item.dropdown:hover > .dropdown-menu,
+.nav-item.dropdown:focus-within > .dropdown-menu,
 .nav-item.dropdown.open > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
+
 /* ==========================================================
-   ADVISORY & FINANCE - NESTED SUBMENU
+   NESTED SUBMENU (ADVISORY & FINANCE -> TAX RETURN FILING)
 ========================================================== */
-.dropdown-menu {
-    overflow: visible;
-}
 .dropdown-submenu {
     position: relative;
-}
-.dropdown-menu .dropdown-submenu > .submenu-parent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
-.dropdown-submenu > .submenu-parent .submenu-arrow {
+
+.dropdown-submenu .submenu-arrow {
+    font-size: 18px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.6);
     margin-left: auto;
-    padding-left: 10px;
+    padding-left: 12px;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
-.dropdown-menu .dropdown-submenu > .submenu-dropdown {
+
+.dropdown-submenu:hover .submenu-arrow {
+    color: #ff343b;
+    transform: translateX(3px);
+}
+
+.dropdown-submenu > .submenu-dropdown {
     position: absolute;
-    top: -12px;
+    top: -6px;
     left: 100%;
-    width: 260px;
-    padding: 12px 0;
-    background: #111;
-    border: 1px solid rgba(255,255,255,.08);
-    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    width: 250px;
+    padding: 10px 0;
+    background: #101010;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateX(12px);
-    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
-    z-index: 100;
+    transform: translateX(8px);
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    z-index: 1001;
+    box-sizing: border-box;
 }
-.dropdown-menu .dropdown-submenu:hover > .submenu-dropdown {
+
+/* Invisible bridge between parent and submenu to eliminate mouse disconnect */
+.dropdown-submenu > .submenu-dropdown::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -15px;
+    width: 15px;
+}
+
+.dropdown-submenu:hover > .submenu-dropdown,
+.dropdown-submenu:focus-within > .submenu-dropdown,
+.dropdown-submenu.open > .submenu-dropdown {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translateX(0);
 }
-.dropdown-menu .dropdown-submenu > .submenu-dropdown > a {
+
+.dropdown-submenu > .submenu-dropdown > a {
     display: block;
     padding: 10px 20px;
     font-family: "Poppins", sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
-    color: rgba(255,255,255,.75);
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
     white-space: nowrap;
-    transition: color .2s ease, padding-left .2s ease;
+    transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
 }
-.dropdown-menu .dropdown-submenu > .submenu-dropdown > a:hover {
-    padding-left: 25px;
+
+.dropdown-submenu > .submenu-dropdown > a:hover,
+.dropdown-submenu > .submenu-dropdown > a:focus,
+.dropdown-submenu > .submenu-dropdown > a.active {
     color: #ff343b;
+    background: rgba(255, 255, 255, 0.03);
+    padding-left: 24px;
 }
+
 /* ==========================================================
    HEADER RIGHT
 ========================================================== */
@@ -1043,14 +1089,19 @@ font-family: "Poppins", sans-serif;
 /* ==========================================================
    LAPTOP
 ========================================================== */
+@media (max-width: 1400px) {
+    .desktop-nav {
+        gap: 20px;
+    }
+    .desktop-nav .nav-link {
+        font-size: 20px;
+    }
+}
 @media (max-width: 1350px) {
     .slide-container,
     .navbar,
     .hero-bottom {
         width: calc(100% - 60px);
-    }
-    .desktop-nav {
-        gap: 21px;
     }
     .slide-container {
         grid-template-columns:
@@ -1060,6 +1111,26 @@ font-family: "Poppins", sans-serif;
     }
     .heading-big {
         letter-spacing: -5px;
+    }
+}
+@media (max-width: 1250px) {
+    .navbar {
+        width: calc(100% - 40px);
+    }
+    .desktop-nav {
+        gap: 15px;
+    }
+    .desktop-nav .nav-link {
+        font-size: 18px;
+    }
+    .nav-actions {
+        gap: 16px;
+    }
+    .touch-btn {
+        min-width: 110px;
+        padding: 0 20px;
+        font-size: 16px;
+        height: 38px;
     }
 }
 /* ==========================================================
@@ -7352,377 +7423,7 @@ html.lenis, html.lenis body {
 
 
 
-/* ==========================================================
-   DESKTOP PREMIUM WHITE SERVICES MEGA MENU (MASTER DESIGN)
-========================================================== */
-.desktop-nav .nav-item.dropdown-mega {
-    position: static;
-}
-
-.desktop-nav .mega-menu {
-    position: absolute;
-    top: calc(100% + 14px);
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: min(1300px, calc(100vw - 64px));
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.04);
-    padding: 0;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
-    z-index: 9999;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.desktop-nav .mega-menu::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -20px;
-    height: 20px;
-}
-
-.desktop-nav .nav-item.dropdown-mega:hover .mega-menu,
-.desktop-nav .nav-item.dropdown-mega.open .mega-menu,
-.desktop-nav .nav-item.dropdown-mega:focus-within .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-}
-
-.mega-menu-wrapper {
-    display: flex;
-    align-items: stretch;
-    background: #ffffff;
-}
-
-/* Left Area: 4 columns + bottom strip */
-.mega-menu-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.mega-columns-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 30px 24px 22px;
-}
-
-.mega-col {
-    display: flex;
-    flex-direction: column;
-    padding: 0 18px;
-    border-right: 1px solid #f0f0f0;
-}
-
-.mega-col:first-child {
-    padding-left: 0;
-}
-
-.mega-col:last-child {
-    border-right: none;
-    padding-right: 10px;
-}
-
-/* Category Headers */
-.mega-cat-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
-.mega-cat-header:hover {
-    opacity: 0.85;
-}
-
-.mega-cat-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.mega-cat-icon.icon-pink {
-    background: #fff0f2;
-    color: #fc3637;
-}
-
-.mega-cat-icon.icon-green {
-    background: #eaf8f0;
-    color: #22c55e;
-}
-
-.mega-cat-meta {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.mega-cat-num {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #9ca3af;
-    letter-spacing: 0.05em;
-    line-height: 1;
-    margin-bottom: 3px;
-}
-
-.mega-cat-title {
-    font-family: 'Funnel Display', 'Poppins', sans-serif;
-    font-size: 14.5px;
-    font-weight: 700;
-    color: #111111;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: color 0.2s ease;
-}
-
-.mega-cat-header:hover .mega-cat-title {
-    color: #fc3637;
-}
-
-/* Sub-service Link List */
-.mega-sublist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.mega-sublist li a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6.5px 10px;
-    border-radius: 6px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    line-height: 1.35;
-    color: #262626;
-    text-decoration: none;
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-}
-
-.mega-sublist li a span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.mega-arrow {
-    color: #9ca3af;
-    flex-shrink: 0;
-    margin-left: 8px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.mega-sublist li a:hover {
-    color: #fc3637;
-    background: #fff5f5;
-}
-
-.mega-sublist li a:hover .mega-arrow {
-    color: #fc3637;
-    transform: translateX(3px);
-}
-
-/* Bottom Feature Strip */
-.mega-feature-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: #fafafa;
-    border-top: 1px solid #f0f0f0;
-    padding: 15px 20px;
-    margin-top: auto;
-}
-
-.mega-feature-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 4px 14px;
-    border-right: 1px solid #e5e7eb;
-}
-
-.mega-feature-item:first-child {
-    padding-left: 0;
-}
-
-.mega-feature-item:last-child {
-    border-right: none;
-}
-
-.mega-feature-icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mega-feature-text {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.mega-feature-text strong {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12.5px;
-    font-weight: 700;
-    color: #111111;
-    line-height: 1.2;
-    white-space: nowrap;
-}
-
-.mega-feature-text span {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    color: #6b7280;
-    line-height: 1.25;
-    white-space: nowrap;
-}
-
-/* Right Promotional Card */
-.mega-promo-card {
-    width: 320px;
-    flex-shrink: 0;
-    margin: 12px 12px 12px 0;
-    border-radius: 14px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 34px 28px;
-    box-sizing: border-box;
-    background: #111111 url('../images/finainces.png') center/cover no-repeat;
-    transition: transform 0.4s ease;
-}
-
-.mega-promo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(12, 12, 12, 0.45) 0%, rgba(10, 10, 10, 0.85) 55%, rgba(5, 5, 5, 0.98) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.mega-promo-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-}
-
-.mega-promo-tag {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px;
-}
-
-.mega-promo-tag .tag-red {
-    color: #fc3637;
-}
-
-.mega-promo-tag .tag-white {
-    color: #ffffff;
-}
-
-.mega-promo-tag .tag-line {
-    width: 36px;
-    height: 2px;
-    background: #fc3637;
-    display: inline-block;
-    border-radius: 2px;
-    margin-left: 4px;
-}
-
-.mega-promo-title {
-    font-family: 'Funnel Display', 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin: 0 0 12px 0;
-}
-
-.mega-promo-desc {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0 0 22px 0;
-}
-
-.mega-promo-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #fc3637 0%, #e0282c 100%);
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 11px 22px;
-    border-radius: 999px;
-    text-decoration: none;
-    align-self: flex-start;
-    box-shadow: 0 4px 14px rgba(252, 54, 55, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.mega-promo-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(252, 54, 55, 0.5);
-}
-
-.mega-promo-card:hover .mega-promo-cta {
-    transform: translateX(3px);
-}
-
-@media (max-width: 1280px) {
-    .desktop-nav .mega-menu {
-        width: calc(100vw - 40px);
-    }
-    .mega-promo-card {
-        width: 280px;
-        padding: 28px 22px;
-    }
-    .mega-promo-title {
-        font-size: 21px;
-    }
-    .mega-col {
-        padding: 0 12px;
-    }
-}
+/* White Mega Menu Removed — Restored Compact Black Services Dropdown */
 
 /* ==========================================================
    MOBILE FULLSCREEN MENU ACCORDION (PHASE 7)

@@ -94,7 +94,7 @@
     }
 
     /* ==========================================================
-       6. CANONICAL NAVIGATION CONTROLLER
+       6. CANONICAL NAVIGATION CONTROLLER (DOM READY)
     ========================================================== */
     document.addEventListener('DOMContentLoaded', function () {
         const burgerBtn = document.getElementById('burgerButton');
@@ -138,11 +138,11 @@
         });
 
         // Close menu when clicking actual navigation destination links
-        const navLinks = document.querySelectorAll('.burger-navigation a');
-        navLinks.forEach(function (link) {
+        const burgerLinks = document.querySelectorAll('.burger-navigation a');
+        burgerLinks.forEach(function (link) {
             link.addEventListener('click', function () {
                 const href = link.getAttribute('href');
-                if (href && href !== '#') {
+                if (href && href !== '#' && !href.startsWith('javascript:')) {
                     closeMenu();
                 }
             });
@@ -184,18 +184,7 @@
             });
         });
 
-        // Close menu when clicking actual navigation destination links
-        const navLinks = document.querySelectorAll('.burger-navigation a');
-        navLinks.forEach(function (link) {
-            link.addEventListener('click', function () {
-                const href = link.getAttribute('href');
-                if (href && href !== '#' && !href.startsWith('javascript:')) {
-                    closeMenu();
-                }
-            });
-        });
-
-        // Desktop Dropdown Toggles (Mega Menu & Dropdowns)
+        // Desktop Dropdown Toggles (Compact Dark Dropdown)
         const desktopDropdowns = document.querySelectorAll('.desktop-nav .dropdown');
         desktopDropdowns.forEach(function (dropdown) {
             const toggle = dropdown.querySelector('.dropdown-toggle');
@@ -212,10 +201,30 @@
             });
         });
 
-        document.addEventListener('click', function () {
-            desktopDropdowns.forEach(function (d) {
-                d.classList.remove('open');
+        // Submenu hover / click accessibility
+        const submenus = document.querySelectorAll('.dropdown-submenu');
+        submenus.forEach(function (sub) {
+            const parentLink = sub.querySelector('.submenu-parent');
+            if (!parentLink) return;
+
+            // Touch accessibility: first tap opens submenu if touch device
+            parentLink.addEventListener('click', function (e) {
+                if (window.matchMedia('(hover: none)').matches && !sub.classList.contains('open')) {
+                    e.preventDefault();
+                    sub.classList.add('open');
+                }
             });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.desktop-nav .dropdown')) {
+                desktopDropdowns.forEach(function (d) {
+                    d.classList.remove('open');
+                });
+                submenus.forEach(function (s) {
+                    s.classList.remove('open');
+                });
+            }
         });
 
         // Keyboard navigation for dropdowns
@@ -223,6 +232,9 @@
             if (e.key === 'Escape') {
                 desktopDropdowns.forEach(function (d) {
                     d.classList.remove('open');
+                });
+                submenus.forEach(function (s) {
+                    s.classList.remove('open');
                 });
             }
         });
@@ -236,10 +248,9 @@
                 }
             });
         });
-        });
 
         /* ==========================================================
-           7. PART 1: DECORATIVE GLASS ELEMENT ANIMATIONS
+           7. DECORATIVE GLASS ELEMENT ANIMATIONS
         ========================================================== */
         if (!prefersReducedMotion && hasGSAP) {
             const cubeContainer = document.querySelector('.about-object-left');
@@ -308,7 +319,41 @@
         /* ==========================================================
            8. SERVICES SECTION: Natural vertical flow (no pinning/stacking)
         ========================================================== */
-        // GSAP pinning and stacking logic completely removed to preserve natural vertical card layout
+        // Sticky pinning & card stacking remain completely removed as requested.
+        // Subtle one-time fade-up entrance for each independent card:
+        if (!prefersReducedMotion && hasGSAP && hasScrollTrigger) {
+            const servicesSec = document.querySelector('.services-section');
+            if (servicesSec) {
+                gsap.from('.services-header', {
+                    scrollTrigger: {
+                        trigger: servicesSec,
+                        start: 'top 82%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 35,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                });
+
+                const serviceCards = document.querySelectorAll('.service-card');
+                if (serviceCards.length) {
+                    serviceCards.forEach(function (card) {
+                        gsap.from(card, {
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 88%',
+                                toggleActions: 'play none none reverse'
+                            },
+                            y: 38,
+                            opacity: 0,
+                            duration: 0.8,
+                            ease: 'power3.out'
+                        });
+                    });
+                }
+            }
+        }
 
         /* ==========================================================
            9. ENHANCED WEBSITE-WIDE PREMIUM SCROLL ANIMATIONS
@@ -374,7 +419,7 @@
             }
 
             if (hasScrollTrigger) {
-                // About Section Reveal & Subtle Parallax
+                // About Section Reveal
                 const aboutSec = document.querySelector('.about-section');
                 if (aboutSec) {
                     const aboutTl = gsap.timeline({
@@ -410,11 +455,6 @@
                         duration: 0.75,
                         ease: 'back.out(1.5)'
                     }, '-=0.5');
-
-                    // Subtle text parallax — intentionally disabled to prevent
-                    // the upward y-shift from creating a visual gap between
-                    // the About section and the Values/Experience panel below.
-                    // gsap.to('.about-content', { y: -30, scrub: 1.2 });
                 }
 
                 // Values / Experience Cards Reveal
@@ -491,7 +531,7 @@
                     }
                 }
 
-                // 03/ WHY CHOOSE US (Enhanced Animation Suite)
+                // 03/ WHY CHOOSE US
                 const whySec = document.querySelector('.why-section');
                 if (whySec) {
                     const whyTl = gsap.timeline({
@@ -540,7 +580,7 @@
                     }, '-=0.8');
                 }
 
-                // Testimonials Section — Premium Reveal
+                // 04/ REAL TESTIMONIALS
                 const testSec = document.querySelector('.testimonials-section');
                 if (testSec) {
                     const testTl = gsap.timeline({
@@ -551,28 +591,18 @@
                         }
                     });
 
-                    // Heading label reveal
-                    testTl.from('.testimonials-label', {
-                        y: 22,
-                        opacity: 0,
-                        duration: 0.65,
-                        ease: 'power3.out'
-                    })
-                    // Main heading line by line
-                    .from('.testimonials-heading h2', {
+                    testTl.from('.testimonials-heading h2', {
                         y: 45,
                         opacity: 0,
                         duration: 0.9,
                         ease: 'power3.out'
-                    }, '-=0.35')
-                    // Rating block
+                    })
                     .from('.testimonials-rating', {
                         y: 28,
                         opacity: 0,
                         duration: 0.75,
                         ease: 'power3.out'
                     }, '-=0.5')
-                    // Rating stars stagger
                     .from('.testimonials-rating svg, .testimonials-rating .star, .rating-star', {
                         scale: 0,
                         opacity: 0,
@@ -580,7 +610,6 @@
                         stagger: 0.08,
                         ease: 'back.out(2)'
                     }, '-=0.4')
-                    // Testimonial cards staggered entrance
                     .fromTo('.testimonial-card', {
                         y: 55,
                         opacity: 0,
@@ -593,7 +622,6 @@
                         stagger: 0.16,
                         ease: 'power3.out'
                     }, '-=0.3')
-                    // Quote marks scale+rotate pop-in entrance
                     .fromTo('.quote-mark', {
                         scale: 0.7,
                         rotation: -12
@@ -605,7 +633,6 @@
                         ease: 'back.out(1.8)',
                         clearProps: 'transform'
                     }, '-=0.55')
-                    // Avatar images reveal
                     .from('.testimonial-person img', {
                         scale: 0.8,
                         opacity: 0,
@@ -613,7 +640,6 @@
                         stagger: 0.12,
                         ease: 'back.out(1.5)'
                     }, '-=0.55')
-                    // Person name + role
                     .from('.testimonial-person h3, .testimonial-person span', {
                         y: 14,
                         opacity: 0,
@@ -621,11 +647,9 @@
                         stagger: 0.06,
                         ease: 'power2.out'
                     }, '-=0.4');
-
-                    // Refined desktop hover — handled via CSS transition (no GSAP loop needed)
                 }
 
-                // Connect / Newsletter Section
+                // CONNECT / NEWSLETTER / FOOTER CTA
                 const connSec = document.querySelector('.connect-section');
                 if (connSec) {
                     gsap.from('.connect-heading h2', {
@@ -654,23 +678,26 @@
                     });
                 }
 
-                // Subpages reveals
-                const subpageHero = document.querySelector('.about-page-hero, .growth-hero');
+                // INNER PAGES HERO & SECTION REVEALS
+                const subpageHero = document.querySelector('.about-page-hero, .growth-hero, .inner-hero-banner, .svc-overview-hero, .svc-detail-hero');
                 if (subpageHero) {
-                    gsap.from(subpageHero.querySelector('h1, .growth-title'), {
-                        opacity: 0,
-                        y: 35,
-                        duration: 0.85,
-                        ease: 'power3.out'
-                    });
+                    const heroTitle = subpageHero.querySelector('h1, .growth-title, .svc-hero-title, .inner-hero-title');
+                    if (heroTitle) {
+                        gsap.from(heroTitle, {
+                            opacity: 0,
+                            y: 35,
+                            duration: 0.85,
+                            ease: 'power3.out'
+                        });
+                    }
                 }
 
-                const subSections = document.querySelectorAll('.who-section, .dc-section, .contact-section, .gs-page-section, .gs-details-section');
+                const subSections = document.querySelectorAll('.who-section, .dc-section, .contact-section, .gs-page-section, .gs-details-section, .svc-overview-section, .svc-detail-section');
                 subSections.forEach(function (sec) {
                     gsap.from(sec.children, {
                         scrollTrigger: {
                             trigger: sec,
-                            start: 'top 80%',
+                            start: 'top 82%',
                             toggleActions: 'play none none reverse'
                         },
                         y: 35,
