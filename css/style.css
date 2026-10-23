@@ -506,7 +506,7 @@ font-family: "Poppins", sans-serif;
 .burger {
     width: 30px;
     padding: 0;
-    display: flex;
+    display: none !important;
     flex-direction: column;
     align-items: flex-end;
     gap: 5px;
@@ -2702,14 +2702,15 @@ font-family: "Poppins", sans-serif;
 .creative-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-     background-attachment: fixed;
+    min-height: auto;
+    background-attachment: fixed;
     background-image: url("../images/h1-bg-01.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     overflow: hidden;
+    padding: 95px 0 85px;
 }
 /* subtle dark layer over image */
 .creative-overlay {
@@ -2723,9 +2724,9 @@ font-family: "Poppins", sans-serif;
     z-index: 2;
     width: calc(100% - 80px);
     max-width: 1220px;
-    min-height: 100vh;
+    min-height: auto;
     margin: 0 auto;
-    padding: 90px 0 70px;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -2753,18 +2754,28 @@ font-family: "Poppins", sans-serif;
    HEADING IMAGE
 ========================================== */
 .creative-pill {
+    position: relative;
     flex: 0 0 auto;
     width: 245px;
     height: 125px;
     border-radius: 100px;
     overflow: hidden;
     margin-right: 35px;
+    background: #000;
 }
+.creative-pill video,
 .creative-pill img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.creative-pill-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 52, 59, 0.12) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: inherit;
 }
 /* ==========================================
    BOTTOM CONTENT
@@ -2890,6 +2901,7 @@ font-family: "Poppins", sans-serif;
         flex-shrink: 0 !important;
         overflow: hidden !important;
     }
+    .creative-pill video,
     .creative-pill img {
         width: 100% !important;
         height: 100% !important;
@@ -2971,7 +2983,7 @@ font-family: "Poppins", sans-serif;
     width: 100%;
     background: #fff;
     color: #000;
-    padding: 150px 20px 90px;
+    padding: 85px 20px 75px;
     box-sizing: border-box;
 }
 .why-container {
@@ -3377,13 +3389,14 @@ font-family: "Poppins", sans-serif;
 .testimonials-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     background-image: url("../images/about-banner.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     overflow: hidden;
+    padding: 85px 0 75px;
 }
 /* optional dark overlay */
 .testimonials-overlay {
@@ -3397,9 +3410,9 @@ font-family: "Poppins", sans-serif;
     z-index: 2;
     width: calc(100% - 80px);
     max-width: 1308px;
-    min-height: 100vh;
+    min-height: auto;
     margin: 0 auto;
-    padding: 133px 0 55px;
+    padding: 0;
     box-sizing: border-box;
 }
 /* =========================================
@@ -3666,7 +3679,7 @@ font-family: "Poppins", sans-serif;
 .connect-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     background-image: url("../images/h1-bg-02.jpg");
     background-size: cover;
     background-position: center;
@@ -3675,6 +3688,7 @@ font-family: "Poppins", sans-serif;
     background-attachment: fixed;
     color: #fff;
     overflow: hidden;
+    padding: 85px 0 75px;
 }
 /* Optional overlay */
 .connect-overlay {
@@ -3692,9 +3706,9 @@ font-family: "Poppins", sans-serif;
     z-index: 2;
     width: calc(100% - 80px);
     max-width: 1240px;
-    min-height: 100vh;
+    min-height: auto;
     margin: 0 auto;
-    padding: 120px 0 90px;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -3865,7 +3879,7 @@ font-family: "Poppins", sans-serif;
     width: 100%;
     background: #000;
     color: #fff;
-    padding: 100px 24px 45px;
+    padding: 70px 24px 35px;
     box-sizing: border-box;
     position: relative;
     z-index: 2;
@@ -3883,7 +3897,7 @@ font-family: "Poppins", sans-serif;
     grid-template-columns: 1.8fr 1fr 1fr 1fr;
     gap: 65px;
     align-items: start;
-    padding-bottom: 70px;
+    padding-bottom: 45px;
 }
 /* IMAGE */
 .footer-image {
@@ -8673,4 +8687,25 @@ html.lenis, html.lenis body {
         justify-content: center;
     }
 
+}
+
+/* ==========================================================
+   DESKTOP BURGER GUARANTEE (>= 1151px)
+   Burger strictly hidden, desktop navigation strictly visible
+========================================================== */
+@media (min-width: 1151px) {
+    .burger,
+    .navbar .burger,
+    .inner-hero-banner .navbar .burger,
+    .about-page-hero .navbar .burger,
+    .gs-page-hero .navbar .burger {
+        display: none !important;
+    }
+    .desktop-nav,
+    .navbar .desktop-nav,
+    .inner-hero-banner .navbar .desktop-nav,
+    .about-page-hero .navbar .desktop-nav,
+    .gs-page-hero .navbar .desktop-nav {
+        display: flex !important;
+    }
 }

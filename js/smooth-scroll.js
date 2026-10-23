@@ -312,12 +312,12 @@
             const aboutSection = document.getElementById('aboutSection') || document.querySelector('.about-section');
 
             if (aboutSection) {
-                // Animation A: Continuous organic floating idle motion (breathing)
+                // Animation A: Continuous organic floating idle motion (breathing) - amplified luxury feel
                 if (cubeImg) {
                     gsap.to(cubeImg, {
-                        y: -18,
-                        rotation: 3.5,
-                        duration: 4.8,
+                        y: -36,
+                        rotation: 7,
+                        duration: 4.2,
                         ease: 'sine.inOut',
                         repeat: -1,
                         yoyo: true
@@ -326,16 +326,16 @@
 
                 if (shapeImg) {
                     gsap.to(shapeImg, {
-                        y: 22,
-                        rotation: -5,
-                        duration: 5.6,
+                        y: 40,
+                        rotation: -8.5,
+                        duration: 5.0,
                         ease: 'sine.inOut',
                         repeat: -1,
                         yoyo: true
                     });
                 }
 
-                // Animation B: Scroll parallax motion with ScrollTrigger
+                // Animation B: Scroll parallax motion with ScrollTrigger - high contrast dynamic travel
                 if (hasScrollTrigger) {
                     if (cubeContainer) {
                         gsap.to(cubeContainer, {
@@ -345,9 +345,9 @@
                                 end: 'bottom top',
                                 scrub: 1.2
                             },
-                            y: -65,
-                            x: 18,
-                            rotation: 5,
+                            y: -140,
+                            x: 35,
+                            rotation: 9,
                             ease: 'none'
                         });
                     }
@@ -360,32 +360,32 @@
                                 end: 'bottom top',
                                 scrub: 1.2
                             },
-                            y: 75,
-                            x: -22,
-                            rotation: -6,
+                            y: 155,
+                            x: -40,
+                            rotation: -11,
                             ease: 'none'
                         });
                     }
                 }
 
-                // Animation C: Interactive Mouse Tracking on Fine-Pointer Devices
+                // Animation C: Interactive Mouse Tracking on Fine-Pointer Devices - reactive 3D depth
                 const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
                 if (isFinePointer && cubeWrap && shapeWrap) {
-                    const cubeQuickX = gsap.quickTo(cubeWrap, 'x', { duration: 0.9, ease: 'power2.out' });
-                    const cubeQuickY = gsap.quickTo(cubeWrap, 'y', { duration: 0.9, ease: 'power2.out' });
-                    const shapeQuickX = gsap.quickTo(shapeWrap, 'x', { duration: 1.1, ease: 'power2.out' });
-                    const shapeQuickY = gsap.quickTo(shapeWrap, 'y', { duration: 1.1, ease: 'power2.out' });
+                    const cubeQuickX = gsap.quickTo(cubeWrap, 'x', { duration: 0.8, ease: 'power2.out' });
+                    const cubeQuickY = gsap.quickTo(cubeWrap, 'y', { duration: 0.8, ease: 'power2.out' });
+                    const shapeQuickX = gsap.quickTo(shapeWrap, 'x', { duration: 0.9, ease: 'power2.out' });
+                    const shapeQuickY = gsap.quickTo(shapeWrap, 'y', { duration: 0.9, ease: 'power2.out' });
 
                     aboutSection.addEventListener('mousemove', function (e) {
                         const rect = aboutSection.getBoundingClientRect();
                         const normX = ((e.clientX - rect.left) / rect.width) - 0.5;
                         const normY = ((e.clientY - rect.top) / rect.height) - 0.5;
 
-                        cubeQuickX(normX * 28);
-                        cubeQuickY(normY * 24);
+                        cubeQuickX(normX * 58);
+                        cubeQuickY(normY * 48);
 
-                        shapeQuickX(normX * -32);
-                        shapeQuickY(normY * -28);
+                        shapeQuickX(normX * -68);
+                        shapeQuickY(normY * -58);
                     });
 
                     aboutSection.addEventListener('mouseleave', function () {
