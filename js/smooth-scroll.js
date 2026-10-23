@@ -300,6 +300,85 @@
         });
 
         /* ==========================================================
+           FOOTER SERVICES EXPANDABLE DROPDOWNS (ACCORDION)
+        ========================================================== */
+        const footerToggles = document.querySelectorAll('.footer-service-toggle');
+        footerToggles.forEach(function (toggle) {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const item = toggle.closest('.footer-service-item');
+                if (!item) return;
+
+                const isAlreadyOpen = item.classList.contains('open');
+
+                // Accordion rule: Only one category dropdown should be expanded at a time
+                document.querySelectorAll('.footer-service-item.open').forEach(function (openItem) {
+                    if (openItem !== item) {
+                        openItem.classList.remove('open');
+                        const otherBtn = openItem.querySelector('.footer-service-toggle');
+                        if (otherBtn) {
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                            const icon = otherBtn.querySelector('.footer-toggle-icon');
+                            if (icon) icon.textContent = '+';
+                        }
+                        const otherSub = openItem.querySelector('.footer-subservices');
+                        if (otherSub) otherSub.setAttribute('aria-hidden', 'true');
+                    }
+                });
+
+                // Toggle current category
+                if (isAlreadyOpen) {
+                    item.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    const icon = toggle.querySelector('.footer-toggle-icon');
+                    if (icon) icon.textContent = '+';
+                    const sub = item.querySelector('.footer-subservices');
+                    if (sub) sub.setAttribute('aria-hidden', 'true');
+                } else {
+                    item.classList.add('open');
+                    toggle.setAttribute('aria-expanded', 'true');
+                    const icon = toggle.querySelector('.footer-toggle-icon');
+                    if (icon) icon.textContent = '−';
+                    const sub = item.querySelector('.footer-subservices');
+                    if (sub) sub.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+
+        // Close footer dropdown on Escape key if focus is inside footer services
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const activeEl = document.activeElement;
+                if (activeEl && activeEl.closest('.footer-col-services')) {
+                    const openItem = activeEl.closest('.footer-service-item.open');
+                    if (openItem) {
+                        openItem.classList.remove('open');
+                        const btn = openItem.querySelector('.footer-service-toggle');
+                        if (btn) {
+                            btn.setAttribute('aria-expanded', 'false');
+                            const icon = btn.querySelector('.footer-toggle-icon');
+                            if (icon) icon.textContent = '+';
+                            btn.focus();
+                        }
+                    }
+                }
+            }
+        });
+
+        // Highlight active page link in footer
+        try {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.footer-subservices a, .footer-service-title').forEach(function (link) {
+                const href = link.getAttribute('href');
+                if (href && href === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        } catch (err) {}
+
+        /* ==========================================================
            7. DECORATIVE GLASS ELEMENT ANIMATIONS (HOMEPAGE)
         ========================================================== */
         if (!prefersReducedMotion && hasGSAP) {

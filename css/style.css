@@ -8709,3 +8709,168 @@ html.lenis, html.lenis body {
         display: flex !important;
     }
 }
+
+/* ==========================================================
+   FOOTER SERVICES EXPANDABLE DROPDOWNS
+========================================================== */
+.footer-services-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.footer-service-item {
+    position: relative;
+    list-style: none !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+}
+.footer-service-item:last-child {
+    margin-bottom: 0 !important;
+}
+.footer-service-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+}
+.footer-service-title {
+    position: relative;
+    display: inline-block;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16.5px !important;
+    line-height: 1.35 !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease, transform 0.25s ease !important;
+    flex-grow: 1;
+}
+.footer-service-title:hover,
+.footer-service-title:focus {
+    color: #ff3438 !important;
+    transform: translateX(3px) !important;
+}
+.footer-service-title.active {
+    color: #ff3438 !important;
+    font-weight: 500 !important;
+}
+.footer-service-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    margin: -4px 0 -4px auto;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+    color: #a1a1aa;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.footer-service-toggle:hover,
+.footer-service-toggle:focus {
+    color: #ff3438;
+    border-color: #ff3438;
+    background: rgba(255, 52, 56, 0.08);
+    outline: none;
+}
+.footer-service-toggle:focus-visible {
+    outline: 2px solid #ff3438;
+    outline-offset: 2px;
+}
+.footer-service-item.open .footer-service-toggle {
+    color: #ff3438;
+    border-color: #ff3438;
+    background: rgba(255, 52, 56, 0.12);
+}
+.footer-toggle-icon {
+    display: inline-block;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 400;
+    user-select: none;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+/* Sub-services list (smooth accordion transition) */
+.footer-subservices {
+    list-style: none !important;
+    padding: 0 0 0 12px !important;
+    margin: 0 !important;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    border-left: 2px solid rgba(255, 52, 56, 0.2);
+    transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, margin 0.25s ease, border-color 0.25s ease;
+}
+.footer-service-item.open > .footer-subservices {
+    max-height: 460px;
+    opacity: 1;
+    pointer-events: auto;
+    margin-top: 10px !important;
+    margin-bottom: 8px !important;
+    border-left-color: rgba(255, 52, 56, 0.5);
+}
+.footer-subservices li {
+    margin-bottom: 7px !important;
+    list-style: none !important;
+    padding: 0 !important;
+}
+.footer-subservices li:last-child {
+    margin-bottom: 2px !important;
+}
+.footer-subservices a {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #a1a1aa !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13.5px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    padding: 2px 0 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+.footer-subservices a:hover,
+.footer-subservices a:focus {
+    color: #ff3438 !important;
+    transform: translateX(3px) !important;
+}
+.footer-subservices a.active {
+    color: #ff3438 !important;
+    font-weight: 500 !important;
+}
+.footer-sub-bullet {
+    display: inline-block;
+    color: #ff3438;
+    font-size: 10px;
+    margin-right: 8px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0;
+}
+.footer-subservices a:hover .footer-sub-bullet,
+.footer-subservices a:focus .footer-sub-bullet {
+    transform: translateX(2px);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .footer-service-toggle {
+        min-width: 44px !important;
+        min-height: 44px !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+    .footer-toggle-icon {
+        font-size: 20px !important;
+    }
+}
