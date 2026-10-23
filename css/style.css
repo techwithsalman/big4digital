@@ -942,7 +942,7 @@ font-family: "Poppins", sans-serif;
 ========================================================== */
 .burger-submenu {
     max-height: 0;
-    padding-left: 38px;
+    padding-left: 20px;
     overflow: hidden;
     opacity: 0;
     transition:
@@ -952,49 +952,59 @@ font-family: "Poppins", sans-serif;
 }
 .burger-nav-item.open > .burger-submenu,
 .burger-nav-item.open .burger-submenu {
-    max-height: 500px;
+    max-height: 2000px;
     padding-top: 14px;
     opacity: 1;
 }
 .burger-nav-item.open > .burger-nav-link i,
-.burger-nav-item.open .burger-nav-link i {
+.burger-nav-item.open .burger-nav-link i,
+.burger-nav-item.open .burger-arrow {
     transform: rotate(180deg);
 }
 .burger-submenu a {
     display: block;
     width: fit-content;
     margin-bottom: 9px;
-    color: #888;
+    color: #9ca3af;
     font-family: "Poppins", sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     transition:
         color .2s ease,
         transform .2s ease;
 }
-.burger-submenu a:hover {
-    color: #fff;
-    transform: translateX(5px);
+.burger-submenu a:hover,
+.burger-submenu a.active {
+    color: #ff3438;
+    transform: translateX(4px);
 }
 .burger-subitem {
-    margin: 8px 0;
+    margin: 6px 0;
 }
 .burger-subitem-link {
     display: inline-flex !important;
     align-items: center;
     gap: 6px;
-    color: #bbb !important;
+    color: #ffffff !important;
+}
+.burger-subitem-link:hover,
+.burger-subitem-link.active {
+    color: #ff3438 !important;
 }
 .burger-nested-dropdown {
     padding-left: 14px;
     margin-top: 6px;
     margin-bottom: 6px;
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 .burger-nested-dropdown a {
-    color: #ff343b !important;
-    font-size: 12px !important;
+    color: #9ca3af !important;
+    font-size: 14px !important;
     margin-bottom: 5px;
+}
+.burger-nested-dropdown a:hover,
+.burger-nested-dropdown a.active {
+    color: #ff3438 !important;
 }
 .burger-touch-btn {
     display: inline-flex !important;
@@ -1161,13 +1171,82 @@ font-family: "Poppins", sans-serif;
    TABLET
 ========================================================== */
 @media (max-width: 1150px) {
-    .desktop-nav {
-        display: none;
+    .desktop-nav,
+    .navbar .desktop-nav,
+    .inner-hero-banner .navbar .desktop-nav,
+    .about-page-hero .navbar .desktop-nav,
+    .gs-page-hero .navbar .desktop-nav {
+        display: none !important;
     }
-    .navbar {
-        grid-template-columns:
-            1fr
-            auto;
+    .navbar,
+    .inner-hero-banner .navbar,
+    .about-page-hero .navbar,
+    .gs-page-hero .navbar {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 82px !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: transparent !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        z-index: 999 !important;
+        margin: 0 !important;
+    }
+    .navbar .logo,
+    .inner-hero-banner .navbar .logo,
+    .about-page-hero .navbar .logo,
+    .gs-page-hero .navbar .logo {
+        display: inline-flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .navbar .logo img,
+    .inner-hero-banner .navbar .logo img,
+    .about-page-hero .navbar .logo img,
+    .gs-page-hero .navbar .logo img {
+        height: 38px !important;
+        width: auto !important;
+        max-height: 38px !important;
+        display: block !important;
+    }
+    .navbar .nav-actions,
+    .inner-hero-banner .navbar .nav-actions,
+    .about-page-hero .navbar .nav-actions,
+    .gs-page-hero .navbar .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+        gap: 12px !important;
+    }
+    .navbar .burger,
+    .inner-hero-banner .navbar .burger,
+    .about-page-hero .navbar .burger,
+    .gs-page-hero .navbar .burger {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        width: 44px !important;
+        height: 44px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
     }
     .slide-container {
         display: block;
@@ -1848,44 +1927,40 @@ font-family: "Poppins", sans-serif;
     left: 266px;
     top: 292px;
     width: 294px;
-    transform: translate3d(var(--cube-x, 0px), var(--cube-y, 0px), 0) rotate(var(--cube-r, 0deg));
+    will-change: transform;
 }
-.about-object-left img {
+.about-object-left-wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+.about-object-left img,
+.about-object-left-img {
     display: block;
     width: 100%;
     height: auto;
-    opacity: 0;
-    transform: scale(.9) rotate(-7deg);
     filter: drop-shadow(0 18px 25px rgba(70,70,100,.06));
-    will-change: transform, opacity;
-}
-.about-section.is-visible .about-object-left img {
-    animation: cubeAppear 1s cubic-bezier(.22,1,.36,1) .12s forwards;
-}
-@keyframes cubeAppear {
-    from { opacity: 0; transform: scale(.86) rotate(-10deg); }
-    to { opacity: 1; transform: scale(1) rotate(0); }
+    will-change: transform;
 }
 .about-object-right {
     right: -115px;
     top: -72px;
     width: 455px;
-    transform: translate3d(var(--shape-x, 0px), var(--shape-y, 0px), 0) rotate(var(--shape-r, 0deg));
+    will-change: transform;
 }
-.about-object-right img {
+.about-object-right-wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+.about-object-right img,
+.about-object-right-img {
     display: block;
     width: 100%;
     height: auto;
-    opacity: 0;
-    transform: scale(.94) rotate(4deg);
-    will-change: transform, opacity;
-}
-.about-section.is-visible .about-object-right img {
-    animation: shapeAppear 1.08s cubic-bezier(.22,1,.36,1) .08s forwards;
-}
-@keyframes shapeAppear {
-    from { opacity: 0; transform: scale(.90) rotate(8deg); }
-    to { opacity: 1; transform: scale(1) rotate(0); }
+    will-change: transform;
 }
 @media (min-width: 1600px) {
     .about-section { height: 800px; min-height: 800px; }
@@ -7480,24 +7555,36 @@ html.lenis, html.lenis body {
     font-size: 16px;
     transition: transform 0.3s ease;
 }
+.burger-nav-item button.burger-nav-link .burger-arrow {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 .burger-nav-item.open button.burger-nav-link .burger-arrow {
     transform: rotate(180deg);
 }
 .burger-nav-item.has-dropdown .burger-submenu {
-    display: none;
+    display: flex;
     flex-direction: column;
     padding-left: 20px;
-    padding-bottom: 12px;
-    gap: 10px;
+    padding-bottom: 0;
+    gap: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, padding 0.3s ease;
 }
 .burger-nav-item.open > .burger-submenu {
-    display: flex;
+    max-height: 2200px;
+    opacity: 1;
+    padding-bottom: 14px;
 }
 .burger-subitem {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 8px;
+    padding-bottom: 4px;
 }
 .burger-subitem:last-child {
     border-bottom: none;
@@ -7514,34 +7601,52 @@ html.lenis, html.lenis body {
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
-    padding: 8px 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     flex-grow: 1;
+    transition: color 0.2s ease;
 }
-.burger-subitem-link:hover {
-    color: #ff3438;
+.burger-subitem-link:hover,
+.burger-subitem-link.active {
+    color: #ff3438 !important;
 }
 .burger-sub-toggle {
     background: transparent;
     border: none;
     color: #ff3438;
-    font-size: 20px;
-    padding: 6px 12px;
+    font-size: 22px;
+    line-height: 1;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+    padding: 0;
 }
 .burger-subitem.open .burger-sub-toggle {
     transform: rotate(90deg);
 }
 .burger-nested-dropdown {
-    display: none;
+    display: flex;
     flex-direction: column;
     padding-left: 14px;
-    gap: 8px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, margin 0.3s ease;
 }
 .burger-subitem.open > .burger-nested-dropdown {
-    display: flex;
+    max-height: 950px;
+    opacity: 1;
+    margin-top: 6px;
+    margin-bottom: 10px;
 }
 .burger-nested-dropdown a {
     font-family: 'Poppins', sans-serif;
@@ -7549,11 +7654,15 @@ html.lenis, html.lenis body {
     line-height: 1.4;
     color: #9ca3af;
     text-decoration: none;
-    padding: 6px 0;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
     transition: color 0.2s ease, transform 0.2s ease;
 }
-.burger-nested-dropdown a:hover {
-    color: #ff3438;
+.burger-nested-dropdown a:hover,
+.burger-nested-dropdown a.active {
+    color: #ff3438 !important;
     transform: translateX(4px);
 }
 
@@ -7719,8 +7828,9 @@ html.lenis, html.lenis body {
     max-width: 1600px;
     height: 105px;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 240px 1fr auto;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .inner-hero-container {

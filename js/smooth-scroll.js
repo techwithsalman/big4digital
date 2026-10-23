@@ -160,13 +160,19 @@
                 const isOpen = item.classList.contains('open');
 
                 burgerItems.forEach(function (other) {
-                    if (other !== item) other.classList.remove('open');
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        const otherToggle = other.querySelector('button.burger-nav-link');
+                        if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+                    }
                 });
 
                 if (!isOpen) {
                     item.classList.add('open');
+                    toggle.setAttribute('aria-expanded', 'true');
                 } else {
                     item.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 }
             });
         });
@@ -180,9 +186,35 @@
             subToggle.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
+                const isOpen = sub.classList.contains('open');
                 sub.classList.toggle('open');
+                subToggle.setAttribute('aria-expanded', (!isOpen).toString());
             });
         });
+
+        // Active page detection & highlight for mobile menu
+        try {
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const allBurgerLinks = document.querySelectorAll('.burger-navigation a');
+            allBurgerLinks.forEach(function (link) {
+                const href = link.getAttribute('href');
+                if (href && href === currentPath) {
+                    link.classList.add('active');
+                    const parentSubitem = link.closest('.burger-subitem');
+                    if (parentSubitem) {
+                        parentSubitem.classList.add('open');
+                        const t = parentSubitem.querySelector('.burger-sub-toggle');
+                        if (t) t.setAttribute('aria-expanded', 'true');
+                    }
+                    const parentNavItem = link.closest('.burger-nav-item');
+                    if (parentNavItem) {
+                        parentNavItem.classList.add('open');
+                        const t = parentNavItem.querySelector('button.burger-nav-link');
+                        if (t) t.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            });
+        } catch (err) {}
 
         // Desktop Dropdown Toggles (Compact Dark Dropdown)
         const desktopDropdowns = document.querySelectorAll('.desktop-nav .dropdown');
@@ -268,67 +300,99 @@
         });
 
         /* ==========================================================
-           7. DECORATIVE GLASS ELEMENT ANIMATIONS
+           7. DECORATIVE GLASS ELEMENT ANIMATIONS (HOMEPAGE)
         ========================================================== */
         if (!prefersReducedMotion && hasGSAP) {
             const cubeContainer = document.querySelector('.about-object-left');
             const shapeContainer = document.querySelector('.about-object-right');
+            const cubeWrap = document.querySelector('.about-object-left-wrap');
+            const shapeWrap = document.querySelector('.about-object-right-wrap');
             const cubeImg = document.querySelector('.about-object-left-img');
             const shapeImg = document.querySelector('.about-object-right-img');
             const aboutSection = document.getElementById('aboutSection') || document.querySelector('.about-section');
 
-            // Continuous organic floating idle motion (breathing)
-            if (cubeImg) {
-                gsap.to(cubeImg, {
-                    y: -14,
-                    rotation: 2.5,
-                    duration: 4.6,
-                    ease: 'sine.inOut',
-                    repeat: -1,
-                    yoyo: true
-                });
-            }
-
-            if (shapeImg) {
-                gsap.to(shapeImg, {
-                    y: 18,
-                    rotation: -3.5,
-                    duration: 5.4,
-                    ease: 'sine.inOut',
-                    repeat: -1,
-                    yoyo: true
-                });
-            }
-
-            // Scroll parallax motion with ScrollTrigger
-            if (hasScrollTrigger && aboutSection) {
-                if (cubeContainer) {
-                    gsap.to(cubeContainer, {
-                        scrollTrigger: {
-                            trigger: aboutSection,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: 1.2
-                        },
-                        y: -65,
-                        x: 20,
-                        rotation: 6,
-                        ease: 'none'
+            if (aboutSection) {
+                // Animation A: Continuous organic floating idle motion (breathing)
+                if (cubeImg) {
+                    gsap.to(cubeImg, {
+                        y: -18,
+                        rotation: 3.5,
+                        duration: 4.8,
+                        ease: 'sine.inOut',
+                        repeat: -1,
+                        yoyo: true
                     });
                 }
 
-                if (shapeContainer) {
-                    gsap.to(shapeContainer, {
-                        scrollTrigger: {
-                            trigger: aboutSection,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: 1.2
-                        },
-                        y: 75,
-                        x: -25,
-                        rotation: -8,
-                        ease: 'none'
+                if (shapeImg) {
+                    gsap.to(shapeImg, {
+                        y: 22,
+                        rotation: -5,
+                        duration: 5.6,
+                        ease: 'sine.inOut',
+                        repeat: -1,
+                        yoyo: true
+                    });
+                }
+
+                // Animation B: Scroll parallax motion with ScrollTrigger
+                if (hasScrollTrigger) {
+                    if (cubeContainer) {
+                        gsap.to(cubeContainer, {
+                            scrollTrigger: {
+                                trigger: aboutSection,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: 1.2
+                            },
+                            y: -65,
+                            x: 18,
+                            rotation: 5,
+                            ease: 'none'
+                        });
+                    }
+
+                    if (shapeContainer) {
+                        gsap.to(shapeContainer, {
+                            scrollTrigger: {
+                                trigger: aboutSection,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: 1.2
+                            },
+                            y: 75,
+                            x: -22,
+                            rotation: -6,
+                            ease: 'none'
+                        });
+                    }
+                }
+
+                // Animation C: Interactive Mouse Tracking on Fine-Pointer Devices
+                const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+                if (isFinePointer && cubeWrap && shapeWrap) {
+                    const cubeQuickX = gsap.quickTo(cubeWrap, 'x', { duration: 0.9, ease: 'power2.out' });
+                    const cubeQuickY = gsap.quickTo(cubeWrap, 'y', { duration: 0.9, ease: 'power2.out' });
+                    const shapeQuickX = gsap.quickTo(shapeWrap, 'x', { duration: 1.1, ease: 'power2.out' });
+                    const shapeQuickY = gsap.quickTo(shapeWrap, 'y', { duration: 1.1, ease: 'power2.out' });
+
+                    aboutSection.addEventListener('mousemove', function (e) {
+                        const rect = aboutSection.getBoundingClientRect();
+                        const normX = ((e.clientX - rect.left) / rect.width) - 0.5;
+                        const normY = ((e.clientY - rect.top) / rect.height) - 0.5;
+
+                        cubeQuickX(normX * 28);
+                        cubeQuickY(normY * 24);
+
+                        shapeQuickX(normX * -32);
+                        shapeQuickY(normY * -28);
+                    });
+
+                    aboutSection.addEventListener('mouseleave', function () {
+                        cubeQuickX(0);
+                        cubeQuickY(0);
+                        shapeQuickX(0);
+                        shapeQuickY(0);
                     });
                 }
             }

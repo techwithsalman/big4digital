@@ -664,34 +664,7 @@
   
   
   
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const burger = document.getElementById('burgerButton'),
-            menu = document.getElementById('fullscreenMenu'),
-            close = document.getElementById('menuClose');
-
-        function toggle(open) {
-            if (!menu) return;
-            menu.classList.toggle('open', open);
-            document.body.classList.toggle('menu-open', open)
-        }
-        burger?.addEventListener('click', () => toggle(true));
-        close?.addEventListener('click', () => toggle(false));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') toggle(false)
-        });
-        document.querySelectorAll('.desktop-nav .dropdown-toggle').forEach(btn => btn.addEventListener('click', e => {
-            e.stopPropagation();
-            const parent = btn.closest('.dropdown');
-            document.querySelectorAll('.desktop-nav .dropdown').forEach(x => {
-                if (x !== parent) x.classList.remove('open')
-            });
-            parent.classList.toggle('open')
-        }));
-        document.addEventListener('click', () => document.querySelectorAll('.desktop-nav .dropdown.open').forEach(x => x.classList.remove('open')));
-        document.querySelectorAll('.burger-nav-item button.burger-nav-link').forEach(btn => btn.addEventListener('click', () => btn.closest('.burger-nav-item').classList.toggle('open')));
-    }); 
-    </script>
+  
 
     <script>
     (() => {
