@@ -519,7 +519,7 @@ font-family: "Poppins", sans-serif;
     margin-bottom: 20px;
     color: #ff343b;
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(13px, 1.1vw, 17px);
+    font-size: clamp(14px, 1.25vw, 20px);
     line-height: 1.2;
     font-weight: 600;
     letter-spacing: 2px;
@@ -555,10 +555,10 @@ font-family: "Poppins", sans-serif;
     display: inline-block;
     color: #fff;
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(40px, 4.3vw, 70px);
-    line-height: 1.08;
+    font-size: clamp(48px, 5.5vw, 102px);
+    line-height: 1.0;
     font-weight: 600;
-    letter-spacing: -1.8px;
+    letter-spacing: -2.5px;
     white-space: normal;
     word-break: normal;
     overflow-wrap: break-word;
@@ -569,11 +569,11 @@ font-family: "Poppins", sans-serif;
     display: inline-block;
     color: rgba(255, 255, 255, 0.88);
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(22px, 2.3vw, 34px);
-    line-height: 1.08;
+    font-size: clamp(26px, 2.8vw, 50px);
+    line-height: 1.0;
     font-weight: 500;
     font-style: italic;
-    letter-spacing: -0.8px;
+    letter-spacing: -1px;
     align-self: baseline;
     white-space: nowrap;
     opacity: 1;
@@ -581,11 +581,11 @@ font-family: "Poppins", sans-serif;
 }
 @media (min-width: 1600px) {
     .heading-big {
-        font-size: 72px;
-        letter-spacing: -2px;
+        font-size: 104px;
+        letter-spacing: -3px;
     }
     .heading-small {
-        font-size: 36px;
+        font-size: 52px;
     }
 }
 /* ==========================================================
@@ -1134,11 +1134,11 @@ font-family: "Poppins", sans-serif;
         max-width: 1694px;
     }
     .heading-big {
-        font-size: 70px;
-        letter-spacing: -2px;
+        font-size: 104px;
+        letter-spacing: -3px;
     }
     .heading-small {
-        font-size: 34px;
+        font-size: 52px;
     }
     .menu-content {
         padding:
@@ -7373,7 +7373,7 @@ html.lenis, html.lenis body {
         margin-top: 4px !important;
     }
     .heading-big {
-        font-size: clamp(23px, 6.4vw, 30px) !important;
+        font-size: clamp(28px, 7.5vw, 38px) !important;
         line-height: 1.14 !important;
         letter-spacing: -0.8px !important;
         white-space: normal !important;
@@ -7381,7 +7381,7 @@ html.lenis, html.lenis body {
         overflow-wrap: break-word !important;
     }
     .heading-small {
-        font-size: clamp(15px, 3.8vw, 20px) !important;
+        font-size: clamp(18px, 4.5vw, 24px) !important;
         margin-bottom: 0 !important;
         margin-right: 5px !important;
         letter-spacing: -0.5px !important;
@@ -8945,11 +8945,11 @@ html.lenis, html.lenis body {
         gap: 16px;
     }
     .heading-big {
-        font-size: clamp(32px, 4vw, 42px);
-        letter-spacing: -1.2px;
+        font-size: clamp(40px, 4.8vw, 56px);
+        letter-spacing: -1.5px;
     }
     .heading-small {
-        font-size: clamp(18px, 2.2vw, 24px);
+        font-size: clamp(22px, 2.6vw, 30px);
     }
     .slide-right {
         padding-top: 0;
@@ -8992,10 +8992,10 @@ html.lenis, html.lenis body {
 /* Extra small mobile (320px - 360px) */
 @media (max-width: 360px) {
     .heading-big {
-        font-size: clamp(19px, 6.2vw, 22px) !important;
+        font-size: clamp(22px, 6.8vw, 26px) !important;
     }
     .heading-small {
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
     .slide-container {
         width: calc(100% - 24px) !important;
