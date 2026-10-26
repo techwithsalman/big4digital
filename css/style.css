@@ -54,82 +54,68 @@ h6,
 p {
 font-family: "Poppins", sans-serif;
 }
+/* ==========================================================
+   TOP MARQUEE / ANNOUNCEMENT BAR (REMOVED)
+========================================================== */
 .top-marquee {
-    width: 100%;
-    max-width: 100vw;
-    height: 42px;
-    position: relative;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background: #050505;
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
 }
-.marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marqueeMove 28s linear infinite;
-}
+.marquee-track,
 .marquee-group {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+    display: none !important;
 }
-.marquee-group span {
-    margin: 0 35px;
-    white-space: nowrap;
-    font-family: "Poppins", sans-serif;
-    font-size: 17px;
-    line-height: 1;
-    font-weight: 500;
-}
-.marquee-group b {
-    font-size: 16px;
-    font-weight: 400;
-}
-@keyframes marqueeMove {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
+
 /* ==========================================================
    HERO
 ========================================================== */
 .hero {
     position: relative;
     width: 100%;
-    height: calc(100vh - 42px);
-    min-height: 760px;
+    height: 100vh;
+    min-height: 720px;
+    max-height: 1080px;
     overflow: hidden;
-    background: #111;
+    background: #0a0a0a;
 }
 /* ==========================================================
    SLIDER
 ========================================================== */
-.slides,
+.slides {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
 .slide {
     position: absolute;
     inset: 0;
-}
-.slide {
+    width: 100%;
+    height: 100%;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.055);
+    transform: scale(1.04);
     transition:
-        opacity 1s ease,
-        visibility 1s ease,
-        transform 6.5s ease;
+        opacity 0.8s ease,
+        visibility 0.8s ease,
+        transform 6s ease-out;
+    z-index: 1;
 }
 .slide.active {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
+    z-index: 2;
 }
 /* ==========================================================
    BACKGROUND OVERLAY
@@ -137,18 +123,16 @@ font-family: "Poppins", sans-serif;
 .slide-overlay {
     position: absolute;
     inset: 0;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0, 0, 0, .38) 0%,
-            rgba(0, 0, 0, .10) 48%,
-            rgba(0, 0, 0, .30) 100%
-        );
+    background: linear-gradient(
+        90deg,
+        rgba(5, 5, 5, 0.88) 0%,
+        rgba(5, 5, 5, 0.62) 48%,
+        rgba(5, 5, 5, 0.82) 100%
+    );
     z-index: 1;
 }
 /* ==========================================================
-   MAIN 1920 CONTAINER
-   Smaller side spacing than previous version.
+   MAIN SLIDE CONTAINER
 ========================================================== */
 .slide-container {
     position: relative;
@@ -157,17 +141,14 @@ font-family: "Poppins", sans-serif;
     max-width: 1600px;
     height: 100%;
     margin: 0 auto;
-    padding:
-        100px
-        0
-        120px;
+    padding: 110px 0 110px;
     display: grid;
-    grid-template-columns:
-        minmax(0, 1fr)
-        305px;
+    grid-template-columns: minmax(0, 1fr) 340px;
     align-items: center;
     gap: 55px;
+    box-sizing: border-box;
 }
+
 /* ==========================================================
    HEADER
 ========================================================== */
@@ -531,173 +512,127 @@ font-family: "Poppins", sans-serif;
 ========================================================== */
 .slide-left {
     padding-top: 10px;
+    width: 100%;
 }
 .eyebrow {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     color: #ff343b;
     font-family: "Funnel Display", sans-serif;
-    font-size: 25px;
-    line-height: 1;
+    font-size: clamp(14px, 1.3vw, 20px);
+    line-height: 1.2;
     font-weight: 600;
-    opacity: 0;
-    transform: translateY(20px);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 1;
+    transform: none;
 }
 /* ==========================================================
-   HERO HEADING
-========================================================== */
-/* ==========================================================
-   HERO HEADING - FIXED DESCENDER CUTTING
+   HERO HEADING — RESPONSIVE & NO CLIPPING
 ========================================================== */
 .hero-heading {
     width: 100%;
+    max-width: 100%;
+    overflow: visible;
 }
 .heading-row {
     display: flex;
-    align-items: flex-end;
-    /* animation clipping stays */
-    overflow: hidden;
-    /* Funnel Display needs room for g/p/y descenders */
-    line-height: 1;
-    /* extra clipping room at bottom */
-    padding-bottom: 18px;
-    margin-bottom: -18px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    overflow: visible;
+    line-height: 1.05;
+    padding-bottom: 4px;
+    margin-bottom: 0;
 }
 .heading-row-two {
-    gap: 28px;
-    margin-top: 25px;
+    gap: 16px;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
 }
 .heading-big {
     display: inline-block;
     color: #fff;
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(85px, 7.2vw, 138px);
-    /* IMPORTANT */
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -6px;
-    white-space: nowrap;
-    transform: translateY(125%);
+    font-size: clamp(44px, 5.8vw, 108px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -2px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    opacity: 1;
+    transform: none;
 }
 .heading-small {
     display: inline-block;
-    padding-bottom: 8px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.9);
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(42px, 3.4vw, 63px);
-    /* IMPORTANT */
-    line-height: 1;
-    font-weight: 600;
-    letter-spacing: -3px;
-    transform: translateY(125%);
+    font-size: clamp(24px, 3.2vw, 54px);
+    line-height: 1.05;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -1px;
+    align-self: baseline;
+    white-space: nowrap;
+    opacity: 1;
+    transform: none;
 }
-/* 1920px */
 @media (min-width: 1600px) {
     .heading-big {
-        font-size: 168px;
-        line-height: 1;
+        font-size: 114px;
+        letter-spacing: -3px;
     }
     .heading-small {
-        font-size: 59px;
-        line-height: 1;
-    }
-}
-/* ==========================================================
-   HERO TEXT ANIMATION
-========================================================== */
-.slide.active .eyebrow {
-    animation:
-        fadeUp
-        .65s
-        ease
-        .3s
-        forwards;
-}
-.slide.active
-.heading-row:first-child
-.heading-big {
-    animation:
-        titleReveal
-        .95s
-        cubic-bezier(.16,1,.3,1)
-        .35s
-        forwards;
-}
-.slide.active
-.heading-small {
-    animation:
-        titleReveal
-        .95s
-        cubic-bezier(.16,1,.3,1)
-        .5s
-        forwards;
-}
-.slide.active
-.heading-row-two
-.heading-big {
-    animation:
-        titleReveal
-        .95s
-        cubic-bezier(.16,1,.3,1)
-        .58s
-        forwards;
-}
-@keyframes titleReveal {
-    to {
-        transform: translateY(0);
-    }
-}
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+        font-size: 56px;
     }
 }
 /* ==========================================================
    HERO RIGHT
 ========================================================== */
 .slide-right {
-    padding-top: 85px;
-    opacity: 0;
-    transform: translateX(30px);
-}
-.slide.active .slide-right {
-    animation:
-        rightReveal
-        .8s
-        cubic-bezier(.16,1,.3,1)
-        .8s
-        forwards;
-}
-@keyframes rightReveal {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    padding-top: 20px;
+    opacity: 1;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .slide-right p {
-    width: 362px;
-    margin-bottom: 30px;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 26px;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: 500;
+    font-size: clamp(15px, 1.15vw, 18px);
+    line-height: 1.6;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
 }
 /* ==========================================================
-   DISCOVER BUTTON
+   DISCOVER / EXPLORE CTA BUTTON
 ========================================================== */
 .discover-btn {
     position: relative;
-    width: 172px;
-    height: 47px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: auto;
+    min-width: 190px;
+    height: 48px;
+    padding: 0 28px;
     overflow: hidden;
     border-radius: 50px;
     background: #ff343b;
+    color: #fff;
     font-family: "Funnel Display", sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .discover-btn::before {
     content: "";
@@ -710,20 +645,111 @@ font-family: "Poppins", sans-serif;
     border-radius: 50%;
     background: #fff;
     transition:
-        width .4s ease,
-        height .4s ease;
+        width 0.4s ease,
+        height 0.4s ease;
 }
 .discover-btn:hover::before {
-    width: 190px;
-    height: 190px;
+    width: 340px;
+    height: 340px;
 }
 .discover-btn span {
     position: relative;
     z-index: 2;
-    transition: color .25s ease;
+    transition: color 0.25s ease;
 }
 .discover-btn:hover span {
     color: #111;
+}
+/* ==========================================================
+   HERO SLIDER NAVIGATION CONTROLS (ARROWS & PAGINATION)
+========================================================== */
+.hero-slider-nav {
+    position: absolute;
+    left: 50%;
+    bottom: 76px;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 14px;
+    background: rgba(15, 15, 15, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.slider-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 0;
+}
+.slider-arrow:hover,
+.slider-arrow:focus-visible {
+    background: #ff343b;
+    border-color: #ff343b;
+    transform: scale(1.08);
+    outline: none;
+}
+.slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.slider-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    height: 28px;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.slider-dot .dot-num {
+    font-family: "Funnel Display", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    transition: color 0.3s ease;
+}
+.slider-dot .dot-bar {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transition: all 0.3s ease;
+}
+.slider-dot.active {
+    background: rgba(255, 255, 255, 0.12);
+}
+.slider-dot.active .dot-num {
+    color: #fff;
+}
+.slider-dot.active .dot-bar {
+    width: 18px;
+    border-radius: 10px;
+    background: #ff343b;
+}
+.slider-dot:hover:not(.active) .dot-num {
+    color: rgba(255, 255, 255, 0.85);
+}
+.slider-dot:hover:not(.active) .dot-bar {
+    background: rgba(255, 255, 255, 0.7);
 }
 /* ==========================================================
    HERO BOTTOM
@@ -731,18 +757,19 @@ font-family: "Poppins", sans-serif;
 .hero-bottom {
     position: absolute;
     left: 50%;
-    bottom: 35px;
+    bottom: 24px;
     transform: translateX(-50%);
     z-index: 15;
     width: calc(100% - 80px);
     max-width: 1600px;
     display: grid;
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     font-family: "Funnel Display", sans-serif;
-    font-size: 21px;
+    font-size: clamp(13px, 1.1vw, 17px);
     line-height: 1;
     font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
 }
 .hero-bottom span:nth-child(2),
 .hero-bottom span:nth-child(3) {
@@ -751,6 +778,7 @@ font-family: "Poppins", sans-serif;
 .hero-bottom span:last-child {
     text-align: right;
 }
+
 /* ==========================================================
    FULLSCREEN BURGER MENU
 ========================================================== */
@@ -1283,13 +1311,6 @@ font-family: "Poppins", sans-serif;
    MOBILE
 ========================================================== */
 @media (max-width: 700px) {
-    .top-marquee {
-        height: 36px;
-    }
-    .hero {
-        height: calc(100vh - 36px);
-        min-height: 720px;
-    }
     .navbar {
         width: calc(100% - 40px);
         height: 82px;
@@ -1306,43 +1327,6 @@ font-family: "Poppins", sans-serif;
     }
     .touch-btn {
         display: none;
-    }
-    .slide-container {
-        width: calc(100% - 40px);
-        padding:
-            140px
-            0
-            70px;
-    }
-    .eyebrow {
-        margin-bottom: 20px;
-        font-size: 12px;
-    }
-    .heading-row-two {
-        display: block;
-        margin-top: 18px;
-    }
-    .heading-big {
-        font-size: 17vw;
-        line-height: .9;
-        letter-spacing: -4px;
-        white-space: normal;
-    }
-    .heading-small {
-        display: block;
-        margin-bottom: 15px;
-        padding: 0;
-        font-size: 11vw;
-        letter-spacing: -2px;
-    }
-    .slide-right {
-        width: 100%;
-        margin: 0;
-        padding-top: 45px;
-    }
-    .slide-right p {
-        max-width: 310px;
-        font-size: 14px;
     }
     .hero-bottom {
         display: grid !important;
@@ -7326,8 +7310,8 @@ html.lenis, html.lenis body {
     /* Hero Section & Bottom Metrics - Complete Natural Flow Fix */
     .hero {
         height: auto !important;
-        min-height: 100svh !important;
         min-height: 100vh !important;
+        min-height: 100svh !important;
         display: flex !important;
         flex-direction: column !important;
         position: relative !important;
@@ -7338,8 +7322,17 @@ html.lenis, html.lenis body {
         inset: auto !important;
         width: 100% !important;
         height: auto !important;
-        order: 1 !important;
         display: block !important;
+        flex: 1 0 auto !important;
+    }
+    .hero .slide {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.5s ease, visibility 0.5s ease !important;
     }
     .hero .slide.active {
         position: relative !important;
@@ -7353,25 +7346,90 @@ html.lenis, html.lenis body {
     .hero .slide-container {
         height: auto !important;
         min-height: auto !important;
-        padding-top: 105px !important;
-        padding-bottom: 25px !important;
-        display: block !important;
+        width: calc(100% - 36px) !important;
+        padding-top: 100px !important;
+        padding-bottom: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    .eyebrow {
+        margin-bottom: 10px !important;
+        font-size: 13px !important;
+        letter-spacing: 1.5px !important;
+    }
+    .heading-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: baseline !important;
+        overflow: visible !important;
+        line-height: 1.1 !important;
+    }
+    .heading-row-two {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: baseline !important;
+        gap: 6px !important;
+        margin-top: 4px !important;
+    }
+    .heading-big {
+        font-size: clamp(26px, 7.5vw, 38px) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -1px !important;
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+    }
+    .heading-small {
+        font-size: clamp(17px, 4.5vw, 24px) !important;
+        margin-bottom: 0 !important;
+        margin-right: 6px !important;
+        letter-spacing: -0.5px !important;
+        display: inline-block !important;
     }
     .hero .slide-right {
         width: 100% !important;
         margin: 0 !important;
-        padding-top: 25px !important;
+        padding-top: 10px !important;
         transform: none !important;
     }
     .hero .slide-right p {
         width: 100% !important;
         max-width: 100% !important;
-        margin-bottom: 22px !important;
+        margin-bottom: 18px !important;
         font-size: 14px !important;
-        line-height: 1.5 !important;
+        line-height: 1.55 !important;
+        color: rgba(255, 255, 255, 0.88) !important;
     }
     .hero .discover-btn {
-        margin-bottom: 10px !important;
+        width: auto !important;
+        min-width: 180px !important;
+        max-width: 100% !important;
+        height: 46px !important;
+        padding: 0 24px !important;
+        font-size: 15px !important;
+        margin-bottom: 6px !important;
+    }
+    .hero-slider-nav {
+        position: relative !important;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 14px auto 18px !important;
+        width: fit-content !important;
+        padding: 4px 10px !important;
+        gap: 8px !important;
+    }
+    .slider-arrow {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .slider-dot {
+        padding: 2px 6px !important;
+        height: 24px !important;
+    }
+    .slider-dot .dot-num {
+        font-size: 12px !important;
     }
     .hero-bottom {
         order: 2 !important;
@@ -7381,9 +7439,9 @@ html.lenis, html.lenis body {
         top: auto !important;
         bottom: auto !important;
         transform: none !important;
-        width: calc(100% - 40px) !important;
+        width: calc(100% - 36px) !important;
         max-width: 440px !important;
-        margin: 15px auto 35px !important;
+        margin: 0 auto 28px !important;
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 10px 14px !important;
@@ -8872,5 +8930,83 @@ html.lenis, html.lenis body {
     }
     .footer-toggle-icon {
         font-size: 20px !important;
+    }
+}
+
+/* Tablet Hero Enhancements (769px - 1150px) */
+@media (min-width: 769px) and (max-width: 1150px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-bottom: 20px;
+    }
+    .slide-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 120px 0 30px;
+        gap: 18px;
+        width: calc(100% - 60px);
+    }
+    .heading-big {
+        font-size: clamp(38px, 5.2vw, 56px);
+        letter-spacing: -1.5px;
+    }
+    .heading-small {
+        font-size: clamp(22px, 3.2vw, 32px);
+    }
+    .slide-right {
+        padding-top: 10px;
+        width: 100%;
+        max-width: 580px;
+    }
+    .hero-slider-nav {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        transform: none;
+        margin: 18px auto 22px;
+        width: fit-content;
+    }
+    .hero-bottom {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        transform: none;
+        width: calc(100% - 60px);
+        margin: 0 auto 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 20px;
+    }
+    .hero-bottom span:nth-child(2),
+    .hero-bottom span:nth-child(3),
+    .hero-bottom span:last-child {
+        text-align: left;
+    }
+}
+
+/* Extra small mobile (320px - 360px) */
+@media (max-width: 360px) {
+    .heading-big {
+        font-size: clamp(22px, 7vw, 25px) !important;
+    }
+    .heading-small {
+        font-size: 15px !important;
+    }
+    .slide-container {
+        width: calc(100% - 24px) !important;
+        padding-top: 88px !important;
+    }
+    .hero .discover-btn {
+        min-width: 160px !important;
+        padding: 0 16px !important;
+        font-size: 13.5px !important;
+    }
+    .hero-bottom {
+        width: calc(100% - 24px) !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
     }
 }

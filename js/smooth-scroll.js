@@ -524,7 +524,7 @@
             function animateSlideContent(slide) {
                 if (!slide) return;
                 const eyebrow = slide.querySelector('.eyebrow');
-                const headingRows = slide.querySelectorAll('.heading-row, .heading-big, .heading-small');
+                const headingRows = slide.querySelectorAll('.heading-row');
                 const slideP = slide.querySelector('.slide-right p');
                 const discoverBtn = slide.querySelector('.discover-btn');
 
@@ -536,13 +536,13 @@
                     tl.fromTo(eyebrow, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 });
                 }
                 if (headingRows.length) {
-                    tl.fromTo(headingRows, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.95, stagger: 0.12 }, '-=0.5');
+                    tl.fromTo(headingRows, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.95, stagger: 0.12 }, '-=0.5');
                 }
                 if (slideP) {
-                    tl.fromTo(slideP, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.85 }, '-=0.5');
+                    tl.fromTo(slideP, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.75 }, '-=0.5');
                 }
                 if (discoverBtn) {
-                    tl.fromTo(discoverBtn, { opacity: 0, y: 22, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'back.out(1.5)' }, '-=0.4');
+                    tl.fromTo(discoverBtn, { opacity: 0, y: 16, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.75, ease: 'back.out(1.5)' }, '-=0.4');
                 }
             }
 

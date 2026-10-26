@@ -1,7 +1,7 @@
 @media screen and (min-width: 1500px) {
   .slide-right p {
-    width: 297px !important;
+    max-width: 380px !important;
+    width: 100% !important;
     font-size: 18px !important;
-
-}
+  }
 }
