@@ -141,7 +141,7 @@ font-family: "Poppins", sans-serif;
     max-width: 1600px;
     height: 100%;
     margin: 0 auto;
-    padding: 110px 0 110px;
+    padding: 105px 0 125px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 340px;
     align-items: center;
@@ -511,14 +511,15 @@ font-family: "Poppins", sans-serif;
    HERO LEFT
 ========================================================== */
 .slide-left {
-    padding-top: 10px;
+    padding-top: 0;
     width: 100%;
+    max-width: 100%;
 }
 .eyebrow {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     color: #ff343b;
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(14px, 1.3vw, 20px);
+    font-size: clamp(13px, 1.1vw, 17px);
     line-height: 1.2;
     font-weight: 600;
     letter-spacing: 2px;
@@ -527,7 +528,7 @@ font-family: "Poppins", sans-serif;
     transform: none;
 }
 /* ==========================================================
-   HERO HEADING — RESPONSIVE & NO CLIPPING
+   HERO HEADING — PROPORTIONED, RESPONSIVE, MAX 2-3 LINES
 ========================================================== */
 .hero-heading {
     width: 100%;
@@ -539,13 +540,13 @@ font-family: "Poppins", sans-serif;
     flex-wrap: wrap;
     align-items: baseline;
     overflow: visible;
-    line-height: 1.05;
-    padding-bottom: 4px;
+    line-height: 1.08;
+    padding-bottom: 2px;
     margin-bottom: 0;
 }
 .heading-row-two {
-    gap: 16px;
-    margin-top: 8px;
+    gap: 14px;
+    margin-top: 6px;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -554,10 +555,10 @@ font-family: "Poppins", sans-serif;
     display: inline-block;
     color: #fff;
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(44px, 5.8vw, 108px);
-    line-height: 1.05;
+    font-size: clamp(40px, 4.3vw, 70px);
+    line-height: 1.08;
     font-weight: 600;
-    letter-spacing: -2px;
+    letter-spacing: -1.8px;
     white-space: normal;
     word-break: normal;
     overflow-wrap: break-word;
@@ -566,13 +567,13 @@ font-family: "Poppins", sans-serif;
 }
 .heading-small {
     display: inline-block;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.88);
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(24px, 3.2vw, 54px);
-    line-height: 1.05;
+    font-size: clamp(22px, 2.3vw, 34px);
+    line-height: 1.08;
     font-weight: 500;
     font-style: italic;
-    letter-spacing: -1px;
+    letter-spacing: -0.8px;
     align-self: baseline;
     white-space: nowrap;
     opacity: 1;
@@ -580,18 +581,18 @@ font-family: "Poppins", sans-serif;
 }
 @media (min-width: 1600px) {
     .heading-big {
-        font-size: 114px;
-        letter-spacing: -3px;
+        font-size: 72px;
+        letter-spacing: -2px;
     }
     .heading-small {
-        font-size: 56px;
+        font-size: 36px;
     }
 }
 /* ==========================================================
    HERO RIGHT
 ========================================================== */
 .slide-right {
-    padding-top: 20px;
+    padding-top: 0;
     opacity: 1;
     transform: none;
     display: flex;
@@ -600,10 +601,10 @@ font-family: "Poppins", sans-serif;
 }
 .slide-right p {
     width: 100%;
-    max-width: 360px;
-    margin-bottom: 26px;
+    max-width: 350px;
+    margin-bottom: 24px;
     font-family: "Poppins", sans-serif;
-    font-size: clamp(15px, 1.15vw, 18px);
+    font-size: clamp(14px, 1.1vw, 17px);
     line-height: 1.6;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.88);
@@ -617,7 +618,7 @@ font-family: "Poppins", sans-serif;
     align-items: center;
     justify-content: center;
     width: auto;
-    min-width: 190px;
+    min-width: 185px;
     height: 48px;
     padding: 0 28px;
     overflow: hidden;
@@ -625,7 +626,7 @@ font-family: "Poppins", sans-serif;
     background: #ff343b;
     color: #fff;
     font-family: "Funnel Display", sans-serif;
-    font-size: 16px;
+    font-size: 15.5px;
     font-weight: 600;
     letter-spacing: 0.2px;
     text-decoration: none;
@@ -644,9 +645,7 @@ font-family: "Poppins", sans-serif;
     height: 0;
     border-radius: 50%;
     background: #fff;
-    transition:
-        width 0.4s ease,
-        height 0.4s ease;
+    transition: width 0.4s ease, height 0.4s ease;
 }
 .discover-btn:hover::before {
     width: 340px;
@@ -666,19 +665,19 @@ font-family: "Poppins", sans-serif;
 .hero-slider-nav {
     position: absolute;
     left: 50%;
-    bottom: 76px;
+    bottom: 58px;
     transform: translateX(-50%);
     z-index: 20;
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 6px 14px;
-    background: rgba(15, 15, 15, 0.65);
+    gap: 14px;
+    padding: 5px 14px;
+    background: rgba(15, 15, 15, 0.72);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 50px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 .slider-arrow {
     width: 34px;
@@ -757,7 +756,7 @@ font-family: "Poppins", sans-serif;
 .hero-bottom {
     position: absolute;
     left: 50%;
-    bottom: 24px;
+    bottom: 20px;
     transform: translateX(-50%);
     z-index: 15;
     width: calc(100% - 80px);
@@ -765,10 +764,10 @@ font-family: "Poppins", sans-serif;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     font-family: "Funnel Display", sans-serif;
-    font-size: clamp(13px, 1.1vw, 17px);
+    font-size: clamp(12px, 0.95vw, 15px);
     line-height: 1;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.72);
     letter-spacing: 0.5px;
 }
 .hero-bottom span:nth-child(2),
@@ -1135,10 +1134,11 @@ font-family: "Poppins", sans-serif;
         max-width: 1694px;
     }
     .heading-big {
-        font-size: 168px;
+        font-size: 70px;
+        letter-spacing: -2px;
     }
     .heading-small {
-        font-size: 59px;
+        font-size: 34px;
     }
     .menu-content {
         padding:
@@ -1172,7 +1172,7 @@ font-family: "Poppins", sans-serif;
         gap: 40px;
     }
     .heading-big {
-        letter-spacing: -5px;
+        letter-spacing: -1.5px;
     }
 }
 @media (max-width: 1250px) {
@@ -7346,16 +7346,16 @@ html.lenis, html.lenis body {
     .hero .slide-container {
         height: auto !important;
         min-height: auto !important;
-        width: calc(100% - 36px) !important;
-        padding-top: 100px !important;
-        padding-bottom: 16px !important;
+        width: calc(100% - 32px) !important;
+        padding-top: 86px !important;
+        padding-bottom: 10px !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 12px !important;
+        gap: 10px !important;
     }
     .eyebrow {
-        margin-bottom: 10px !important;
-        font-size: 13px !important;
+        margin-bottom: 6px !important;
+        font-size: 12px !important;
         letter-spacing: 1.5px !important;
     }
     .heading-row {
@@ -7363,7 +7363,7 @@ html.lenis, html.lenis body {
         flex-wrap: wrap !important;
         align-items: baseline !important;
         overflow: visible !important;
-        line-height: 1.1 !important;
+        line-height: 1.12 !important;
     }
     .heading-row-two {
         display: flex !important;
@@ -7373,63 +7373,63 @@ html.lenis, html.lenis body {
         margin-top: 4px !important;
     }
     .heading-big {
-        font-size: clamp(26px, 7.5vw, 38px) !important;
-        line-height: 1.12 !important;
-        letter-spacing: -1px !important;
+        font-size: clamp(23px, 6.4vw, 30px) !important;
+        line-height: 1.14 !important;
+        letter-spacing: -0.8px !important;
         white-space: normal !important;
         word-break: normal !important;
         overflow-wrap: break-word !important;
     }
     .heading-small {
-        font-size: clamp(17px, 4.5vw, 24px) !important;
+        font-size: clamp(15px, 3.8vw, 20px) !important;
         margin-bottom: 0 !important;
-        margin-right: 6px !important;
+        margin-right: 5px !important;
         letter-spacing: -0.5px !important;
         display: inline-block !important;
     }
     .hero .slide-right {
         width: 100% !important;
         margin: 0 !important;
-        padding-top: 10px !important;
+        padding-top: 6px !important;
         transform: none !important;
     }
     .hero .slide-right p {
         width: 100% !important;
         max-width: 100% !important;
-        margin-bottom: 18px !important;
-        font-size: 14px !important;
-        line-height: 1.55 !important;
+        margin-bottom: 16px !important;
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
         color: rgba(255, 255, 255, 0.88) !important;
     }
     .hero .discover-btn {
         width: auto !important;
-        min-width: 180px !important;
+        min-width: 170px !important;
         max-width: 100% !important;
-        height: 46px !important;
-        padding: 0 24px !important;
-        font-size: 15px !important;
-        margin-bottom: 6px !important;
+        height: 44px !important;
+        padding: 0 22px !important;
+        font-size: 14.5px !important;
+        margin-bottom: 4px !important;
     }
     .hero-slider-nav {
         position: relative !important;
         left: auto !important;
         bottom: auto !important;
         transform: none !important;
-        margin: 14px auto 18px !important;
+        margin: 10px auto 14px !important;
         width: fit-content !important;
         padding: 4px 10px !important;
         gap: 8px !important;
     }
     .slider-arrow {
-        width: 32px !important;
-        height: 32px !important;
+        width: 30px !important;
+        height: 30px !important;
     }
     .slider-dot {
-        padding: 2px 6px !important;
-        height: 24px !important;
+        padding: 2px 5px !important;
+        height: 22px !important;
     }
     .slider-dot .dot-num {
-        font-size: 12px !important;
+        font-size: 11px !important;
     }
     .hero-bottom {
         order: 2 !important;
@@ -7439,28 +7439,28 @@ html.lenis, html.lenis body {
         top: auto !important;
         bottom: auto !important;
         transform: none !important;
-        width: calc(100% - 36px) !important;
+        width: calc(100% - 32px) !important;
         max-width: 440px !important;
-        margin: 0 auto 28px !important;
+        margin: 0 auto 20px !important;
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 10px 14px !important;
+        gap: 8px 12px !important;
         z-index: 15 !important;
     }
     .hero-bottom span {
-        font-size: 11px !important;
-        line-height: 1.35 !important;
-        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 10.5px !important;
+        line-height: 1.3 !important;
+        color: rgba(255, 255, 255, 0.88) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 6px !important;
+        gap: 5px !important;
         white-space: normal !important;
         text-align: left !important;
     }
     .hero-bottom span::before {
         content: "\2022" !important;
         color: #ff343b !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
         line-height: 1 !important;
     }
 
@@ -8935,78 +8935,80 @@ html.lenis, html.lenis body {
 
 /* Tablet Hero Enhancements (769px - 1150px) */
 @media (min-width: 769px) and (max-width: 1150px) {
-    .hero {
-        height: auto;
-        min-height: 100vh;
-        min-height: 100svh;
-        padding-bottom: 20px;
-    }
     .slide-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 120px 0 30px;
-        gap: 18px;
+        padding: 95px 0 130px;
         width: calc(100% - 60px);
+        gap: 16px;
     }
     .heading-big {
-        font-size: clamp(38px, 5.2vw, 56px);
-        letter-spacing: -1.5px;
+        font-size: clamp(32px, 4vw, 42px);
+        letter-spacing: -1.2px;
     }
     .heading-small {
-        font-size: clamp(22px, 3.2vw, 32px);
+        font-size: clamp(18px, 2.2vw, 24px);
     }
     .slide-right {
-        padding-top: 10px;
+        padding-top: 0;
         width: 100%;
         max-width: 580px;
     }
+    .slide-right p {
+        margin-bottom: 18px;
+        font-size: 15px;
+    }
     .hero-slider-nav {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        transform: none;
-        margin: 18px auto 22px;
-        width: fit-content;
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 58px !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        z-index: 20 !important;
     }
     .hero-bottom {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        transform: none;
-        width: calc(100% - 60px);
-        margin: 0 auto 20px;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px 20px;
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 18px !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 60px) !important;
+        margin: 0 !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px 14px !important;
+        font-size: 11.5px !important;
+        z-index: 15 !important;
     }
     .hero-bottom span:nth-child(2),
-    .hero-bottom span:nth-child(3),
+    .hero-bottom span:nth-child(3) {
+        text-align: center !important;
+    }
     .hero-bottom span:last-child {
-        text-align: left;
+        text-align: right !important;
     }
 }
 
 /* Extra small mobile (320px - 360px) */
 @media (max-width: 360px) {
     .heading-big {
-        font-size: clamp(22px, 7vw, 25px) !important;
+        font-size: clamp(19px, 6.2vw, 22px) !important;
     }
     .heading-small {
-        font-size: 15px !important;
+        font-size: 14px !important;
     }
     .slide-container {
         width: calc(100% - 24px) !important;
-        padding-top: 88px !important;
+        padding-top: 80px !important;
     }
     .hero .discover-btn {
-        min-width: 160px !important;
+        min-width: 150px !important;
         padding: 0 16px !important;
         font-size: 13.5px !important;
     }
     .hero-bottom {
         width: calc(100% - 24px) !important;
         grid-template-columns: 1fr !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
 }
