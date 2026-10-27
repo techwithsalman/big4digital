@@ -105,6 +105,7 @@
             if (!fullscreenMenu) return;
             fullscreenMenu.classList.add('open');
             document.body.classList.add('menu-open');
+            document.documentElement.classList.add('menu-open');
             if (lenis) lenis.stop();
         }
 
@@ -112,6 +113,7 @@
             if (!fullscreenMenu) return;
             fullscreenMenu.classList.remove('open');
             document.body.classList.remove('menu-open');
+            document.documentElement.classList.remove('menu-open');
             if (lenis) lenis.start();
         }
 

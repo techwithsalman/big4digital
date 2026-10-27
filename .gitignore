@@ -28,3 +28,8 @@ images/*.html
 css/*.html
 script.html
 index-2.html
+
+# Testing & QA profiles
+.chrome_*/
+screenshots_qa/
+audit_results*.json
