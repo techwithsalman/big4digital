@@ -116,7 +116,7 @@ ErrorDocument 404 /index.html
 
   # Cache CSS and JS with revalidate
   <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "max-age=604800, public"
+    Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
   # Cache static assets aggressively
