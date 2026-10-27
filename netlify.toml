@@ -1,6 +1,14 @@
 [build]
   publish = "."
 
+
+# Canonical homepage redirect
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Extensionless URL rewrites
 
 [[redirects]]

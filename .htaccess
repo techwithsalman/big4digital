@@ -12,6 +12,12 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ----------------------------------------------------------
+# 1.5 CANONICAL HOMEPAGE REDIRECT (index.html -> /)
+# ----------------------------------------------------------
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# ----------------------------------------------------------
 # 2. CLEAN URLS & EXTENSIONLESS ACCESS (.html)
 # ----------------------------------------------------------
 # If requesting a directory, serve index.html

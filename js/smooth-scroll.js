@@ -197,10 +197,11 @@
         // Active page detection & highlight for mobile menu
         try {
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const isHome = !currentPath || currentPath === 'index.html';
             const allBurgerLinks = document.querySelectorAll('.burger-navigation a');
             allBurgerLinks.forEach(function (link) {
                 const href = link.getAttribute('href');
-                if (href && href === currentPath) {
+                if (href && (href === currentPath || (isHome && (href === '/' || href === 'index.html')))) {
                     link.classList.add('active');
                     const parentSubitem = link.closest('.burger-subitem');
                     if (parentSubitem) {
@@ -372,9 +373,10 @@
         // Highlight active page link in footer
         try {
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const isHome = !currentPath || currentPath === 'index.html';
             document.querySelectorAll('.footer-subservices a, .footer-service-title').forEach(function (link) {
                 const href = link.getAttribute('href');
-                if (href && href === currentPath) {
+                if (href && (href === currentPath || (isHome && (href === '/' || href === 'index.html')))) {
                     link.classList.add('active');
                 }
             });

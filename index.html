@@ -20,7 +20,7 @@
    <link rel="icon" type="image/png" href="images/Logo01.png">
 </head>
  <body>
-  <section class="hero">
+  <section class="hero" style="background-image: url('images/h1-slider-1.jpg');">
    <!-- =====================================================
 
          SLIDER
@@ -213,13 +213,13 @@
     
     
             <header class="navbar">
-      <a class="logo" href="index.html">
+      <a class="logo" href="/">
         <img alt="Big4Digital" src="images/Logo01.png" width="144" height="48" style="height: 48px; width: auto; max-height: 48px;"/>
       </a>
       <!-- DESKTOP NAV -->
       <nav class="desktop-nav">
         <!-- HOME -->
-        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link active" href="/">Home</a>
         <!-- ABOUT US -->
         <a class="nav-link" href="about-us.html">About Us</a>
         <!-- SERVICES DROPDOWN -->
@@ -345,7 +345,7 @@
       <div class="menu-content">
         <!-- HEADER -->
         <div class="menu-header">
-          <a class="menu-logo" href="index.html">
+          <a class="menu-logo" href="/">
             <img alt="Big4Digital" src="images/Logo01.png" width="144" height="48" style="height: 44px; width: auto; max-height: 44px;"/>
           </a>
           <button aria-label="Close menu" class="menu-close" id="menuClose" type="button">
@@ -357,7 +357,7 @@
         <nav class="burger-navigation">
           <!-- 01/ HOME -->
           <div class="burger-nav-item">
-            <a class="burger-nav-link active" href="index.html">
+            <a class="burger-nav-link active" href="/">
               <small>01/</small>
               <span>Home</span>
             </a>
@@ -1326,7 +1326,7 @@
         <!-- 2 & 3. MIDDLE CONTACT & BRAND -->
         <div class="footer-middle">
           <div class="footer-brand">
-            <a class="footer-logo" href="index.html">
+            <a class="footer-logo" href="/">
               <img alt="Big4Digital Logo" src="images/Logo02.png"/>
             </a>
             <p>
@@ -1789,6 +1789,12 @@ function startExperienceCounter() {
         slides.forEach(function (slide, i) {
             slide.classList.toggle("active", i === currentSlide);
         });
+
+        // Sync hero background image on mobile
+        if (heroSection && slides[currentSlide]) {
+            const bg = slides[currentSlide].style.backgroundImage;
+            if (bg) heroSection.style.backgroundImage = bg;
+        }
 
         updateDots(currentSlide);
     }
