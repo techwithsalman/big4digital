@@ -39,8 +39,6 @@ jobs:
               sys.exit(1)
 
           print("🔐 Initializing FTPS connection on port 21 (Explicit TLS)...")
-          
-          # Use default CA certificates for verification, allow Hostinger cluster SANs
           context = ssl.create_default_context()
           context.check_hostname = False
           context.verify_mode = ssl.CERT_REQUIRED
@@ -50,14 +48,13 @@ jobs:
               ftps.connect(server, 21, timeout=30)
               ftps.auth()
               
-              # Log TLS certificate information safely
               try:
                   cert = ftps.sock.getpeercert()
                   subject = dict(x[0] for x in cert.get('subject', ()))
                   cn = subject.get('commonName', 'Unknown')
-                  print(f"✓ Valid CA-signed certificate verified. CommonName: {cn}")
+                  print(f"✓ Valid CA-signed certificate verified. Hostinger CommonName: {cn}")
               except Exception as ce:
-                  print(f"Notice reading cert details: {ce}")
+                  print(f"Notice reading cert: {ce}")
 
               ftps.prot_p()
               ftps.login(username, password)
@@ -107,31 +104,49 @@ jobs:
           print(f"✓ Pre-flight inspection complete. target_dir={target_dir}")
           EOF
 
-      - name: 🚀 Deploy Production Files to Hostinger via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🚀 Deploy Production Files via Secure FTPS (lftp)
         env:
-          NODE_TLS_REJECT_UNAUTHORIZED: "0"
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          server-dir: ${{ steps.inspect.outputs.target_dir }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github*
-            **/.github*/**
-            **/deploy*
-            **/deploy*/**
-            **/screenshots*
-            **/screenshots*/**
-            **/*.zip
-            **/*.md
-            **/.DS_Store
-            **/Thumbs.db
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          TARGET_DIR: ${{ steps.inspect.outputs.target_dir }}
+        run: |
+          echo "📦 Installing lftp..."
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+          echo "🚀 Starting FTPS synchronization to Hostinger ($TARGET_DIR)..."
+          lftp << EOF
+          set ftp:ssl-allow true
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate no
+          set ftp:passive-mode true
+          set ftp:prefer-epsv false
+          set net:timeout 30
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+
+          open -u "$FTP_USERNAME","$FTP_PASSWORD" -p 21 "ftp://$FTP_SERVER"
+          
+          # Deploy website files safely (without deleting existing remote files)
+          mirror --reverse --verbose \
+            --exclude-glob .git/ \
+            --exclude-glob .git/** \
+            --exclude-glob .github/ \
+            --exclude-glob .github/** \
+            --exclude-glob deploy/ \
+            --exclude-glob deploy/** \
+            --exclude-glob screenshots/ \
+            --exclude-glob screenshots/** \
+            --exclude-glob *.zip \
+            --exclude-glob *.md \
+            --exclude-glob .DS_Store \
+            --exclude-glob Thumbs.db \
+            ./ "$TARGET_DIR"
+
+          bye
+          EOF
+          echo "✓ FTPS deployment command completed."
 
       - name: 🌐 Verify Production Website
         run: |
