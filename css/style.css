@@ -7310,8 +7310,7 @@ html.lenis, html.lenis body {
     /* Hero Section & Bottom Metrics - Complete Natural Flow Fix */
     .hero {
         height: auto !important;
-        min-height: 100vh !important;
-        min-height: 100svh !important;
+        min-height: auto !important;
         display: flex !important;
         flex-direction: column !important;
         position: relative !important;
@@ -8861,7 +8860,11 @@ html.lenis, html.lenis body {
     list-style: none !important;
     padding: 0 0 0 12px !important;
     margin: 0 !important;
-    max-height: 0;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
     opacity: 0;
     overflow: hidden;
     pointer-events: none;
@@ -8869,9 +8872,10 @@ html.lenis, html.lenis body {
     transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, margin 0.25s ease, border-color 0.25s ease;
 }
 .footer-service-item.open > .footer-subservices {
-    max-height: 460px;
-    opacity: 1;
-    pointer-events: auto;
+    max-height: 520px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
     margin-top: 10px !important;
     margin-bottom: 8px !important;
     border-left-color: rgba(255, 52, 56, 0.5);
@@ -9011,4 +9015,117 @@ html.lenis, html.lenis body {
         grid-template-columns: 1fr !important;
         gap: 6px !important;
     }
+}
+
+
+/* ==========================================================
+   HOSTINGER PRODUCTION & RESPONSIVE REINFORCEMENTS
+   - Desktop Header single-row alignment
+   - Strict Logo Dimensions (prevents layout shift / 2172px logo explosion)
+   - Desktop Burger strictly hidden above 1150px
+   - Footer 4-column layout & social links
+========================================================== */
+.navbar .logo img,
+.logo img {
+    height: 48px !important;
+    max-height: 48px !important;
+    max-width: 180px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+.menu-logo img {
+    height: 44px !important;
+    max-height: 44px !important;
+    max-width: 180px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+@media (min-width: 1151px) {
+    .navbar,
+    .inner-hero-banner .navbar,
+    .about-page-hero .navbar,
+    .gs-page-hero .navbar {
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+    .desktop-nav,
+    .navbar .desktop-nav,
+    .inner-hero-banner .navbar .desktop-nav,
+    .about-page-hero .navbar .desktop-nav,
+    .gs-page-hero .navbar .desktop-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .burger,
+    .navbar .burger,
+    #burgerButton,
+    .inner-hero-banner .navbar .burger,
+    .about-page-hero .navbar .burger,
+    .gs-page-hero .navbar .burger {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .navbar .logo img,
+    .logo img {
+        height: 38px !important;
+        max-height: 38px !important;
+    }
+    .menu-logo img {
+        height: 36px !important;
+        max-height: 36px !important;
+    }
+}
+
+/* Footer 4-column desktop layout alignment */
+@media (min-width: 1025px) {
+    .footer-top {
+        display: grid !important;
+        grid-template-columns: 1.8fr 1fr 1fr 1fr !important;
+        gap: 65px !important;
+        align-items: start !important;
+    }
+}
+
+/* LET'S CONNECT Footer Social Links */
+.footer-social-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #a1a1aa !important;
+    text-decoration: none !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    padding: 3px 0 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+.footer-social-link:hover,
+.footer-social-link:focus {
+    color: #ff3438 !important;
+    transform: translateX(3px) !important;
+}
+.footer-social-icon {
+    width: 15px !important;
+    height: 15px !important;
+    fill: currentColor !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+    transition: transform 0.2s ease !important;
+}
+.footer-social-link:hover .footer-social-icon,
+.footer-social-link:focus .footer-social-icon {
+    transform: scale(1.15) !important;
 }

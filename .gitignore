@@ -1,5 +1,6 @@
 # Exclude temporary and build artifacts
 *.zip
+!deploy/hostinger/*.zip
 *.log
 *.tmp
 
