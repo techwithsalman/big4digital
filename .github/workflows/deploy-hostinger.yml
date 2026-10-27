@@ -1,6 +1,9 @@
 name: Deploy Big4Digital to Hostinger
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 # Ensure only one deployment runs at a time
