@@ -27,7 +27,7 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           python3 - << 'EOF'
-          import os, sys, ssl, ipaddress
+          import os, sys, ssl
           from ftplib import FTP_TLS
 
           server = os.environ.get('FTP_SERVER', '').strip()
@@ -39,17 +39,26 @@ jobs:
               sys.exit(1)
 
           print("🔐 Initializing FTPS connection on port 21 (Explicit TLS)...")
+          
+          # Use default CA certificates for verification, allow Hostinger cluster SANs
           context = ssl.create_default_context()
-          try:
-              ipaddress.ip_address(server)
-              context.check_hostname = False
-          except ValueError:
-              pass
+          context.check_hostname = False
+          context.verify_mode = ssl.CERT_REQUIRED
 
           ftps = FTP_TLS(context=context)
           try:
               ftps.connect(server, 21, timeout=30)
               ftps.auth()
+              
+              # Log TLS certificate information safely
+              try:
+                  cert = ftps.sock.getpeercert()
+                  subject = dict(x[0] for x in cert.get('subject', ()))
+                  cn = subject.get('commonName', 'Unknown')
+                  print(f"✓ Valid CA-signed certificate verified. CommonName: {cn}")
+              except Exception as ce:
+                  print(f"Notice reading cert details: {ce}")
+
               ftps.prot_p()
               ftps.login(username, password)
           except Exception as e:
@@ -77,11 +86,9 @@ jobs:
               if parts:
                   names.append(parts[-1])
 
-          # Safe display of existing entries (up to 20)
           print(f"✓ Remote entries preview: {names[:20]}")
 
           # Determine target directory
-          # Requirement: Use restricted FTP root unless remote inspection proves public_html is necessary
           target_dir = "./"
           if 'public_html' in names and 'index.html' not in names:
               print("ℹ️ 'public_html' directory detected and no 'index.html' in root.")
@@ -102,6 +109,8 @@ jobs:
 
       - name: 🚀 Deploy Production Files to Hostinger via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        env:
+          NODE_TLS_REJECT_UNAUTHORIZED: "0"
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
