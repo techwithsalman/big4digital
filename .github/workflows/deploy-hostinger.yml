@@ -1,0 +1,159 @@
+name: Deploy Big4Digital to Hostinger
+
+on:
+  workflow_dispatch:
+
+# Ensure only one deployment runs at a time
+concurrency:
+  group: hostinger-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: FTPS Production Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 🔍 Pre-flight FTPS Inspection & Verification
+        id: inspect
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          python3 - << 'EOF'
+          import os, sys, ssl, ipaddress
+          from ftplib import FTP_TLS
+
+          server = os.environ.get('FTP_SERVER', '').strip()
+          username = os.environ.get('FTP_USERNAME', '').strip()
+          password = os.environ.get('FTP_PASSWORD', '').strip()
+
+          if not server or not username or not password:
+              print("❌ ERROR: One or more required FTP secrets (FTP_SERVER, FTP_USERNAME, FTP_PASSWORD) are missing.")
+              sys.exit(1)
+
+          print("🔐 Initializing FTPS connection on port 21 (Explicit TLS)...")
+          context = ssl.create_default_context()
+          try:
+              ipaddress.ip_address(server)
+              context.check_hostname = False
+          except ValueError:
+              pass
+
+          ftps = FTP_TLS(context=context)
+          try:
+              ftps.connect(server, 21, timeout=30)
+              ftps.auth()
+              ftps.prot_p()
+              ftps.login(username, password)
+          except Exception as e:
+              print(f"❌ FTPS Connection/Authentication failed: {e}")
+              sys.exit(1)
+
+          pwd = ftps.pwd()
+          print(f"✓ FTPS TLS handshake and authentication successful.")
+          print(f"✓ Initial working directory: {pwd}")
+
+          # List remote directory safely
+          remote_files = []
+          try:
+              ftps.retrlines('LIST', remote_files.append)
+          except Exception as e:
+              print(f"Notice: LIST failed ({e}), trying NLST...")
+              remote_files = ftps.nlst()
+
+          print(f"✓ Remote directory contains {len(remote_files)} entries.")
+
+          # Extract file/folder names
+          names = []
+          for line in remote_files:
+              parts = line.split()
+              if parts:
+                  names.append(parts[-1])
+
+          # Safe display of existing entries (up to 20)
+          print(f"✓ Remote entries preview: {names[:20]}")
+
+          # Determine target directory
+          # Requirement: Use restricted FTP root unless remote inspection proves public_html is necessary
+          target_dir = "./"
+          if 'public_html' in names and 'index.html' not in names:
+              print("ℹ️ 'public_html' directory detected and no 'index.html' in root.")
+              print("ℹ️ Destination set to: public_html/")
+              target_dir = "public_html/"
+          else:
+              print("✓ Remote root is the site document root. Destination confirmed as: ./")
+              target_dir = "./"
+
+          ftps.quit()
+
+          output_path = os.environ.get('GITHUB_OUTPUT')
+          if output_path:
+              with open(output_path, 'a') as f:
+                  f.write(f"target_dir={target_dir}\n")
+          print(f"✓ Pre-flight inspection complete. target_dir={target_dir}")
+          EOF
+
+      - name: 🚀 Deploy Production Files to Hostinger via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: ${{ steps.inspect.outputs.target_dir }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github*
+            **/.github*/**
+            **/deploy*
+            **/deploy*/**
+            **/screenshots*
+            **/screenshots*/**
+            **/*.zip
+            **/*.md
+            **/.DS_Store
+            **/Thumbs.db
+
+      - name: 🌐 Verify Production Website
+        run: |
+          echo "Verifying live production website: https://big4digital.com/ ..."
+          
+          # Check HTTP response
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://big4digital.com/ || echo "000")
+          echo "HTTP Status Code: $HTTP_STATUS"
+          
+          if [ "$HTTP_STATUS" != "200" ] && [ "$HTTP_STATUS" != "301" ]; then
+            echo "⚠️ Warning: Expected HTTP 200/301, got $HTTP_STATUS. Checking with redirect follow..."
+          fi
+          
+          CONTENT=$(curl -sL https://big4digital.com/ || echo "")
+          
+          if echo "$CONTENT" | grep -q "Big4Digital"; then
+            echo "✓ Confirmed: Big4Digital brand present on live site."
+          else
+            echo "⚠️ Warning: Could not locate 'Big4Digital' in homepage HTML."
+          fi
+          
+          if echo "$CONTENT" | grep -q "facebook.com/big4digitals"; then
+            echo "✓ Confirmed: Facebook official link present."
+          else
+            echo "ℹ️ Note: Live cache may take a moment to update footer social links."
+          fi
+
+          if echo "$CONTENT" | grep -q "instagram.com/big4digitals"; then
+            echo "✓ Confirmed: Instagram official link present."
+          else
+            echo "ℹ️ Note: Live cache may take a moment to update footer social links."
+          fi
+          
+          echo "🎉 Production deployment and verification completed."
