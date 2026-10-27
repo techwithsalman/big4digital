@@ -466,25 +466,26 @@
 
 /* ==========================================================================
    FAMILY 1 — DIGITAL & CREATIVE SPECIFICS (.dc-*)
+   Big4Digital Brand Theme: Primary Red (#FF343B), Charcoal (#101010), White (#FFFFFF)
    ========================================================================== */
 .dc-eyebrow {
-    background: rgba(99, 102, 241, 0.1);
-    color: #4f46e5;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: rgba(255, 52, 59, 0.08);
+    color: #ff343b;
+    border: 1px solid rgba(255, 52, 59, 0.2);
 }
 
 .dc-card:hover {
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 16px 36px -10px rgba(99, 102, 241, 0.15);
+    border-color: rgba(255, 52, 59, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(255, 52, 59, 0.12);
 }
 
 .dc-card-icon {
-    background: #eef2ff;
-    color: #4f46e5;
+    background: #fff0f2;
+    color: #ff343b;
 }
 
 .dc-step-num {
-    color: #4f46e5;
+    color: #ff343b;
 }
 
 /* Category Overview Specifics */
@@ -833,72 +834,388 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN BREAKPOINTS
+   RESPONSIVE DESIGN BREAKPOINTS — OPTIMIZED MOBILE LAYOUT
    ========================================================================== */
 @media (max-width: 1024px) {
+    .svc-container {
+        padding: 0 24px;
+    }
+
     .svc-layout-2col {
         grid-template-columns: 1fr;
         gap: 40px;
+        padding: 48px 0 80px;
     }
 
     .svc-sidebar {
         position: static;
         order: 2;
+        width: 100%;
     }
 
     .svc-main-content {
         order: 1;
+        width: 100%;
+        gap: 44px;
     }
 
-    .dc-grid-9, .esg-grid-5 {
+    .dc-grid-9, .esg-grid-5, .po-grid-4 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
 
     .svc-process-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .esg-pillars-3 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .svc-container {
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
     .svc-layout-2col {
-        padding: 40px 0 70px;
+        padding: 24px 0 60px !important;
+        gap: 36px !important;
     }
 
+    .svc-main-content {
+        gap: 34px !important;
+        width: 100% !important;
+    }
+
+    /* 1. Hero Featured Image — Proportional, never clipped */
     .svc-hero-media {
-        height: 280px;
-        border-radius: 16px;
+        width: 100% !important;
+        height: clamp(210px, 52vw, 290px) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.08) !important;
+        margin-bottom: 0 !important;
     }
 
+    /* 2. Overview / Lead Block Typography */
+    .svc-heading-2 {
+        font-size: clamp(24px, 5.5vw, 30px) !important;
+        line-height: 1.25 !important;
+        margin: 0 0 14px !important;
+    }
+
+    .svc-lead-p {
+        font-size: 15px !important;
+        line-height: 1.72 !important;
+        margin: 0 0 18px !important;
+    }
+
+    .svc-eyebrow {
+        font-size: 11px !important;
+        padding: 4px 12px !important;
+        margin-bottom: 12px !important;
+        letter-spacing: 0.06em !important;
+    }
+
+    .svc-main-content h3[style*="font-size: 26px"],
+    .svc-main-content h3[style*="font-size: 24px"],
+    .svc-process-block h3[style*="font-size: 24px"] {
+        font-size: clamp(20px, 5vw, 24px) !important;
+        margin: 10px 0 18px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 3. WHAT WE DELIVER CARDS — Full-Width Comfortable Mobile Sizing */
     .svc-card-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        width: 100% !important;
+    }
+
+    .svc-card {
+        padding: 22px 20px !important;
+        border-radius: 14px !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .svc-card-icon {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        border-radius: 10px !important;
+        font-size: 18px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .svc-card h3 {
+        font-size: 16.5px !important;
+        line-height: 1.4 !important;
+        margin: 0 0 6px !important;
+        color: #0f172a !important;
+    }
+
+    .svc-card p {
+        font-size: 13.5px !important;
+        line-height: 1.65 !important;
+        color: #64748b !important;
+        margin: 0 !important;
+    }
+
+    /* 4. Process Timeline Block */
+    .svc-process-block {
+        padding: 24px 18px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .svc-process-timeline {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        margin-top: 18px !important;
     }
 
-    .dc-grid-9, .af-grid-8, .esg-grid-5, .po-grid-4, .esg-pillars-3 {
-        grid-template-columns: 1fr;
+    .svc-step-card {
+        padding: 18px 16px !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
     }
 
-    .af-service-card {
-        grid-template-columns: 1fr;
+    .svc-step-num {
+        font-size: 22px !important;
+        margin-bottom: 6px !important;
     }
 
-    .af-card-media {
-        height: 180px;
+    .svc-step-card h4 {
+        font-size: 15px !important;
+        margin: 0 0 6px !important;
     }
 
+    .svc-step-card p {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* 5. FAQ Accordion — Fits correctly within mobile viewport */
+    .svc-faq-group {
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .svc-faq-item {
+        border-radius: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .svc-faq-btn {
+        padding: 16px 16px !important;
+        font-size: 14.5px !important;
+        line-height: 1.45 !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .svc-faq-btn span:first-child {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        text-align: left !important;
+        word-break: break-word !important;
+    }
+
+    .svc-faq-toggle {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        font-size: 15px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .svc-faq-content {
+        padding: 0 16px !important;
+        font-size: 13.5px !important;
+        line-height: 1.7 !important;
+        box-sizing: border-box !important;
+    }
+
+    .svc-faq-item.open .svc-faq-content {
+        max-height: 1000px !important;
+        padding: 0 16px 18px !important;
+    }
+
+    /* 6. Call To Action Banner */
     .svc-cta-banner {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 32px 24px;
-        text-align: center;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 28px 20px !important;
+        border-radius: 16px !important;
+        gap: 20px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+
+    .svc-cta-text h3 {
+        font-size: 21px !important;
+        line-height: 1.3 !important;
+        margin: 0 0 6px !important;
+    }
+
+    .svc-cta-text p {
+        font-size: 13.5px !important;
+        line-height: 1.55 !important;
     }
 
     .svc-cta-action {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 13px 24px !important;
+        font-size: 14px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 7. Category Hub Grids */
+    .dc-grid-9, .af-grid-8, .esg-grid-5, .po-grid-4, .esg-pillars-3 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        margin: 28px 0 50px !important;
+    }
+
+    .af-service-card {
+        grid-template-columns: 1fr !important;
+    }
+
+    .af-card-media {
+        height: 180px !important;
+    }
+
+    .af-card-body, .po-card-body, .dc-tile-body {
+        padding: 20px 18px !important;
+    }
+
+    .esg-pillar-card {
+        padding: 22px 18px !important;
+    }
+
+    /* 8. Sidebar on Mobile */
+    .svc-sidebar {
+        gap: 20px !important;
+        order: 2 !important;
+        width: 100% !important;
+    }
+
+    .svc-sidebar-card {
+        padding: 22px 18px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .svc-contact-card {
+        padding: 24px 20px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .svc-container {
+        padding: 0 16px !important;
+    }
+
+    .svc-layout-2col {
+        padding: 20px 0 50px !important;
+        gap: 28px !important;
+    }
+
+    .svc-hero-media {
+        height: clamp(190px, 50vw, 240px) !important;
+        border-radius: 14px !important;
+    }
+
+    .svc-heading-2 {
+        font-size: 23px !important;
+    }
+
+    .svc-lead-p {
+        font-size: 14px !important;
+        line-height: 1.68 !important;
+    }
+
+    .svc-card {
+        padding: 18px 16px !important;
+        border-radius: 12px !important;
+    }
+
+    .svc-card-icon {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .svc-card h3 {
+        font-size: 15.5px !important;
+    }
+
+    .svc-card p {
+        font-size: 13px !important;
+    }
+
+    .svc-process-block {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+    }
+
+    .svc-step-card {
+        padding: 14px 12px !important;
+    }
+
+    .svc-step-num {
+        font-size: 20px !important;
+    }
+
+    .svc-faq-btn {
+        padding: 14px 12px !important;
+        font-size: 13.5px !important;
+        gap: 10px !important;
+    }
+
+    .svc-faq-toggle {
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+        font-size: 14px !important;
+    }
+
+    .svc-faq-content {
+        padding: 0 12px !important;
+        font-size: 13px !important;
+    }
+
+    .svc-faq-item.open .svc-faq-content {
+        padding: 0 12px 14px !important;
+    }
+
+    .svc-cta-banner {
+        padding: 22px 16px !important;
+        border-radius: 14px !important;
+    }
+
+    .svc-cta-text h3 {
+        font-size: 19px !important;
+    }
+
+    .svc-sidebar-card, .svc-contact-card {
+        padding: 18px 14px !important;
     }
 }
