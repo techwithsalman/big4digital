@@ -4038,6 +4038,10 @@ font-family: "Poppins", sans-serif;
 .footer-social-btn.footer-instagram:focus-visible {
     filter: drop-shadow(0 6px 14px rgba(220, 39, 67, 0.55));
 }
+.footer-social-btn.footer-linkedin:hover,
+.footer-social-btn.footer-linkedin:focus-visible {
+    filter: drop-shadow(0 6px 14px rgba(10, 102, 194, 0.55));
+}
 .footer-contact {
     display: flex;
     flex-direction: column;
@@ -4080,15 +4084,17 @@ font-family: "Poppins", sans-serif;
 .footer-bottom {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
     padding-top: 35px;
 }
 .footer-bottom p {
-    margin: 0;
+    margin: 0 auto;
     color: #8c8c8c;
     font-family: 'Poppins', sans-serif;
     font-size: 13.5px;
     line-height: 1.4;
+    text-align: center;
 }
 .footer-bottom p strong {
     color: #fff;
@@ -4216,7 +4222,9 @@ font-family: "Poppins", sans-serif;
     }
     .footer-bottom {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 15px;
         padding-top: 25px;
     }
