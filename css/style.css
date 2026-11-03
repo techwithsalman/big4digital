@@ -3896,8 +3896,8 @@ font-family: "Poppins", sans-serif;
 ========================================= */
 .footer-top {
     display: grid;
-    grid-template-columns: 1.8fr 1fr 1fr 1fr;
-    gap: 65px;
+    grid-template-columns: 1.35fr 0.85fr 1.6fr 0.85fr;
+    gap: 48px;
     align-items: start;
     padding-bottom: 45px;
 }
@@ -8970,21 +8970,23 @@ html.lenis, html.lenis body {
 .footer-service-item {
     position: relative;
     list-style: none !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 15px !important;
     padding: 0 !important;
 }
 .footer-service-item:last-child {
     margin-bottom: 0 !important;
 }
 .footer-service-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 32px !important;
+    align-items: center !important;
+    column-gap: 14px !important;
+    width: 100% !important;
 }
 .footer-service-title {
     position: relative;
+    grid-column: 1 !important;
+    min-width: 0 !important;
     display: inline-block;
     color: #ffffff !important;
     font-family: 'Poppins', sans-serif !important;
@@ -8993,7 +8995,6 @@ html.lenis, html.lenis body {
     font-weight: 400 !important;
     text-decoration: none !important;
     transition: color 0.25s ease, transform 0.25s ease !important;
-    flex-grow: 1;
 }
 .footer-service-title:hover,
 .footer-service-title:focus {
@@ -9005,22 +9006,24 @@ html.lenis, html.lenis body {
     font-weight: 500 !important;
 }
 .footer-service-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    padding: 0;
-    margin: -4px 0 -4px auto;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 4px;
-    color: #a1a1aa;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    display: inline-flex !important;
+    grid-column: 2 !important;
+    justify-self: end !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 4px !important;
+    color: #a1a1aa !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.25s ease !important;
 }
 .footer-service-toggle:hover,
 .footer-service-toggle:focus {
@@ -9118,6 +9121,10 @@ html.lenis, html.lenis body {
 }
 
 @media (max-width: 768px) {
+    .footer-service-header {
+        grid-template-columns: 1fr 44px !important;
+        column-gap: 12px !important;
+    }
     .footer-service-toggle {
         min-width: 44px !important;
         min-height: 44px !important;
@@ -9285,9 +9292,28 @@ html.lenis, html.lenis body {
 @media (min-width: 1025px) {
     .footer-top {
         display: grid !important;
-        grid-template-columns: 1.8fr 1fr 1fr 1fr !important;
-        gap: 65px !important;
+        grid-template-columns: 1.35fr 0.85fr 1.6fr 0.85fr !important;
+        gap: 48px !important;
         align-items: start !important;
+    }
+    .footer-service-title {
+        white-space: nowrap !important;
+    }
+}
+
+@media (min-width: 851px) and (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: 1.15fr 0.8fr 1.6fr 0.8fr !important;
+        gap: 24px !important;
+    }
+    .footer-service-title {
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .footer-service-title {
+        white-space: normal !important;
     }
 }
 
@@ -9320,4 +9346,709 @@ html.lenis, html.lenis body {
 .footer-social-link:hover .footer-social-icon,
 .footer-social-link:focus .footer-social-icon {
     transform: scale(1.15) !important;
+}
+
+/* ==========================================================
+   OUR CLIENTS EDITORIAL REDESIGN STYLES
+========================================================== */
+.oc-main {
+    background-color: #f7f7f5;
+    color: #111111;
+    overflow-x: hidden;
+}
+
+/* 1. HERO SECTION */
+.oc-hero-banner {
+    background-color: #0d0d0d;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 160px 24px 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.oc-hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.78) 0%, rgba(13, 13, 13, 0.86) 60%, rgba(10, 10, 10, 0.95) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+.oc-hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 25%, rgba(255, 52, 59, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+}
+.oc-hero-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    text-align: left;
+}
+.oc-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.oc-breadcrumb a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.oc-breadcrumb a:hover {
+    color: #ff343b;
+}
+.oc-breadcrumb .sep {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 11px;
+}
+.oc-breadcrumb .current {
+    color: #ff343b;
+}
+.oc-hero-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(38px, 5.2vw, 68px);
+    font-weight: 700;
+    line-height: 1.08;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 900px;
+}
+.oc-hero-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(16px, 1.35vw, 19px);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 300;
+    max-width: 760px;
+    margin: 0;
+}
+
+/* SECTION COMMON */
+.oc-section {
+    padding: 100px 24px;
+    position: relative;
+}
+.oc-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.oc-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ff343b;
+    margin-bottom: 14px;
+}
+.oc-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ff343b;
+    display: inline-block;
+}
+
+/* 2. PHILOSOPHY SECTION */
+.oc-philosophy-section {
+    background-color: #f7f7f5;
+    border-bottom: 1px solid #e8e8e3;
+}
+.oc-philosophy-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 70px;
+    align-items: start;
+}
+.oc-philosophy-sidebar {
+    position: sticky;
+    top: 100px;
+}
+.oc-philosophy-sidebar h3 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #111111;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+}
+.oc-philosophy-sidebar p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0 0 24px;
+}
+.oc-philosophy-tagline-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255, 52, 59, 0.08);
+    border-left: 3px solid #ff343b;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #111111;
+    border-radius: 0 4px 4px 0;
+}
+.oc-philosophy-main {
+    max-width: 740px;
+}
+.oc-philosophy-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 700;
+    line-height: 1.16;
+    color: #111111;
+    letter-spacing: -0.02em;
+    margin: 0 0 26px;
+}
+.oc-philosophy-lead {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(17px, 1.25vw, 19px);
+    line-height: 1.7;
+    color: #1f1f1f;
+    font-weight: 400;
+    margin: 0 0 20px;
+}
+.oc-philosophy-body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #555555;
+    font-weight: 400;
+    margin: 0 0 36px;
+}
+.oc-philosophy-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5df;
+}
+.oc-pillar-item {
+    background: #ffffff;
+    border: 1px solid #e8e8e2;
+    border-radius: 8px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.oc-pillar-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: rgba(255, 52, 59, 0.3);
+}
+.oc-pillar-num {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff343b;
+    margin-bottom: 8px;
+    display: block;
+}
+.oc-pillar-item h4 {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+    margin: 0 0 6px;
+    line-height: 1.3;
+}
+.oc-pillar-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #666666;
+    margin: 0;
+}
+
+/* 3. INDUSTRIES WE SERVE SECTION */
+.oc-sectors-section {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e8e8e3;
+}
+.oc-section-header {
+    margin-bottom: 54px;
+    max-width: 780px;
+}
+.oc-section-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 700;
+    line-height: 1.16;
+    color: #111111;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+}
+.oc-section-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #555555;
+    margin: 0;
+}
+.oc-sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.oc-sector-card {
+    background: #fbfbf9;
+    border: 1px solid #e8e8e2;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.oc-sector-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    border-color: rgba(255, 52, 59, 0.4);
+}
+.oc-sector-media {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background-color: #111111;
+}
+.oc-sector-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.oc-sector-card:hover .oc-sector-media img {
+    transform: scale(1.05);
+}
+.oc-sector-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border-left: 2px solid #ff343b;
+    text-transform: uppercase;
+}
+.oc-sector-content {
+    padding: 24px 22px 26px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.oc-sector-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #111111;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+}
+.oc-sector-body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #555555;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* 4. ENGAGEMENT FRAMEWORKS (CHARCOAL SECTION) */
+.oc-frameworks-section {
+    background-color: #141414;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.oc-eyebrow-dark {
+    color: #ff343b;
+}
+.oc-frameworks-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 700;
+    line-height: 1.16;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+}
+.oc-frameworks-intro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+}
+.oc-frameworks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 48px;
+}
+.oc-framework-card {
+    background: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 36px 36px 32px;
+    transition: border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+}
+.oc-framework-card:hover {
+    border-color: rgba(255, 52, 59, 0.45);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+.oc-framework-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.oc-framework-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+.oc-framework-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    background: rgba(255, 52, 59, 0.12);
+    border: 1px solid rgba(255, 52, 59, 0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff4d53;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.oc-framework-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.oc-step-box {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.oc-step-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a1a1aa;
+    margin-bottom: 10px;
+}
+.oc-step-label-challenge {
+    color: #f87171;
+}
+.oc-step-label-approach {
+    color: #60a5fa;
+}
+.oc-step-label-result {
+    color: #4ade80;
+}
+.oc-step-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* 5. EDITORIAL DISCLAIMER FOOTNOTE */
+.oc-disclaimer-wrap {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.oc-disclaimer-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 900px;
+}
+.oc-disclaimer-icon {
+    flex-shrink: 0;
+    stroke: rgba(255, 255, 255, 0.45);
+    margin-top: 2px;
+}
+.oc-disclaimer-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    font-style: italic;
+    margin: 0;
+}
+
+/* 6. CALL TO ACTION SECTION */
+.oc-cta-section {
+    background-color: #0b0b0b;
+    padding: 95px 24px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden !important;
+    max-width: 100vw;
+}
+.oc-cta-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(700px, 90vw);
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255, 52, 59, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+}
+.oc-cta-container {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.oc-cta-title {
+    font-family: 'Funnel Display', sans-serif;
+    font-size: clamp(34px, 4.5vw, 54px);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    margin: 0 0 20px;
+}
+.oc-cta-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(16px, 1.3vw, 18px);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0 auto 36px;
+    max-width: 620px;
+}
+.oc-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ff343b;
+    color: #ffffff;
+    padding: 15px 36px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 24px rgba(255, 52, 59, 0.35);
+}
+.oc-cta-btn:hover {
+    background-color: #e02830;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 52, 59, 0.45);
+    color: #ffffff;
+}
+.oc-cta-arrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+.oc-cta-btn:hover .oc-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+    .oc-section {
+        padding: 75px 20px;
+    }
+    .oc-philosophy-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .oc-philosophy-sidebar {
+        position: static;
+    }
+    .oc-sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+    .oc-framework-steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .oc-framework-card {
+        padding: 26px 22px;
+    }
+}
+@media (max-width: 768px) {
+    .oc-hero-banner {
+        padding: 110px 18px 55px;
+    }
+    .oc-hero-banner .navbar {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .oc-hero-banner .navbar .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+    }
+    .oc-hero-banner .navbar .burger {
+        display: inline-flex !important;
+    }
+    .oc-hero-banner .navbar .touch-btn {
+        display: none !important;
+    }
+    .oc-hero-title {
+        font-size: 32px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 16px !important;
+        word-break: break-word;
+    }
+    .oc-hero-tagline {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+    .oc-section {
+        padding: 55px 18px;
+    }
+    .oc-philosophy-sidebar h3 {
+        font-size: 22px !important;
+        line-height: 1.25 !important;
+    }
+    .oc-philosophy-title {
+        font-size: 27px !important;
+        line-height: 1.2 !important;
+    }
+    .oc-philosophy-lead {
+        font-size: 15.5px !important;
+        line-height: 1.65 !important;
+    }
+    .oc-philosophy-pillars {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 26px;
+        padding-top: 24px;
+    }
+    .oc-section-title {
+        font-size: 27px !important;
+        line-height: 1.2 !important;
+    }
+    .oc-section-header {
+        margin-bottom: 36px;
+    }
+    .oc-sectors-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .oc-frameworks-title {
+        font-size: 27px !important;
+        line-height: 1.2 !important;
+    }
+    .oc-framework-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        padding-bottom: 16px !important;
+        margin-bottom: 18px !important;
+    }
+    .oc-framework-title {
+        font-size: 21px !important;
+    }
+    .oc-framework-card {
+        padding: 22px 18px !important;
+    }
+    .oc-cta-title {
+        font-size: 30px !important;
+        line-height: 1.2 !important;
+    }
+    .oc-cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 24px;
+    }
+}
+@media (max-width: 360px) {
+    .oc-hero-title {
+        font-size: 26px !important;
+    }
+    .oc-philosophy-title,
+    .oc-section-title,
+    .oc-frameworks-title,
+    .oc-cta-title {
+        font-size: 23px !important;
+    }
+}
+
+/* Ensure fullscreen-menu never bleeds or causes horizontal scroll when closed */
+.fullscreen-menu {
+    overflow-x: hidden !important;
+}
+.fullscreen-menu:not(.open) {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Global page overflow protection for editorial and inner pages */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+.main-wrapper {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
 }
