@@ -50,13 +50,18 @@
         width: 100%;
         max-width: 100vw;
         min-height: 100vh;
-        background: #060608 url('/images/h1-slider-1.jpg') no-repeat 75% center / cover fixed !important;
+        background-color: #060608 !important;
+        background-image: url('/images/h1-slider-1.jpg') !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: fixed !important;
         font-family: 'Poppins', 'Plus Jakarta Sans', system-ui, sans-serif !important;
         color: #F8FAFC !important;
         overflow-x: hidden !important;
       }
 
-      /* Background cinematic vignette and ambient red lighting */
+      /* Background cinematic vignette and ambient red lighting (non-repeating) */
       body::before {
         content: "";
         position: fixed;
@@ -79,15 +84,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 18px 40px;
-        background: rgba(8, 8, 10, 0.72);
+        padding: 16px 40px;
+        background: rgba(8, 8, 10, 0.76);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         box-sizing: border-box;
       }
       .b4d-portal-header .logo img {
-        height: 44px;
+        height: 42px;
         width: auto;
       }
       .b4d-portal-header .desktop-nav {
@@ -97,7 +102,7 @@
       }
       .b4d-portal-header .desktop-nav a {
         font-family: 'Funnel Display', sans-serif;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 500;
         color: #FFFFFF;
         text-decoration: none;
@@ -121,13 +126,13 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 24px;
+        padding: 9px 22px;
         border-radius: 9999px;
         border: 1px solid rgba(255, 255, 255, 0.35);
         background: transparent;
         color: #FFFFFF;
         font-family: 'Poppins', sans-serif;
-        font-size: 14px;
+        font-size: 13.5px;
         font-weight: 600;
         text-decoration: none;
         transition: all 0.2s ease;
@@ -173,7 +178,7 @@
         }
       }
 
-      /* Modal Overlay & Card Placement */
+      /* Modal Overlay & Placement */
       .b4d-auth-overlay,
       div[class*="b4d-auth-overlay"],
       .fixed.inset-0.z-40,
@@ -181,7 +186,8 @@
         background: transparent !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        padding-top: 85px !important;
+        padding-top: 80px !important;
+        padding-bottom: 24px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -190,33 +196,32 @@
         inset: 0 !important;
         width: 100vw !important;
         max-width: 100vw !important;
+        overflow-y: auto !important;
         overflow-x: hidden !important;
         z-index: 10 !important;
       }
 
-      /* Centered Glass Login Card */
+      /* Base Glass Card */
       .b4d-glass-card,
       div[class*="b4d-glass-card"] {
         background: rgba(14, 14, 18, 0.88) !important;
         backdrop-filter: blur(28px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
         border: 1px solid rgba(255, 52, 59, 0.45) !important;
-        border-radius: 28px !important;
+        border-radius: 24px !important;
         box-shadow: 0 0 45px rgba(255, 52, 59, 0.22),
                     0 25px 65px rgba(0, 0, 0, 0.88),
                     inset 0 1px 1px rgba(255, 255, 255, 0.15),
                     inset 0 0 20px rgba(255, 52, 59, 0.08) !important;
         position: relative !important;
         color: #FFFFFF !important;
-        max-width: 530px !important;
-        width: 100% !important;
-        min-width: 0 !important;
         margin: auto !important;
         overflow: hidden !important;
         box-sizing: border-box !important;
+        transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
       }
 
-      /* Illuminated Top Red Border Flare matching Reference */
+      /* Illuminated Top Red Border Flare */
       .b4d-glass-card::before {
         content: "";
         position: absolute;
@@ -241,26 +246,48 @@
         z-index: 20;
       }
 
-      /* Card Header (Logo & Heading) */
+      /* =========================================================
+         1. LOGIN CARD (PRESERVED COMPACT 530px CONTAINER)
+         ========================================================= */
+      .b4d-glass-card.b4d-card-login,
+      .b4d-glass-card:not(.b4d-card-register) {
+        max-width: 530px !important;
+        width: 100% !important;
+        max-height: min(92vh, 740px) !important;
+      }
+
+      /* =========================================================
+         2. REGISTRATION CARD (WIDE LANDSCAPE 1180px CONTAINER)
+         ========================================================= */
+      .b4d-glass-card.b4d-card-register {
+        max-width: 1180px !important;
+        width: 95vw !important;
+        max-height: min(96vh, 880px) !important;
+      }
+
+      /* Card Header */
       .b4d-glass-card > div:first-child {
         background: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding: 34px 32px 18px !important;
+        padding: 26px 32px 14px !important;
         text-align: center !important;
+      }
+      .b4d-card-register > div:first-child {
+        padding: 18px 32px 10px !important;
       }
       .b4d-glass-card h1,
       .b4d-glass-card h1 span {
         font-family: 'Funnel Display', sans-serif !important;
-        font-size: 28px !important;
+        font-size: 26px !important;
         font-weight: 700 !important;
         letter-spacing: -0.01em !important;
         color: #FFFFFF !important;
-        margin: 8px 0 4px !important;
+        margin: 6px 0 2px !important;
       }
       .b4d-glass-card h1 + p,
       .b4d-glass-card p {
         color: #A1A1AA !important;
-        font-size: 13.5px !important;
+        font-size: 13px !important;
         font-family: 'Poppins', sans-serif !important;
         margin: 0 !important;
       }
@@ -272,7 +299,8 @@
         border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 9999px !important;
         padding: 4px !important;
-        margin: 18px 26px 0 !important;
+        margin: 14px auto 0 !important;
+        max-width: 480px !important;
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 4px !important;
@@ -281,9 +309,9 @@
       .b4d-glass-card .b4d-tab-capsule button,
       .b4d-tab-capsule button {
         border-radius: 9999px !important;
-        font-size: 13px !important;
+        font-size: 12.5px !important;
         font-weight: 600 !important;
-        padding: 9px 14px !important;
+        padding: 8px 14px !important;
         transition: all 0.25s ease !important;
         cursor: pointer !important;
         border: none !important;
@@ -308,32 +336,140 @@
 
       /* Form Body */
       .b4d-glass-card > div:nth-child(3),
-      .b4d-glass-card div[class*="space-y-4"] {
-        padding: 24px 28px !important;
+      .b4d-glass-card form {
+        padding: 20px 28px !important;
+      }
+      .b4d-card-register > div:nth-child(3),
+      .b4d-card-register form {
+        padding: 16px 32px 24px !important;
+        overflow-y: auto !important;
       }
 
-      /* Labels */
-      .b4d-glass-card label,
-      .b4d-glass-card .text-navy,
-      .b4d-glass-card .text-slate-700 {
+      /* Custom Dark Scrollbar */
+      .b4d-card-register form::-webkit-scrollbar {
+        width: 6px;
+      }
+      .b4d-card-register form::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .b4d-card-register form::-webkit-scrollbar-thumb {
+        background: rgba(255, 52, 59, 0.4);
+        border-radius: 3px;
+      }
+
+      /* Notice Banner */
+      .b4d-reg-banner {
+        background: rgba(255, 52, 59, 0.08) !important;
+        border: 1px solid rgba(255, 52, 59, 0.28) !important;
+        border-radius: 12px !important;
+      }
+
+      /* =========================================================
+         3. THREE-COLUMN REGISTRATION FORM GRID
+         ========================================================= */
+      .b4d-reg-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 12px 20px !important;
+      }
+      .b4d-field-col {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      .b4d-reg-label {
+        display: block !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
         color: #FFFFFF !important;
-        font-weight: 600 !important;
-        font-size: 13.5px !important;
-        letter-spacing: 0 !important;
-        text-transform: capitalize !important;
+        margin-bottom: 5px !important;
       }
-
-      /* Inputs */
-      .b4d-glass-card input[type="text"],
-      .b4d-glass-card input[type="password"],
-      .b4d-glass-card input[type="email"],
-      .b4d-glass-card input[type="tel"] {
+      .b4d-reg-input {
         background: rgba(255, 255, 255, 0.04) !important;
         border: 1px solid rgba(255, 255, 255, 0.16) !important;
         border-radius: 9999px !important;
         color: #FFFFFF !important;
-        padding: 13px 20px 13px 44px !important;
-        font-size: 14px !important;
+        font-size: 12.5px !important;
+        font-weight: 500 !important;
+        transition: all 0.25s ease !important;
+        box-sizing: border-box !important;
+        height: 40px !important;
+      }
+      .b4d-reg-input:focus {
+        border-color: #FF343B !important;
+        background: rgba(255, 255, 255, 0.07) !important;
+        box-shadow: 0 0 12px rgba(255, 52, 59, 0.3) !important;
+      }
+      .b4d-reg-input::placeholder {
+        color: #6B7280 !important;
+      }
+
+      /* =========================================================
+         4. FOUR SUBSCRIPTION PLANS IN SINGLE HORIZONTAL ROW
+         ========================================================= */
+      .b4d-plans-wrap {
+        margin-top: 4px !important;
+      }
+      .b4d-plans-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+      .b4d-plan-btn {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 12px !important;
+        padding: 10px 14px !important;
+        text-align: left !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        min-height: 72px !important;
+      }
+      .b4d-plan-btn:hover {
+        border-color: rgba(255, 52, 59, 0.5) !important;
+        background: rgba(255, 52, 59, 0.05) !important;
+        transform: translateY(-1px) !important;
+      }
+      .b4d-plan-btn.active {
+        border: 2px solid #FF343B !important;
+        background: rgba(255, 52, 59, 0.12) !important;
+        box-shadow: 0 0 16px rgba(255, 52, 59, 0.32) !important;
+      }
+
+      /* Submit Button */
+      .b4d-submit-btn {
+        background: #FF343B !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        border-radius: 9999px !important;
+        padding: 12px 24px !important;
+        font-size: 14.5px !important;
+        font-weight: 700 !important;
+        box-shadow: 0 6px 20px rgba(255, 52, 59, 0.45) !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+        margin-top: 8px !important;
+      }
+      .b4d-submit-btn:hover {
+        background: #E0282F !important;
+        box-shadow: 0 8px 26px rgba(255, 52, 59, 0.58) !important;
+        transform: translateY(-1px) !important;
+      }
+
+      /* Existing Login Form Inputs & Buttons */
+      .b4d-glass-card input[type="text"],
+      .b4d-glass-card input[type="password"] {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        border-radius: 9999px !important;
+        color: #FFFFFF !important;
+        padding: 12px 20px 12px 42px !important;
+        font-size: 13.5px !important;
         font-weight: 500 !important;
         outline: none !important;
         transition: all 0.25s ease !important;
@@ -348,15 +484,12 @@
       .b4d-glass-card input::placeholder {
         color: #6B7280 !important;
       }
-
-      /* Primary Button */
-      .b4d-glass-card button[type="submit"],
-      .b4d-glass-card .b4d-primary-btn {
+      .b4d-glass-card button[type="submit"]:not(.b4d-submit-btn) {
         background: #FF343B !important;
         color: #FFFFFF !important;
         border-radius: 9999px !important;
-        padding: 14px 24px !important;
-        font-size: 15px !important;
+        padding: 13px 24px !important;
+        font-size: 14.5px !important;
         font-weight: 700 !important;
         border: none !important;
         box-shadow: 0 6px 22px rgba(255, 52, 59, 0.45) !important;
@@ -368,8 +501,7 @@
         gap: 8px !important;
         transition: all 0.25s ease !important;
       }
-      .b4d-glass-card button[type="submit"]:hover,
-      .b4d-glass-card .b4d-primary-btn:hover {
+      .b4d-glass-card button[type="submit"]:not(.b4d-submit-btn):hover {
         background: #E0282F !important;
         box-shadow: 0 8px 26px rgba(255, 52, 59, 0.58) !important;
         transform: translateY(-1px) !important;
@@ -378,7 +510,7 @@
       /* Secondary Outlined Buttons & Divider */
       .b4d-bottom-row {
         border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        padding-top: 16px !important;
+        padding-top: 14px !important;
       }
       .b4d-action-grid button,
       .b4d-glass-card .b4d-action-grid button {
@@ -414,8 +546,32 @@
         color: #FF343B !important;
       }
 
-      /* Mobile Viewport Optimization */
-      @media (max-width: 640px) {
+      /* =========================================================
+         5. RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+         ========================================================= */
+      @media (max-width: 1199px) and (min-width: 768px) {
+        .b4d-glass-card.b4d-card-register {
+          max-width: 760px !important;
+          width: 95vw !important;
+        }
+        .b4d-card-register > div:first-child {
+          padding: 18px 24px 10px !important;
+        }
+        .b4d-card-register > div:nth-child(3),
+        .b4d-card-register form {
+          padding: 16px 24px 20px !important;
+        }
+        .b4d-reg-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 12px 16px !important;
+        }
+        .b4d-plans-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 10px !important;
+        }
+      }
+
+      @media (max-width: 767px) {
         .b4d-auth-overlay,
         div[class*="b4d-auth-overlay"],
         .fixed.inset-0.z-40,
@@ -423,14 +579,17 @@
           padding: 75px 12px 18px !important;
         }
         .b4d-glass-card,
-        div[class*="b4d-glass-card"] {
+        div[class*="b4d-glass-card"],
+        .b4d-glass-card.b4d-card-login,
+        .b4d-glass-card.b4d-card-register {
           max-width: calc(100vw - 24px) !important;
           width: calc(100vw - 24px) !important;
           border-radius: 20px !important;
           margin: 0 auto !important;
         }
-        .b4d-glass-card > div:first-child {
-          padding: 22px 14px 12px !important;
+        .b4d-glass-card > div:first-child,
+        .b4d-card-register > div:first-child {
+          padding: 18px 14px 10px !important;
         }
         .b4d-glass-card h1 {
           font-size: 20px !important;
@@ -456,13 +615,21 @@
           white-space: normal !important;
         }
         .b4d-glass-card > div:nth-child(3),
+        .b4d-card-register form,
         .b4d-glass-card div[class*="space-y-4"] {
-          padding: 14px 12px !important;
+          padding: 14px 12px 18px !important;
         }
-        .b4d-glass-card input[type="text"],
-        .b4d-glass-card input[type="password"] {
-          padding: 10px 14px 10px 36px !important;
-          font-size: 13px !important;
+        .b4d-reg-grid {
+          grid-template-columns: 1fr !important;
+          gap: 10px !important;
+        }
+        .b4d-plans-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 8px !important;
+        }
+        .b4d-plan-btn {
+          padding: 8px 10px !important;
+          min-height: 64px !important;
         }
         .b4d-action-grid,
         .b4d-glass-card .b4d-action-grid {
