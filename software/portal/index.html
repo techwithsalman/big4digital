@@ -26,15 +26,8 @@
       try {
         const _p = new URLSearchParams(window.location.search);
         const _s = _p.get('sector') || _p.get('vertical') || _p.get('plan');
-        if (_s) {
-          const _u = _s.toUpperCase();
-          let _mapped = 'RETAIL_MART';
-          if (_u.includes('REST')) _mapped = 'RESTAURANT';
-          else if (_u.includes('CLIN') || _u.includes('HOSP')) _mapped = 'CLINIC_HMS';
-          else if (_u.includes('PHARM') || _u.includes('MED')) _mapped = 'PHARMACY';
-          else if (_u.includes('RETAIL') || _u.includes('MART')) _mapped = 'RETAIL_MART';
-          localStorage.setItem('digitalsnova_active_sector', _mapped);
-        }
+        // Exclusively lock default and active sector to CLINIC_HMS
+        localStorage.setItem('digitalsnova_active_sector', 'CLINIC_HMS');
       } catch (e) {}
     </script>
     <script type="module" crossorigin src="./assets/index-DNv15Live.js?v=20261127v25"></script>
