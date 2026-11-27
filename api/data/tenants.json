@@ -1,0 +1,208 @@
+[
+  {
+    "id": "tenant_naveedresturent",
+    "name": "NAVEED RESTURENT",
+    "subdomain": "naveedresturent",
+    "domain": "digitalsnova.com/portal/?store=naveedresturent",
+    "portalUrl": "https://digitalsnova.com/portal/?store=naveedresturent",
+    "phone": "03012200230",
+    "email": "",
+    "businessType": "Restaurants, Cafes & Food Outlets",
+    "business_type": "Restaurants, Cafes & Food Outlets",
+    "vertical": "RESTAURANT",
+    "sector": "RESTAURANT",
+    "storeType": "RESTAURANT",
+    "planType": "MONTHLY",
+    "planName": "Restaurant & Cafe POS (Monthly)",
+    "monthlyFee": 6999,
+    "monthly_fee": 6999,
+    "createdAt": "2026-11-05T05:50:00.000Z",
+    "adminName": "NAVEED",
+    "adminUsername": "admin.naveedresturent",
+    "adminPassword": "123",
+    "adminPin": "1234",
+    "status": "ACTIVE",
+    "enabledModules": {
+      "pos": true,
+      "inventory": true,
+      "tableManagement": true,
+      "patientsLedger": false
+    },
+    "subscription": {
+      "state": "ACTIVE",
+      "plan": "MONTHLY",
+      "planName": "Restaurant & Cafe POS (Monthly)",
+      "billingCycleDay": 1,
+      "graceDaysRemaining": 3,
+      "monthlyFee": 6999
+    },
+    "adminUser": {
+      "name": "NAVEED",
+      "username": "admin.naveedresturent",
+      "password": "123",
+      "phone": "03012200230",
+      "role": "STORE_ADMIN"
+    }
+  },
+  {
+    "id": "tenant_huzaifacondomstore",
+    "name": "Huzaifa Condom store",
+    "subdomain": "huzaifacondomstore",
+    "domain": "digitalsnova.com/portal/?store=huzaifacondomstore",
+    "portalUrl": "https://digitalsnova.com/portal/?store=huzaifacondomstore",
+    "phone": "03153527736",
+    "email": "",
+    "businessType": "Retail Mart / General Store",
+    "business_type": "Retail Mart / General Store",
+    "vertical": "RETAIL_MART",
+    "sector": "RETAIL_MART",
+    "storeType": "RETAIL_MART",
+    "planType": "MONTHLY",
+    "planName": "Retail Mart POS (Monthly)",
+    "monthlyFee": 4999,
+    "monthly_fee": 4999,
+    "createdAt": "2026-11-05T05:26:00.000Z",
+    "adminName": "Huzaifa shykh",
+    "adminUsername": "admin.huzaifacondomstore",
+    "adminPassword": "123",
+    "adminPin": "1234",
+    "status": "ACTIVE",
+    "enabledModules": {
+      "pos": true,
+      "inventory": true,
+      "patientsLedger": false
+    },
+    "subscription": {
+      "state": "ACTIVE",
+      "plan": "MONTHLY",
+      "planName": "Retail Mart POS (Monthly)",
+      "billingCycleDay": 1,
+      "graceDaysRemaining": 3,
+      "monthlyFee": 4999
+    },
+    "adminUser": {
+      "name": "Huzaifa shykh",
+      "username": "admin.huzaifacondomstore",
+      "password": "123",
+      "phone": "03153527736",
+      "role": "STORE_ADMIN"
+    }
+  },
+  {
+    "id": "tenant_clinic",
+    "name": "clinic",
+    "subdomain": "clinic",
+    "domain": "digitalsnova.com/portal/?store=clinic",
+    "portalUrl": "https://digitalsnova.com/portal/?store=clinic",
+    "phone": "03012200230",
+    "email": "ubaid123@gmail.com",
+    "businessType": "Clinic / Hospital",
+    "business_type": "Clinic / Hospital",
+    "vertical": "CLINIC_HMS",
+    "sector": "CLINIC_HMS",
+    "storeType": "CLINIC_HMS",
+    "planType": "TRIAL_3_DAYS",
+    "planName": "3-Day Enterprise Trial",
+    "monthlyFee": 7999,
+    "monthly_fee": 7999,
+    "createdAt": "2026-11-04T10:16:00.000Z",
+    "adminName": "ubaid",
+    "adminUsername": "admin.clinic",
+    "adminPassword": "123",
+    "adminPin": "1234",
+    "status": "ACTIVE",
+    "enabledModules": {
+      "pos": true,
+      "inventory": true,
+      "patientsLedger": true
+    },
+    "subscription": {
+      "state": "ACTIVE",
+      "plan": "TRIAL_3_DAYS",
+      "planName": "3-Day Enterprise Trial",
+      "billingCycleDay": 1,
+      "graceDaysRemaining": 3,
+      "monthlyFee": 7999
+    },
+    "adminUser": {
+      "name": "ubaid",
+      "username": "admin.clinic",
+      "password": "123",
+      "email": "ubaid123@gmail.com",
+      "phone": "03012200230",
+      "role": "CLINIC_ADMIN"
+    }
+  },
+  {
+    "id": "tenant_altahirskincarecenter",
+    "name": "Al Tahir Skin Care Center",
+    "clinicName": "Al Tahir Skin Care Center",
+    "businessName": "Al Tahir Skin Care Center",
+    "subdomain": "altahirskincarecenter",
+    "domain": "altahirskincarecenter.digitalsnova.com",
+    "portalUrl": "https://digitalsnova.com/portal/?store=altahirskincarecenter",
+    "phone": "03012200230",
+    "email": "altahirskincarecenter@gmail.com",
+    "businessType": "Clinic / Hospital",
+    "business_type": "Clinic / Hospital",
+    "vertical": "CLINIC_HMS",
+    "sector": "CLINIC_HMS",
+    "storeType": "CLINIC_HMS",
+    "planType": "TRIAL_3_DAYS",
+    "planName": "Clinic & Hospital HMS (3-Day Free Trial • Rs. 0)",
+    "monthlyFee": 0,
+    "monthly_fee": 0,
+    "billingCycleDay": 1,
+    "cycleDays": 3,
+    "adminName": "Al Tahir Admin",
+    "adminUsername": "admin.altahirskincarecenter",
+    "adminPassword": "123",
+    "adminPin": "1234",
+    "status": "ACTIVE",
+    "manualBlocked": false,
+    "enabledModules": {
+      "pos": true,
+      "inventory": true,
+      "patientsLedger": true
+    },
+    "subscription": {
+      "state": "ACTIVE",
+      "plan": "TRIAL_3_DAYS",
+      "planName": "Clinic & Hospital HMS (3-Day Free Trial • Rs. 0)",
+      "billingCycleDay": 1,
+      "totalDays": 3,
+      "graceDaysRemaining": 3,
+      "monthlyFee": 0
+    },
+    "adminUser": {
+      "name": "Al Tahir Admin",
+      "username": "admin.altahirskincarecenter",
+      "password": "123",
+      "phone": "03012200230",
+      "email": "altahirskincarecenter@gmail.com",
+      "role": "CLINIC_ADMIN"
+    },
+    "branches": [
+      {
+        "id": "branch_dha2",
+        "name": "Al Tahir Clinics Main Branch",
+        "code": "DHA 2",
+        "address": "Plot No 88/C 1st floor, 11th Street, adjacent KFC, D.H.A Phase II Extension Phase 2 Commercial Area DHA karachi, Karachi, 75400",
+        "phone": "03131094557",
+        "isActive": true,
+        "isDefault": true,
+        "createdAt": "2026-11-25T12:00:00.000Z"
+      },
+      {
+        "id": "branch_zamzama",
+        "name": "Al Tahir Clinic Zamzama Branch",
+        "code": "ZAMZAMA",
+        "address": "22-23 Street 2, DHA Phase 5 Zamzama Commercial Area Defence V Karachi, 75500",
+        "phone": "03012200230",
+        "isActive": true,
+        "isDefault": false,
+        "createdAt": "2026-11-25T12:00:00.000Z"
+      }
+    ]
+  }
+]

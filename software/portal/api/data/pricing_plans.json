@@ -1,0 +1,44 @@
+{
+  "pricingVersion": 2,
+  "monthlyFee": 7999,
+  "yearlyFee": 79990,
+  "threeYearFee": 229000,
+  "trialDays": 3,
+  "currency": "Rs.",
+  "retailMonthly": 4999,
+  "retailYearly": 49990,
+  "retailThreeYear": 139000,
+  "pharmacyMonthly": 5999,
+  "pharmacyYearly": 59990,
+  "pharmacyThreeYear": 169000,
+  "restaurantMonthly": 6999,
+  "restaurantYearly": 69990,
+  "restaurantThreeYear": 199000,
+  "clinicMonthly": 7999,
+  "clinicYearly": 79990,
+  "clinicThreeYear": 229000,
+  "retail": {
+    "title": "Retail Marts & General Stores",
+    "monthly": 4999,
+    "yearly": 49990,
+    "threeYear": 139000
+  },
+  "pharmacy": {
+    "title": "Pharmacies & Medical Stores",
+    "monthly": 5999,
+    "yearly": 59990,
+    "threeYear": 169000
+  },
+  "restaurant": {
+    "title": "Restaurants, Cafes & Food Outlets",
+    "monthly": 6999,
+    "yearly": 69990,
+    "threeYear": 199000
+  },
+  "clinic": {
+    "title": "Clinics & Hospitals (HMS)",
+    "monthly": 7999,
+    "yearly": 79990,
+    "threeYear": 229000
+  }
+}

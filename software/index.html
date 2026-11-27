@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>Enterprise Cloud POS &amp; ERP Software Solutions | Big4Digital</title>
+  <meta name="description" content="High-performance cloud and offline POS and enterprise ERP software built for retail, pharmacies, restaurants, and medical clinics. Multi-branch management, barcode scanning, and instant reporting."/>
+  <link rel="canonical" href="https://big4digital.com/software/"/>
+  <meta property="og:title" content="Enterprise Cloud POS &amp; ERP Software Solutions | Big4Digital"/>
+  <meta property="og:description" content="Modern cloud point-of-sale and business management software across Retail, Pharmacy, Restaurant, and Healthcare."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://big4digital.com/software/"/>
+  <meta property="og:image" content="/images/Logo01.png"/>
+  <link href="https://fonts.googleapis.com/" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="/css/style.css?v=2.1" rel="stylesheet"/>
+  <link href="/css/responsive.css" rel="stylesheet"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <style>
+    /* -------------------------------------------------------------
+       BIG4DIGITAL SOFTWARE LANDING PAGE — BESPOKE BRAND STYLES
+       Palette: #F7F7F5 (canvas), #111111 (charcoal), #FF343B (brand red)
+       ------------------------------------------------------------- */
+    .sw-hero {
+      background: #111111;
+      color: #F7F7F5;
+      position: relative;
+      overflow: hidden;
+      max-width: 100vw;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 140px 0 90px;
+    }
+    .sw-hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      max-width: 100vw;
+      background: radial-gradient(circle, rgba(255, 52, 59, 0.18) 0%, rgba(17, 17, 17, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    @media (max-width: 768px) {
+      .sw-hero::before {
+        display: none !important;
+      }
+    }
+    .sw-container {
+      max-width: 1280px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .sw-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 52, 59, 0.4);
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FF343B;
+      margin-bottom: 24px;
+    }
+    .sw-hero-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #FF343B;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #FF343B;
+    }
+    .sw-hero-title {
+      font-family: 'Funnel Display', 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 5.5vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 24px;
+      max-width: 950px;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .sw-hero-title .red-accent {
+      color: #FF343B;
+    }
+    .sw-hero-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.65;
+      color: #A3A3A3;
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+    .sw-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .sw-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FF343B;
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(255, 52, 59, 0.35);
+    }
+    .sw-btn-primary:hover {
+      background: #E0282F;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 52, 59, 0.45);
+      color: #FFFFFF;
+    }
+    .sw-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #F7F7F5;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .sw-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
+    }
+    .sw-hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .sw-metric-card h3 {
+      font-family: 'Funnel Display', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .sw-metric-card h3 span {
+      color: #FF343B;
+    }
+    .sw-metric-card p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: #8C8C8C;
+      line-height: 1.4;
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .sw-hero-metrics {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .sw-hero-metrics {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      .sw-hero-actions {
+        flex-direction: column !important;
+        align-items: stretch !important;
+      }
+      .sw-btn-primary, .sw-btn-secondary {
+        justify-content: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: INDUSTRY VERTICALS (SECTORS)
+       ------------------------------------------------------------- */
+    .sw-sectors-section {
+      background: #F7F7F5;
+      color: #111111;
+      padding: 90px 0;
+    }
+    .sw-section-tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FF343B;
+      margin-bottom: 12px;
+    }
+    .sw-section-heading {
+      font-family: 'Funnel Display', 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(28px, 3.8vw, 44px);
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .sw-section-subhead {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555555;
+      max-width: 680px;
+      margin-bottom: 50px;
+    }
+    .sw-sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 860px) {
+      .sw-sectors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sw-sector-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E5E0;
+      border-radius: 12px;
+      padding: 38px 34px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .sw-sector-card:hover {
+      border-color: #FF343B;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      transform: translateY(-4px);
+    }
+    .sw-sector-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: rgba(255, 52, 59, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF343B;
+      margin-bottom: 22px;
+      font-size: 24px;
+    }
+    .sw-sector-card h3 {
+      font-family: 'Funnel Display', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+    .sw-sector-card p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #555555;
+      margin-bottom: 24px;
+    }
+    .sw-sector-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sw-sector-features li {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      color: #333333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sw-sector-features li svg {
+      width: 16px;
+      height: 16px;
+      color: #FF343B;
+      flex-shrink: 0;
+    }
+    .sw-sector-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #FF343B;
+      text-decoration: none;
+      border-top: 1px solid #EEEEEE;
+      padding-top: 18px;
+      transition: gap 0.2s ease;
+    }
+    .sw-sector-link:hover {
+      gap: 12px;
+      color: #D01C23;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: PLATFORM CAPABILITIES
+       ------------------------------------------------------------- */
+    .sw-platform-section {
+      background: #111111;
+      color: #FFFFFF;
+      padding: 90px 0;
+    }
+    .sw-platform-section .sw-section-heading {
+      color: #FFFFFF;
+    }
+    .sw-platform-section .sw-section-subhead {
+      color: #999999;
+    }
+    .sw-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 960px) {
+      .sw-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .sw-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sw-feature-card {
+      background: #181818;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 30px 26px;
+      transition: all 0.25s ease;
+    }
+    .sw-feature-card:hover {
+      border-color: rgba(255, 52, 59, 0.4);
+      background: #1E1E1E;
+    }
+    .sw-feature-card h4 {
+      font-family: 'Funnel Display', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .sw-feature-card p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #A0A0A0;
+      margin: 0;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: DESKTOP LAUNCHERS & DOWNLOADS
+       ------------------------------------------------------------- */
+    .sw-downloads-section {
+      background: #FFFFFF;
+      color: #111111;
+      padding: 85px 0;
+      border-bottom: 1px solid #E5E5E0;
+    }
+    .sw-downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+    @media (max-width: 990px) {
+      .sw-downloads-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 540px) {
+      .sw-downloads-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sw-download-card {
+      background: #F7F7F5;
+      border: 1px solid #E0E0DB;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .sw-download-card:hover {
+      border-color: #FF343B;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+    .sw-download-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: #FF343B;
+    }
+    .sw-download-card h4 {
+      font-family: 'Funnel Display', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+    .sw-download-card p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      color: #666666;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+    .sw-download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      background: #111111;
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 9px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .sw-download-btn:hover {
+      background: #FF343B;
+      color: #FFFFFF;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION: BOTTOM CALL TO ACTION
+       ------------------------------------------------------------- */
+    .sw-cta-section {
+      background: #111111;
+      color: #FFFFFF;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+    .sw-cta-box {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .sw-cta-box h2 {
+      font-family: 'Funnel Display', sans-serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .sw-cta-box p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #A3A3A3;
+      margin-bottom: 34px;
+    }
+    .sw-cta-box .sw-hero-actions {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+  
+    /* Ensure navbar is robust across all screen sizes */
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      box-sizing: border-box;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 1151px) {
+      .navbar {
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        gap: 20px !important;
+      }
+      .sw-nav-btn {
+        display: inline-flex !important;
+        background: #FF343B !important;
+        color: #FFFFFF !important;
+        border-color: #FF343B !important;
+      }
+      .sw-nav-btn:hover {
+        background: #D01C23 !important;
+        color: #FFFFFF !important;
+      }
+      .navbar .burger {
+        display: none !important;
+      }
+    }
+    @media (max-width: 1150px) {
+      .navbar {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 16px 20px !important;
+      }
+      .sw-nav-btn {
+        display: none !important;
+      }
+      .navbar .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        margin-left: auto !important;
+      }
+      .navbar .burger,
+      #burgerButton {
+        display: inline-flex !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        width: 30px !important;
+        height: 22px !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+      }
+      .navbar .burger span {
+        background: #FFFFFF !important;
+        height: 2px !important;
+        width: 100% !important;
+        display: block !important;
+        border-radius: 2px !important;
+      }
+      .navbar .burger span:nth-child(2) {
+        width: 75% !important;
+        align-self: flex-end !important;
+      }
+      .sw-hero {
+        padding-top: 110px !important;
+      }
+      .sw-hero-title {
+        font-size: clamp(22px, 6vw, 32px) !important;
+        hyphens: none !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        line-height: 1.25 !important;
+      }
+    }
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+    .page-wrapper {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="navbar">
+      <a class="logo" href="/">
+        <img alt="Big4Digital" src="/images/Logo01.png" width="144" height="48" style="height: 48px; width: auto; max-height: 48px;"/>
+      </a>
+      <!-- DESKTOP NAV -->
+      <nav class="desktop-nav">
+        <!-- HOME -->
+        <a class="nav-link" href="/">Home</a>
+        <!-- ABOUT US -->
+        <a class="nav-link" href="/about-us.html">About Us</a>
+        <!-- SERVICES DROPDOWN -->
+        <div class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+            Services <span class="nav-arrow">&#9662;</span>
+          </button>
+          <div class="dropdown-menu">
+            <!-- 01 Digital & Creative -->
+            <div class="dropdown-submenu">
+              <a class="submenu-parent" href="/digital-creative.html">
+                <span>Digital &amp; Creative</span>
+                <span class="submenu-arrow">&rsaquo;</span>
+              </a>
+              <div class="submenu-dropdown">
+                <a href="/digital-marketing.html">Digital Marketing</a>
+                <a href="/seo.html">SEO</a>
+                <a href="/social-media-management.html">Social Media Management</a>
+                <a href="/website-development.html">Website Development</a>
+                <a href="/digital-advertising.html">Digital Advertising / Meta Ads</a>
+                <a href="/graphic-design.html">Graphic Design</a>
+                <a href="/video-production.html">Video Production</a>
+                <a href="/ugc-content-creation.html">UGC Content Creation</a>
+                <a href="/pr-management.html">PR Management</a>
+              </div>
+            </div>
+
+            <!-- 02 Advisory & Finance -->
+            <div class="dropdown-submenu">
+              <a class="submenu-parent" href="/advisory-finance.html">
+                <span>Advisory &amp; Finance</span>
+                <span class="submenu-arrow">&rsaquo;</span>
+              </a>
+              <div class="submenu-dropdown">
+                <a href="/business-consultancy.html">Business Consultancy</a>
+                <a href="/investment-advisory.html">Investment Advisory</a>
+                <a href="/valuation-services.html">Valuation Services</a>
+                <a href="/financial-advisory.html">Financial Advisory</a>
+                <a href="/financial-reporting.html">Financial Reporting</a>
+                <a href="/tax-return-filing.html">Tax Return Filing</a>
+                <a href="/corporate-legal-filings.html">Corporate &amp; Legal Filings</a>
+                <a href="/regulatory-compliance.html">Regulatory Compliance</a>
+              </div>
+            </div>
+
+            <!-- 03 Sustainability & ESG -->
+            <div class="dropdown-submenu">
+              <a class="submenu-parent" href="/sustainability-esg.html">
+                <span>Sustainability &amp; ESG</span>
+                <span class="submenu-arrow">&rsaquo;</span>
+              </a>
+              <div class="submenu-dropdown">
+                <a href="/sustainability-reporting.html">Sustainability Reporting</a>
+                <a href="/esg-advisory.html">ESG Advisory</a>
+                <a href="/climate-ghg-advisory.html">Climate &amp; GHG Advisory</a>
+                <a href="/sustainability-strategy.html">Sustainability Strategy</a>
+                <a href="/capacity-building-training.html">Capacity Building &amp; Training</a>
+              </div>
+            </div>
+
+            <!-- 04 People & Organisation -->
+            <div class="dropdown-submenu">
+              <a class="submenu-parent" href="/people-organisation.html">
+                <span>People &amp; Organisation</span>
+                <span class="submenu-arrow">&rsaquo;</span>
+              </a>
+              <div class="submenu-dropdown">
+                <a href="/organisational-development.html">Organisational Development</a>
+                <a href="/hr-advisory.html">HR Advisory</a>
+                <a href="/recruitment-services.html">Recruitment Services</a>
+                <a href="/training-capacity-building.html">Training &amp; Capacity Building</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- OUR CLIENTS -->
+        <a class="nav-link" href="/our-clients.html">Our Clients</a>
+        <!-- SOFTWARE DROPDOWN -->
+        <div class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle active" type="button" aria-expanded="false" aria-haspopup="true">
+            Software <span class="nav-arrow">&#9662;</span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="/software/">Software Overview</a>
+            <a href="/software/portal/?sector=RETAIL_MART">Retail &amp; Supermarket POS</a>
+            <a href="/software/portal/?sector=PHARMACY">Pharmacy &amp; Health POS</a>
+            <a href="/software/portal/?sector=RETAURANT">Restaurant &amp; Cafe POS</a>
+            <a href="/software/portal/?sector=CLINIC_HMS">Clinic &amp; Hospital HMS</a>
+            <a href="/software/portal/" style="border-top: 1px solid rgba(255,255,255,0.08); color: #ff343b; font-weight: 600;">Launch Live Portal &rarr;</a>
+          </div>
+        </div>
+        <!-- BLOG -->
+        <a class="nav-link" href="/blog.html">Blog</a>
+        <!-- CONTACT -->
+        <a class="nav-link" href="/contact-us.html">Contact</a>
+      </nav>
+      <!-- RIGHT ACTIONS -->
+      <div class="nav-actions">
+        <a class="touch-btn sw-nav-btn" href="/software/portal/">Launch Portal</a>
+        <button aria-label="Open menu" class="burger" id="burgerButton" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- FULLSCREEN MOBILE MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+      <div class="menu-image">
+        <img alt="Creative Digital Artwork" src="/images/about-banner.jpg"/>
+      </div>
+      <div class="menu-content">
+        <div class="menu-header">
+          <a class="menu-logo" href="/">
+            <img alt="Big4Digital" src="/images/Logo01.png" width="144" height="48" style="height: 44px; width: auto; max-height: 44px;"/>
+          </a>
+          <button aria-label="Close menu" class="menu-close" id="menuClose" type="button">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      
+        <nav class="burger-navigation">
+          <div class="burger-nav-item">
+            <a class="burger-nav-link" href="/">
+              <small>01/</small>
+              <span>Home</span>
+            </a>
+          </div>
+        
+          <div class="burger-nav-item">
+            <a class="burger-nav-link" href="/about-us.html">
+              <small>02/</small>
+              <span>About Us</span>
+            </a>
+          </div>
+
+          <div class="burger-nav-item has-dropdown">
+            <button class="burger-nav-link burger-accordion-trigger" type="button" aria-expanded="false">
+              <small>03/</small>
+              <span>Services</span>
+              <i class="burger-arrow">&#8964;</i>
+            </button>
+            <div class="burger-submenu">
+              <div class="burger-subitem">
+                <div class="burger-subitem-header">
+                  <a class="burger-subitem-link" href="/digital-creative.html">Digital &amp; Creative</a>
+                  <button class="burger-sub-toggle" type="button" aria-label="Toggle Digital &amp; Creative submenu">&rsaquo;</button>
+                </div>
+                <div class="burger-nested-dropdown">
+                  <a href="/digital-marketing.html">Digital Marketing</a>
+                  <a href="/seo.html">SEO (Search Engine Optimization)</a>
+                  <a href="/social-media-management.html">Social Media Management</a>
+                  <a href="/website-development.html">Website Development</a>
+                  <a href="/digital-advertising.html">Digital Advertising / Meta Ads</a>
+                  <a href="/graphic-design.html">Graphic Design</a>
+                  <a href="/video-production.html">Video Production</a>
+                  <a href="/ugc-content-creation.html">UGC Content Creation</a>
+                  <a href="/pr-management.html">PR Management</a>
+                </div>
+              </div>
+
+              <div class="burger-subitem">
+                <div class="burger-subitem-header">
+                  <a class="burger-subitem-link" href="/advisory-finance.html">Advisory &amp; Finance</a>
+                  <button class="burger-sub-toggle" type="button" aria-label="Toggle Advisory &amp; Finance submenu">&rsaquo;</button>
+                </div>
+                <div class="burger-nested-dropdown">
+                  <a href="/business-consultancy.html">Business Consultancy</a>
+                  <a href="/investment-advisory.html">Investment Advisory</a>
+                  <a href="/valuation-services.html">Valuation Services</a>
+                  <a href="/financial-advisory.html">Financial Advisory</a>
+                  <a href="/financial-reporting.html">Financial Reporting</a>
+                  <a href="/tax-return-filing.html">Tax Return Filing</a>
+                  <a href="/corporate-legal-filings.html">Corporate &amp; Legal Filings</a>
+                  <a href="/regulatory-compliance.html">Regulatory Compliance</a>
+                </div>
+              </div>
+
+              <div class="burger-subitem">
+                <div class="burger-subitem-header">
+                  <a class="burger-subitem-link" href="/sustainability-esg.html">Sustainability &amp; ESG</a>
+                  <button class="burger-sub-toggle" type="button" aria-label="Toggle Sustainability &amp; ESG submenu">&rsaquo;</button>
+                </div>
+                <div class="burger-nested-dropdown">
+                  <a href="/sustainability-reporting.html">Sustainability Reporting</a>
+                  <a href="/esg-advisory.html">ESG Advisory</a>
+                  <a href="/climate-ghg-advisory.html">Climate &amp; GHG Advisory</a>
+                  <a href="/sustainability-strategy.html">Sustainability Strategy</a>
+                  <a href="/capacity-building-training.html">Capacity Building &amp; Training</a>
+                </div>
+              </div>
+
+              <div class="burger-subitem">
+                <div class="burger-subitem-header">
+                  <a class="burger-subitem-link" href="/people-organisation.html">People &amp; Organisation</a>
+                  <button class="burger-sub-toggle" type="button" aria-label="Toggle People &amp; Organisation submenu">&rsaquo;</button>
+                </div>
+                <div class="burger-nested-dropdown">
+                  <a href="/organisational-development.html">Organisational Development</a>
+                  <a href="/hr-advisory.html">HR Advisory</a>
+                  <a href="/recruitment-services.html">Recruitment Services</a>
+                  <a href="/training-capacity-building.html">Training &amp; Capacity Building</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="burger-nav-item">
+            <a class="burger-nav-link" href="/our-clients.html">
+              <small>04/</small>
+              <span>Our Clients</span>
+            </a>
+          </div>
+
+          <div class="burger-nav-item has-dropdown">
+            <button class="burger-nav-link burger-accordion-trigger" type="button" aria-expanded="false">
+              <small>05/</small>
+              <span>Software</span>
+              <i class="burger-arrow">&#8964;</i>
+            </button>
+            <div class="burger-submenu">
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/">Software Overview</a>
+              </div>
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/portal/?sector=RETAIL_MART">Retail &amp; Supermarket POS</a>
+              </div>
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/portal/?sector=PHARMACY">Pharmacy &amp; Health POS</a>
+              </div>
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/portal/?sector=RESTAURANT">Restaurant &amp; Cafe POS</a>
+              </div>
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/portal/?sector=CLINIC_HMS">Clinic &amp; Hospital HMS</a>
+              </div>
+              <div class="burger-subitem">
+                <a class="burger-subitem-link" href="/software/portal/" style="color: #ff343b; font-weight: 600;">Launch Live Portal &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="burger-nav-item">
+            <a class="burger-nav-link" href="/blog.html">
+              <small>06/</small>
+              <span>Blog</span>
+            </a>
+          </div>
+
+          <div class="burger-nav-item">
+            <a class="burger-nav-link" href="/contact-us.html">
+              <small>07/</small>
+              <span>Contact</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO -->
+      <section class="sw-hero">
+        <div class="sw-container">
+          <div class="sw-hero-badge">
+            <span class="pulse-dot"></span>
+            Enterprise Cloud POS &amp; ERP 2026
+          </div>
+          <h1 class="sw-hero-title">
+            Point of Sale &amp; Enterprise Software Engineered for <span class="red-accent">Fast-Growing Businesses</span>.
+          </h1>
+          <p class="sw-hero-desc">
+            Empower your store, pharmacy, restaurant, or clinic with ultra-fast barcode scanning, offline auto-sync, role-based controls, and instant financial reporting — all unified under a single cloud platform.
+          </p>
+          <div class="sw-hero-actions">
+            <a class="sw-btn-primary" href="/software/portal/">
+              Launch Live Software Portal
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a class="sw-btn-secondary" href="#sectors">
+              Explore Industry Verticals ↓
+            </a>
+            <a class="sw-btn-secondary" href="/contact-us.html">
+              Book a Personalized Demo
+            </a>
+          </div>
+
+          <div class="sw-hero-metrics">
+            <div class="sw-metric-card">
+              <h3>0<span>ms</span></h3>
+              <p>Instant barcode &amp; product lookup without cashier delays.</p>
+            </div>
+            <div class="sw-metric-card">
+              <h3>100<span>%</span></h3>
+              <p>Offline resilience with automatic cloud synchronization.</p>
+            </div>
+            <div class="sw-metric-card">
+              <h3>4<span>+</span></h3>
+              <p>Purpose-built modules for Retail, Health, Dining &amp; Clinics.</p>
+            </div>
+            <div class="sw-metric-card">
+              <h3>1<span>-Click</span></h3>
+              <p>Daily shift reconciliation &amp; automatic Z-report generation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTORS SHOWCASE -->
+      <section class="sw-sectors-section" id="sectors">
+        <div class="sw-container">
+          <span class="sw-section-tag">TAILORED INDUSTRY VERTICALS</span>
+          <h2 class="sw-section-heading">Engineered for Your Industry's Daily Workflows</h2>
+          <p class="sw-section-subhead">
+            No two businesses are identical. Our software provides purpose-built interfaces and specialized feature sets tailored specifically to each sector.
+          </p>
+
+          <div class="sw-sectors-grid">
+            <!-- 1. RETAIL & MART -->
+            <div class="sw-sector-card">
+              <div>
+                <div class="sw-sector-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </div>
+                <h3>Retail &amp; Supermarket POS</h3>
+                <p>
+                  High-speed checkout terminal designed for retail stores, supermarkets, apparel, and electronics. Handles thousands of SKUs effortlessly with multi-tier pricing.
+                </p>
+                <ul class="sw-sector-features">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    High-speed barcode scanner checkout &amp; label generator
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Hold Bill (F4) &amp; Parked Sales for busy counters
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    58mm / 80mm ESC/POS thermal receipt auto-printing
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Cashier shift register, blind drops &amp; daily Z-Report
+                  </li>
+                </ul>
+              </div>
+              <a class="sw-sector-link" href="/software/portal/?sector=RETAIL_MART">
+                Launch Retail POS Module &rarr;
+              </a>
+            </div>
+
+            <!-- 2. PHARMACY -->
+            <div class="sw-sector-card">
+              <div>
+                <div class="sw-sector-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                </div>
+                <h3>Pharmacy &amp; Health POS</h3>
+                <p>
+                  Pharmaceutical-grade inventory tracking with automated batch numbers, expiration alerts, and active salt / generic drug alternative lookup.
+                </p>
+                <ul class="sw-sector-features">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Batch number &amp; expiry date tracking with early warnings
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Generic formula &amp; salt substitute search
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Prescription doctor tagging &amp; customer medical ledgers
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Controlled substance &amp; narcotic dispense audits
+                  </li>
+                </ul>
+              </div>
+              <a class="sw-sector-link" href="/software/portal/?sector=PHARMACY">
+                Launch Pharmacy POS Module &rarr;
+              </a>
+            </div>
+
+            <!-- 3. RESTAURANT & CAFE -->
+            <div class="sw-sector-card">
+              <div>
+                <div class="sw-sector-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <h3>Restaurant &amp; Cafe POS</h3>
+                <p>
+                  Accelerate food service with interactive table floor plans, Kitchen Order Tickets (KOT) sent to kitchen display screens, and flexible menu modifier sets.
+                </p>
+                <ul class="sw-sector-features">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Visual dine-in floor layout with live table status
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Instant Kitchen Order Ticket (KOT) routing to kitchen
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Item modifiers (toppings, spice levels, cooking notes)
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Takeaway, delivery partner &amp; dine-in split billing
+                  </li>
+                </ul>
+              </div>
+              <a class="sw-sector-link" href="/software/portal/?sector=RESTAURANT">
+                Launch Restaurant POS Module &rarr;
+              </a>
+            </div>
+
+            <!-- 4. CLINIC & HOSPITAL -->
+            <div class="sw-sector-card">
+              <div>
+                <div class="sw-sector-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <h3>Clinic &amp; Hospital Management (HMS)</h3>
+                <p>
+                  Comprehensive patient management with Electronic Health Records (EHR), OPD doctor appointments, digital prescription builders, and installment ledgers.
+                </p>
+                <ul class="sw-sector-features">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Patient medical record history &amp; visit timelines
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Doctor OPD appointment scheduling &amp; queue tokens
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Digital Rx prescription builder with print &amp; WhatsApp share
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Procedure installment ledger &amp; partial payment tracking
+                  </li>
+                </ul>
+              </div>
+              <a class="sw-sector-link" href="/software/portal/?sector=CLINIC_HMS">
+                Launch Clinic HMS Module &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLATFORM CAPABILITIES -->
+      <section class="sw-platform-section">
+        <div class="sw-container">
+          <span class="sw-section-tag" style="color: #FF343B;">ENTERPRISE ARCHITECTURE</span>
+          <h2 class="sw-section-heading">Why Leading Enterprises Rely on Big4Digital</h2>
+          <p class="sw-section-subhead">
+            Engineered with modern web standards, offline caching, and bank-grade data security to ensure uninterrupted commercial operations.
+          </p>
+
+          <div class="sw-features-grid">
+            <div class="sw-feature-card">
+              <h4>Offline-First Resilience</h4>
+              <p>Keep serving customers even during unexpected ISP internet cuts. Data synchronizes seamlessly with the central database the moment connectivity is restored.</p>
+            </div>
+            <div class="sw-feature-card">
+              <h4>Hardware Compatibility</h4>
+              <p>Supports all major POS hardware out of the box — 58mm/80mm ESC/POS thermal printers, USB &amp; Bluetooth barcode scanners, and automated cash drawers.</p>
+            </div>
+            <div class="sw-feature-card">
+              <h4>Multi-Tenant &amp; Multi-Branch</h4>
+              <p>Manage multiple outlets, central warehouses, and franchises from one centralized cloud dashboard with unified stock transfers and cross-store metrics.</p>
+            </div>
+            <div class="sw-feature-card">
+              <h4>Role-Based Access Control</h4>
+              <p>Configurable permissions for Store Owners, Managers, Cashiers, and Medical Clinicians with audit trail logs protecting against inventory shrinkage.</p>
+            </div>
+            <div class="sw-feature-card">
+              <h4>One-Click Financial Closing</h4>
+              <p>Streamline daily cashier handovers with automatic shift registers, cash drawer reconciliation, payment method breakdowns, and PDF/thermal Z-Reports.</p>
+            </div>
+            <div class="sw-feature-card">
+              <h4>White-Label &amp; Custom Branding</h4>
+              <p>Custom receipts with your business logo, tax registration (NTN/STRN), customized footer disclaimers, and personalized customer messaging.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESKTOP LAUNCHERS & DOWNLOADS -->
+      <section class="sw-downloads-section">
+        <div class="sw-container">
+          <span class="sw-section-tag">NATIVE DESKTOP EXPERIENCE</span>
+          <h2 class="sw-section-heading">Windows Desktop Launchers &amp; Web Access</h2>
+          <p class="sw-section-subhead">
+            Run Big4Digital Software in any modern browser, or download our lightweight 1-click Windows desktop launchers for dedicated cashier terminals with isolated profile caching.
+          </p>
+
+          <div class="sw-downloads-grid">
+            <div class="sw-download-card">
+              <div class="sw-download-icon">🛒</div>
+              <h4>Retail Mart POS</h4>
+              <p>Windows Desktop Launcher for barcode cashier terminals.</p>
+              <a class="sw-download-btn" href="/software/portal/downloads/Big4Digital-Retail-POS-Windows-Setup.bat" download>
+                Download Launcher (.bat)
+              </a>
+            </div>
+
+            <div class="sw-download-card">
+              <div class="sw-download-icon">💊</div>
+              <h4>Pharmacy POS</h4>
+              <p>Windows Desktop Launcher with drug batch tracking.</p>
+              <a class="sw-download-btn" href="/software/portal/downloads/Big4Digital-Pharmacy-POS-Windows-Setup.bat" download>
+                Download Launcher (.bat)
+              </a>
+            </div>
+
+            <div class="sw-download-card">
+              <div class="sw-download-icon">☕</div>
+              <h4>Restaurant POS</h4>
+              <p>Windows Desktop Launcher for dine-in &amp; takeaway counters.</p>
+              <a class="sw-download-btn" href="/software/portal/downloads/Big4Digital-Restaurant-POS-Windows-Setup.bat" download>
+                Download Launcher (.bat)
+              </a>
+            </div>
+
+            <div class="sw-download-card">
+              <div class="sw-download-icon">🩺</div>
+              <h4>Clinic HMS</h4>
+              <p>Windows Desktop Launcher for reception &amp; doctor OPDs.</p>
+              <a class="sw-download-btn" href="/software/portal/downloads/Big4Digital-Clinic-HMS-Windows-Setup.bat" download>
+                Download Launcher (.bat)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER -->
+      <section class="sw-cta-section">
+        <div class="sw-container">
+          <div class="sw-cta-box">
+            <h2>Ready to Transform Your Commercial Operations?</h2>
+            <p>
+              Launch the live interactive software portal now, or schedule a consultation with our technology advisors to tailor an enterprise deployment for your business.
+            </p>
+            <div class="sw-hero-actions">
+              <a class="sw-btn-primary" href="/software/portal/">
+                Launch Live Portal Now
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a class="sw-btn-secondary" href="/contact-us.html">
+                Contact Advisory Team
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <!-- 1. FOOTER IMAGE -->
+          <div class="footer-image">
+            <img alt="Big4Digital Creative" src="/images/footer-image.png"/>
+          </div>
+          <!-- 2. ABOUT COMPANY -->
+          <div class="footer-links-column footer-col-about">
+            <h4>ABOUT COMPANY</h4>
+            <ul>
+              <li><a href="/about-us.html">About Us</a></li>
+              <li><a href="/our-clients.html">Our Clients</a></li>
+              <li><a href="/software/">Software</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <!-- 3. SERVICES -->
+          <div class="footer-links-column footer-col-services">
+            <h4>SERVICES</h4>
+            <ul class="footer-services-list">
+              <!-- Digital & Creative -->
+              <li class="footer-service-item">
+                <div class="footer-service-header">
+                  <a href="/digital-creative.html" class="footer-service-title">Digital &amp; Creative</a>
+                  <button type="button" class="footer-service-toggle" aria-expanded="false" aria-label="Toggle Digital &amp; Creative sub-services">
+                    <span class="footer-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                </div>
+                <ul class="footer-subservices" aria-hidden="true">
+                  <li><a href="/digital-marketing.html"><span class="footer-sub-bullet">&bull;</span>Digital Marketing</a></li>
+                  <li><a href="/seo.html"><span class="footer-sub-bullet">&bull;</span>SEO</a></li>
+                  <li><a href="/social-media-management.html"><span class="footer-sub-bullet">&bull;</span>Social Media Management</a></li>
+                  <li><a href="/website-development.html"><span class="footer-sub-bullet">&bull;</span>Website Development</a></li>
+                  <li><a href="/digital-advertising.html"><span class="footer-sub-bullet">&bull;</span>Digital Advertising / Meta Ads</a></li>
+                  <li><a href="/graphic-design.html"><span class="footer-sub-bullet">&bull;</span>Graphic Design</a></li>
+                  <li><a href="/video-production.html"><span class="footer-sub-bullet">&bull;</span>Video Production</a></li>
+                  <li><a href="/ugc-content-creation.html"><span class="footer-sub-bullet">&bull;</span>UGC Content Creation</a></li>
+                  <li><a href="/pr-management.html"><span class="footer-sub-bullet">&bull;</span>PR Management</a></li>
+                </ul>
+              </li>
+
+              <!-- Advisory & Finance -->
+              <li class="footer-service-item">
+                <div class="footer-service-header">
+                  <a href="/advisory-finance.html" class="footer-service-title">Advisory &amp; Finance</a>
+                  <button type="button" class="footer-service-toggle" aria-expanded="false" aria-label="Toggle Advisory &amp; Finance sub-services">
+                    <span class="footer-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                </div>
+                <ul class="footer-subservices" aria-hidden="true">
+                  <li><a href="/business-consultancy.html"><span class="footer-sub-bullet">&bull;</span>Business Consultancy</a></li>
+                  <li><a href="/investment-advisory.html"><span class="footer-sub-bullet">&bull;</span>Investment Advisory</a></li>
+                  <li><a href="/valuation-services.html"><span class="footer-sub-bullet">&bull;</span>Valuation Services</a></li>
+                  <li><a href="/financial-advisory.html"><span class="footer-sub-bullet">&bull;</span>Financial Advisory</a></li>
+                  <li><a href="/financial-reporting.html"><span class="footer-sub-bullet">&bull;</span>Financial Reporting</a></li>
+                  <li><a href="/tax-return-filing.html"><span class="footer-sub-bullet">&bull;</span>Tax Return Filing</a></li>
+                  <li><a href="/corporate-legal-filings.html"><span class="footer-sub-bullet">&bull;</span>Corporate &amp; Legal Filings</a></li>
+                  <li><a href="/regulatory-compliance.html"><span class="footer-sub-bullet">&bull;</span>Regulatory Compliance</a></li>
+                </ul>
+              </li>
+
+              <!-- Sustainability & ESG -->
+              <li class="footer-service-item">
+                <div class="footer-service-header">
+                  <a href="/sustainability-esg.html" class="footer-service-title">Sustainability &amp; ESG</a>
+                  <button type="button" class="footer-service-toggle" aria-expanded="false" aria-label="Toggle Sustainability &amp; ESG sub-services">
+                    <span class="footer-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                </div>
+                <ul class="footer-subservices" aria-hidden="true">
+                  <li><a href="/sustainability-reporting.html"><span class="footer-sub-bullet">&bull;</span>Sustainability Reporting</a></li>
+                  <li><a href="/esg-advisory.html"><span class="footer-sub-bullet">&bull;</span>ESG Advisory</a></li>
+                  <li><a href="/climate-ghg-advisory.html"><span class="footer-sub-bullet">&bull;</span>Climate &amp; GHG Advisory</a></li>
+                  <li><a href="/sustainability-strategy.html"><span class="footer-sub-bullet">&bull;</span>Sustainability Strategy</a></li>
+                  <li><a href="/capacity-building-training.html"><span class="footer-sub-bullet">&bull;</span>Capacity Building &amp; Training</a></li>
+                </ul>
+              </li>
+
+              <!-- People & Organisation -->
+              <li class="footer-service-item">
+                <div class="footer-service-header">
+                  <a href="/people-organisation.html" class="footer-service-title">People &amp; Organisation</a>
+                  <button type="button" class="footer-service-toggle" aria-expanded="false" aria-label="Toggle People &amp; Organisation sub-services">
+                    <span class="footer-toggle-icon" aria-hidden="true">+</span>
+                  </button>
+                </div>
+                <ul class="footer-subservices" aria-hidden="true">
+                  <li><a href="/organisational-development.html"><span class="footer-sub-bullet">&bull;</span>Organisational Development</a></li>
+                  <li><a href="/hr-advisory.html"><span class="footer-sub-bullet">&bull;</span>HR Advisory</a></li>
+                  <li><a href="/recruitment-services.html"><span class="footer-sub-bullet">&bull;</span>Recruitment Services</a></li>
+                  <li><a href="/training-capacity-building.html"><span class="footer-sub-bullet">&bull;</span>Training &amp; Capacity Building</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- 4. COMPANY DETAILS -->
+          <div class="footer-links-column footer-col-company">
+            <h4>SOFTWARE &amp; ERP</h4>
+            <ul>
+              <li><a href="/software/portal/?sector=RETAIL_MART">Retail &amp; Mart POS</a></li>
+              <li><a href="/software/portal/?sector=PHARMACY">Pharmacy &amp; Health POS</a></li>
+              <li><a href="/software/portal/?sector=RESTAURANT">Restaurant &amp; Dining POS</a></li>
+              <li><a href="/software/portal/?sector=CLINIC_HMS">Clinic &amp; Hospital HMS</a></li>
+              <li><a href="/software/portal/">Enterprise Web Portal</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- FOOTER BOTTOM CONTACT ROW -->
+        <div class="footer-bottom-contact">
+          <!-- LOGO & DESCRIPTION (LEFT COLUMN) -->
+          <div class="footer-brand-info">
+            <a class="footer-logo" href="/">
+              <img alt="Big4Digital" src="/images/Logo01.png" width="144" height="48" style="height: 48px; width: auto; max-height: 48px;"/>
+            </a>
+            <p class="footer-description">
+              Big4Digital delivers enterprise software solutions, digital consultancy, advisory, sustainability, and organisational strategies for growing brands.
+            </p>
+          </div>
+          <!-- SOCIAL ICONS (CENTER COLUMN) -->
+          <div class="footer-social-center">
+            <a href="https://www.facebook.com/big4digitals/" target="_blank" rel="noopener noreferrer" class="footer-social-btn footer-facebook" aria-label="Big4Digital on Facebook">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect width="24" height="24" rx="6" fill="#1877F2"/>
+                <path d="M16.5 12.07H14.15V20H10.87V12.07H9.31V9.28H10.87V7.47C10.87 6.18 11.49 4.17 14.18 4.17L16.62 4.18V6.89H14.85C14.56 6.89 14.15 7.03 14.15 7.65V9.28H16.6L16.5 12.07Z" fill="#FFFFFF"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/big4digitals/" target="_blank" rel="noopener noreferrer" class="footer-social-btn footer-instagram" aria-label="Big4Digital on Instagram">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="igGradientFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f09433"/>
+                    <stop offset="25%" stop-color="#e6683c"/>
+                    <stop offset="50%" stop-color="#dc2743"/>
+                    <stop offset="75%" stop-color="#cc2366"/>
+                    <stop offset="100%" stop-color="#bc1888"/>
+                  </linearGradient>
+                </defs>
+                <rect width="24" height="24" rx="6" fill="url(#igGradientFooter)"/>
+                <path d="M12 5.9C13.99 5.9 14.22 5.91 15.01 5.94C15.74 5.98 16.14 6.1 16.4 6.2C16.75 6.34 17 6.51 17.26 6.77C17.52 7.03 17.69 7.28 17.83 7.63C17.93 7.89 18.05 8.29 18.09 9.02C18.12 9.81 18.13 10.05 18.13 12.03C18.13 14.02 18.12 14.26 18.09 15.05C18.05 15.78 17.93 16.18 17.83 16.44C17.69 16.79 17.52 17.04 17.26 17.3C17 17.56 16.75 17.73 16.4 17.87C16.14 17.97 15.74 18.09 15.01 18.13C14.22 18.16 13.99 18.17 12 18.17C10.01 18.17 9.78 18.16 8.99 18.13C8.26 18.09 7.86 17.97 7.6 17.87C7.25 17.73 7 17.56 6.74 17.3C6.48 17.04 6.31 16.79 6.17 16.44C6.07 16.18 5.95 15.78 5.91 15.05C5.88 14.26 5.87 14.02 5.87 12.03C5.87 10.05 5.88 9.81 5.91 9.02C5.95 8.29 6.07 7.89 6.17 7.63C6.31 7.28 6.48 7.03 6.74 6.77C7 6.51 7.25 6.34 7.6 6.2C7.86 6.1 8.26 5.98 8.99 5.94C9.78 5.91 10.01 5.9 12 5.9ZM12 4.5C9.98 4.5 9.72 4.51 8.93 4.54C8.13 4.58 7.59 4.71 7.12 4.89C6.63 5.08 6.22 5.34 5.8 5.76C5.38 6.18 5.12 6.59 4.93 7.08C4.75 7.55 4.62 8.09 4.58 8.89C4.55 9.68 4.54 9.94 4.54 11.97C4.54 13.99 4.55 14.25 4.58 15.05C4.62 15.84 4.75 16.38 4.93 16.85C5.12 17.34 5.38 17.75 5.8 18.17C6.22 18.59 6.63 18.85 7.12 19.04C7.59 19.22 8.13 19.35 8.93 19.39C9.72 19.43 9.98 19.43 12 19.43C14.02 19.43 14.28 19.43 15.07 19.39C15.87 19.35 16.41 19.22 16.88 19.04C17.37 18.85 17.78 18.59 18.2 18.17C18.62 17.75 18.88 17.34 19.07 16.85C19.25 16.38 19.38 15.84 19.42 15.05C19.45 14.25 19.46 13.99 19.46 11.97C19.46 9.94 19.45 9.68 19.42 8.89C19.38 8.09 19.25 7.55 19.07 7.08C18.88 6.59 18.62 6.18 18.2 5.76C17.78 5.34 17.37 5.08 16.88 4.89C16.41 4.71 15.87 4.58 15.07 4.54C14.28 4.51 14.02 4.5 12 4.5ZM12 8.13C9.84 8.13 8.09 9.88 8.09 12.04C8.09 14.2 9.84 15.95 12 15.95C14.16 15.95 15.91 14.2 15.91 12.04C15.91 9.88 14.16 8.13 12 8.13ZM12 14.59C10.59 14.59 9.45 13.45 9.45 12.04C9.45 10.63 10.59 9.49 12 9.49C13.41 9.49 14.55 10.63 14.55 12.04C14.55 13.45 13.41 14.59 12 14.59ZM16.06 7.02C15.55 7.02 15.14 7.43 15.14 7.94C15.14 8.45 15.55 8.86 16.06 8.86C16.57 8.86 16.98 8.45 16.98 7.94C16.98 7.43 16.57 7.02 16.06 7.02Z" fill="#FFFFFF"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/big-4-digital" target="_blank" rel="noopener noreferrer" class="footer-social-btn footer-linkedin" aria-label="Big4Digital on LinkedIn">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect width="24" height="24" rx="6" fill="#0A66C2"/>
+                <path d="M7.12 9.42H4.44V18H7.12V9.42ZM5.78 8.25C6.64 8.25 7.34 7.55 7.34 6.69C7.34 5.83 6.64 5.13 5.78 5.13C4.92 5.13 4.22 5.83 4.22 6.69C4.22 7.55 4.92 8.25 5.78 8.25ZM18.78 18H16.1V13.8C16.1 12.8 16.08 11.51 14.71 11.51C13.32 11.51 13.11 12.6 13.11 13.73V18H10.43V9.42H13V10.59H13.04C13.4 9.91 14.28 9.19 15.59 9.19C18.32 9.19 18.78 10.99 18.78 13.33V18Z" fill="#FFFFFF"/>
+              </svg>
+            </a>
+          </div>
+          <!-- PHONE & EMAIL -->
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:+923463579955">+92 346 3579955</a>
+            <a class="footer-email" href="mailto:big4digitaladvisory@gmail.com">big4digitaladvisory@gmail.com</a>
+          </div>
+        </div>
+        <!-- BOTTOM COPYRIGHT -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 <strong>Big4Digital</strong>. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/gsap.min.js"></script>
+  <script src="/js/ScrollTrigger.min.js"></script>
+  <script src="/js/lenis.min.js"></script>
+  <script src="/js/smooth-scroll.js?v=2.0"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm|js|css|json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "-1"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 0 seconds"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
