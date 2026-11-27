@@ -30,8 +30,8 @@
         localStorage.setItem('digitalsnova_active_sector', 'CLINIC_HMS');
       } catch (e) {}
     </script>
-    <script type="module" crossorigin src="./assets/index-DNv15Live.js?v=20261127v25"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Db2yxC1M.css?v=20261127v25">
+    <script type="module" crossorigin src="./assets/index-DNv15Live.js?v=20261127v26"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Db2yxC1M.css?v=20261127v26">
     <link rel="stylesheet" href="/css/style.css?v=2.1">
     <link rel="stylesheet" href="/css/responsive.css">
 
@@ -247,20 +247,20 @@
       }
 
       /* =========================================================
-         1. LOGIN CARD (PRESERVED COMPACT 530px CONTAINER)
+         1. LOGIN CARD (PRESERVED COMPACT CONTAINER)
          ========================================================= */
       .b4d-glass-card.b4d-card-login,
       .b4d-glass-card:not(.b4d-card-register) {
-        max-width: 530px !important;
-        width: 100% !important;
-        max-height: min(92vh, 740px) !important;
+        max-width: 540px !important;
+        width: 92vw !important;
+        max-height: min(92vh, 760px) !important;
       }
 
       /* =========================================================
-         2. REGISTRATION CARD (WIDE LANDSCAPE 1180px CONTAINER)
+         2. REGISTRATION CARD (WIDE LANDSCAPE CONTAINER)
          ========================================================= */
       .b4d-glass-card.b4d-card-register {
-        max-width: 1180px !important;
+        max-width: 1260px !important;
         width: 95vw !important;
         max-height: min(96vh, 880px) !important;
       }
@@ -269,7 +269,7 @@
       .b4d-glass-card > div:first-child {
         background: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding: 26px 32px 14px !important;
+        padding: 24px 32px 14px !important;
         text-align: center !important;
       }
       .b4d-card-register > div:first-child {
@@ -295,7 +295,7 @@
       /* Tab Switcher Capsule */
       .b4d-glass-card .b4d-tab-capsule,
       .b4d-tab-capsule {
-        background: rgba(22, 22, 26, 0.95) !important;
+        background: rgba(20, 20, 24, 0.95) !important;
         border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 9999px !important;
         padding: 4px !important;
@@ -321,7 +321,8 @@
       .b4d-tab-active {
         background: #FF343B !important;
         color: #FFFFFF !important;
-        box-shadow: 0 2px 12px rgba(255, 52, 59, 0.45) !important;
+        box-shadow: 0 2px 14px rgba(255, 52, 59, 0.45) !important;
+        font-weight: 700 !important;
       }
       .b4d-glass-card .b4d-tab-inactive,
       .b4d-tab-inactive {
@@ -341,7 +342,7 @@
       }
       .b4d-card-register > div:nth-child(3),
       .b4d-card-register form {
-        padding: 16px 32px 24px !important;
+        padding: 14px 28px 22px !important;
         overflow-y: auto !important;
       }
 
@@ -359,9 +360,12 @@
 
       /* Notice Banner */
       .b4d-reg-banner {
-        background: rgba(255, 52, 59, 0.08) !important;
-        border: 1px solid rgba(255, 52, 59, 0.28) !important;
-        border-radius: 12px !important;
+        background: linear-gradient(135deg, rgba(65, 12, 16, 0.95) 0%, rgba(95, 16, 22, 0.85) 45%, rgba(45, 10, 14, 0.95) 100%) !important;
+        border: 1px solid rgba(255, 52, 59, 0.35) !important;
+        border-radius: 14px !important;
+        padding: 8px 16px !important;
+        position: relative !important;
+        overflow: hidden !important;
       }
 
       /* =========================================================
@@ -370,12 +374,13 @@
       .b4d-reg-grid {
         display: grid !important;
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        gap: 12px 20px !important;
+        gap: 12px 18px !important;
       }
       .b4d-field-col {
         display: flex !important;
         flex-direction: column !important;
       }
+      .b4d-field-label,
       .b4d-reg-label {
         display: block !important;
         font-family: 'Poppins', sans-serif !important;
@@ -403,7 +408,7 @@
         box-shadow: 0 0 12px rgba(255, 52, 59, 0.3) !important;
       }
       .b4d-reg-input::placeholder {
-        color: #6B7280 !important;
+        color: #8E8E93 !important;
       }
 
       /* =========================================================
@@ -419,20 +424,20 @@
       }
       .b4d-plan-btn {
         background: rgba(255, 255, 255, 0.04) !important;
-        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
         border-radius: 12px !important;
-        padding: 10px 14px !important;
+        padding: 9px 12px !important;
         text-align: left !important;
         transition: all 0.25s ease !important;
         cursor: pointer !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        min-height: 72px !important;
+        min-height: 68px !important;
       }
       .b4d-plan-btn:hover {
         border-color: rgba(255, 52, 59, 0.5) !important;
-        background: rgba(255, 52, 59, 0.05) !important;
+        background: rgba(255, 52, 59, 0.06) !important;
         transform: translateY(-1px) !important;
       }
       .b4d-plan-btn.active {
@@ -453,7 +458,7 @@
         box-shadow: 0 6px 20px rgba(255, 52, 59, 0.45) !important;
         cursor: pointer !important;
         transition: all 0.25s ease !important;
-        margin-top: 8px !important;
+        margin-top: 6px !important;
       }
       .b4d-submit-btn:hover {
         background: #E0282F !important;
